@@ -29,7 +29,7 @@
     "test": "npm run build && npm run typecheck"
   },
   "dependencies": {
-    "@ankhimate/runtime": "0.1.0"
+    "@ankhimate/runtime": "0.1.1"
   },
   "peerDependencies": {
     "phaser": ">=3.80 <4"

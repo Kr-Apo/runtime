@@ -1,0 +1,58 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "tagged_rig",
+  "fps": 30,
+  "bones": [
+    {"name":"root","parent":-1,"length":1.0,"x":0.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"arm","parent":0,"length":1.0,"x":-255.5,"y":255.5,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"face","parent":0,"length":1.0,"x":-255.5,"y":255.5,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"fx","parent":0,"length":1.0,"x":-255.5,"y":255.5,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"fire_slot","bone":"fx","attachment":"fire_01","color":"ffffffff","blend":"normal"},
+    {"name":"mouth_slot","bone":"face","attachment":"mouth","color":"ffffffff","blend":"normal"},
+    {"name":"eye_r_slot","bone":"face","attachment":"eye_r","color":"ffffffff","blend":"normal"},
+    {"name":"eye_l_slot","bone":"face","attachment":"eye_l","color":"ffffffff","blend":"normal"},
+    {"name":"upper_slot","bone":"arm","attachment":"upper","color":"ffffffff","blend":"normal"},
+    {"name":"fore_slot","bone":"arm","attachment":"fore","color":"ffffffff","blend":"normal"},
+    {"name":"hand_slot","bone":"arm","attachment":"hand","color":"ffffffff","blend":"normal"},
+    {"name":"leg_r_slot","bone":"root","attachment":"leg_r","color":"ffffffff","blend":"normal"},
+    {"name":"leg_l_slot","bone":"root","attachment":"leg_l","color":"ffffffff","blend":"normal"}
+  ],
+  "drawOrder": ["fire_slot","mouth_slot","eye_r_slot","eye_l_slot","upper_slot","fore_slot","hand_slot","leg_r_slot","leg_l_slot"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"eye_l_slot","name":"eye_l","attachment":{"height":48.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":48.0,"source_width":48.0,"texture":"eye_l","type":"region","uv":[0.0,0.0,1.0,1.0],"width":48.0,"x":195.5,"y":-228.5}},
+      {"slot":"eye_r_slot","name":"eye_r","attachment":{"height":48.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":48.0,"source_width":48.0,"texture":"eye_r","type":"region","uv":[0.0,0.0,1.0,1.0],"width":48.0,"x":315.5,"y":-228.5}},
+      {"slot":"fire_slot","name":"fire_01","attachment":{"height":100.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":{"fps":12.0,"frames":["fire_01","fire_02","fire_03"],"mode":"loop","setup_index":0},"source_height":100.0,"source_width":100.0,"texture":"fire_01","type":"region","uv":[0.0,0.0,1.0,1.0],"width":100.0,"x":49.5,"y":-461.5}},
+      {"slot":"fore_slot","name":"fore","attachment":{"height":100.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":100.0,"source_width":100.0,"texture":"fore","type":"region","uv":[0.0,0.0,1.0,1.0],"width":100.0,"x":122.5,"y":-64.5}},
+      {"slot":"hand_slot","name":"hand","attachment":{"height":72.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":72.0,"source_width":72.0,"texture":"hand","type":"region","uv":[0.0,0.0,1.0,1.0],"width":72.0,"x":208.5,"y":-63.5}},
+      {"slot":"leg_l_slot","name":"leg_l","attachment":{"height":121.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":121.0,"source_width":37.0,"texture":"leg_l","type":"region","uv":[0.0,0.0,1.0,1.0],"width":37.0,"x":-80.5,"y":-145.5}},
+      {"slot":"leg_r_slot","name":"leg_r","attachment":{"height":121.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":121.0,"source_width":37.0,"texture":"leg_r","type":"region","uv":[0.0,0.0,1.0,1.0],"width":37.0,"x":80.5,"y":-145.5}},
+      {"slot":"mouth_slot","name":"mouth","attachment":{"height":31.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":31.0,"source_width":198.0,"texture":"mouth","type":"region","uv":[0.0,0.0,1.0,1.0],"width":198.0,"x":255.5,"y":-291.0}},
+      {"slot":"upper_slot","name":"upper","attachment":{"height":73.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":73.0,"source_width":73.0,"texture":"upper","type":"region","uv":[0.0,0.0,1.0,1.0],"width":73.0,"x":36.0,"y":-64.0}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "animation_1": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"root","translate_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,0.3333333432674408,0.6666666865348816,0.6666666865348816],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":1.0}],"translate_y":[{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":0.0,"value":0.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":123,"index":0,"width":955}],"regions":[{"height":48,"name":"eye_l","offset_x":0,"offset_y":0,"original_height":48,"original_width":48,"page":0,"rotated":false,"width":48,"x":652,"y":1},{"height":48,"name":"eye_r","offset_x":0,"offset_y":0,"original_height":48,"original_width":48,"page":0,"rotated":false,"width":48,"x":704,"y":1},{"height":100,"name":"fire_01","offset_x":0,"offset_y":0,"original_height":100,"original_width":100,"page":0,"rotated":false,"width":100,"x":83,"y":1},{"height":100,"name":"fire_02","offset_x":0,"offset_y":0,"original_height":100,"original_width":100,"page":0,"rotated":false,"width":100,"x":187,"y":1},{"height":100,"name":"fire_03","offset_x":0,"offset_y":0,"original_height":100,"original_width":100,"page":0,"rotated":false,"width":100,"x":291,"y":1},{"height":100,"name":"fore","offset_x":0,"offset_y":0,"original_height":100,"original_width":100,"page":0,"rotated":false,"width":100,"x":395,"y":1},{"height":72,"name":"hand","offset_x":0,"offset_y":0,"original_height":72,"original_width":72,"page":0,"rotated":false,"width":72,"x":576,"y":1},{"height":121,"name":"leg_l","offset_x":0,"offset_y":0,"original_height":121,"original_width":37,"page":0,"rotated":false,"width":37,"x":1,"y":1},{"height":121,"name":"leg_r","offset_x":0,"offset_y":0,"original_height":121,"original_width":37,"page":0,"rotated":false,"width":37,"x":42,"y":1},{"height":31,"name":"mouth","offset_x":0,"offset_y":0,"original_height":31,"original_width":198,"page":0,"rotated":false,"width":198,"x":756,"y":1},{"height":73,"name":"upper","offset_x":0,"offset_y":0,"original_height":73,"original_width":73,"page":0,"rotated":false,"width":73,"x":499,"y":1}]}
+}

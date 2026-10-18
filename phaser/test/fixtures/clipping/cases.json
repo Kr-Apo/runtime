@@ -1,0 +1,98 @@
+[
+  {
+    "audit": true,
+    "concave": false,
+    "name": "audit-identity",
+    "samples": 4
+  },
+  {
+    "audit": true,
+    "concave": false,
+    "name": "audit-empty",
+    "samples": 4
+  },
+  {
+    "audit": true,
+    "concave": false,
+    "name": "audit-transformed",
+    "samples": 4
+  },
+  {
+    "audit": true,
+    "concave": false,
+    "name": "audit-rect",
+    "samples": 4
+  },
+  {
+    "audit": true,
+    "concave": true,
+    "name": "audit-concave",
+    "samples": 4
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "end-visible",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "end-empty",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "end-unresolved",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "end-invisible",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "end-path",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "end-animated",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "successive",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "mesh-multi-dark",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "toggle",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": false,
+    "name": "draw-order",
+    "samples": 28
+  },
+  {
+    "audit": false,
+    "concave": true,
+    "name": "concave",
+    "samples": 28
+  }
+]

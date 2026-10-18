@@ -1,0 +1,58 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "topology",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":8.0,"x":3.0,"y":-4.0,"rotation":9.0,"scaleX":1.1,"scaleY":0.85,"shearX":7.0,"shearY":-4.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"host","parent":0,"length":20.0,"x":4.0,"y":5.0,"rotation":17.0,"scaleX":1.1,"scaleY":0.9,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"other","parent":0,"length":16.0,"x":-8.0,"y":-3.0,"rotation":-12.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"tip","parent":2,"length":12.0,"x":14.0,"y":5.0,"rotation":22.0,"scaleX":1.0,"scaleY":1.0,"shearX":-6.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"art","bone":"host","attachment":"shape","color":"ffffffcc","blend":"normal"}
+  ],
+  "drawOrder": ["art"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"art","name":"shape","attachment":{"edges":[0,1,0,4,1,2,2,3,3,4],"edges_x2":[0,2,0,8,2,4,4,6,6,8],"flat_vertices":[-24.0,24.0,-30.0,-16.0,8.0,-26.0,30.0,-4.0,12.0,28.0],"hull":5,"linked":null,"scaled_height":64.0,"scaled_width":64.0,"sequence":null,"source_height":64.0,"source_width":64.0,"texture":"banner","triangles":[0,1,2,0,2,4,2,3,4],"type":"mesh","uvs":[0.0,0.0,0.0,1.0,0.6000000238418579,1.0,1.0,0.6000000238418579,0.800000011920929,0.0],"vertex_count":5,"vertices":[-24.0,24.0,-30.0,-16.0,8.0,-26.0,30.0,-4.0,12.0,28.0],"weighted":false,"weights":[]}},
+      {"slot":"art","name":"triangle","attachment":{"edges":[0,1,0,2,1,2],"edges_x2":[0,2,0,4,2,4],"flat_vertices":[-25.0,20.0,-8.0,-22.0,28.0,3.0],"hull":3,"linked":null,"scaled_height":64.0,"scaled_width":64.0,"sequence":null,"source_height":64.0,"source_width":64.0,"texture":"second","triangles":[0,1,2],"type":"mesh","uvs":[0.0,0.0,0.25,1.0,1.0,0.30000001192092896],"vertex_count":3,"vertices":[-25.0,20.0,-8.0,-22.0,28.0,3.0],"weighted":false,"weights":[]}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "clip": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"host","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,11.666666984558105,0.6666666865348816,23.33333396911621],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":35.0}],"scale_y":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,1.0833333730697632,0.6666666865348816,1.1666666269302368],"points":[],"time":0.0,"value":1.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":1.25}]},
+        {"name":"tip","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-9.333333969116211,0.6666666865348816,-18.666667938232422],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-28.0}]},
+        {"name":"other","shear_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,4.6666669845581055,0.6666666865348816,9.333333969116211],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":14.0}]}
+      ],
+      "slots": [{"channel":"attachment","keys":[{"curve":"stepped","name":"shape","time":0.0},{"curve":"stepped","name":"triangle","time":0.5},{"curve":"stepped","name":"shape","time":1.0}],"name":"art"}],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    },
+    "relax": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"host","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-8.333333969116211,0.6666666865348816,-16.666667938232422],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-25.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":66,"index":0,"width":66},{"file":"atlas_2.png","height":66,"index":1,"width":66}],"regions":[{"height":64,"name":"banner","offset_x":0,"offset_y":0,"original_height":64,"original_width":64,"page":0,"rotated":false,"width":64,"x":1,"y":1},{"height":64,"name":"second","offset_x":0,"offset_y":0,"original_height":64,"original_width":64,"page":1,"rotated":false,"width":64,"x":1,"y":1}]}
+}

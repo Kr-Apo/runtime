@@ -1,0 +1,1733 @@
+{
+  "source": "Independent Pillow 12.3.0 decode of unchanged Rust CPU PNGs; straight RGBA8 bytes",
+  "entries": [
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e96effbbbb6a5a291adb8b1b2d57f8e32b12a1fc0ca288ca177b50778c194ae3"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7cce66bf6744ddaca49ade231bd131320652f54321794b7b15ae7564dd455fc7"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "5083d2c8c5efcc8d21fb8c88bfb7bed0b2639750b34d7610f14d92efbc3babac"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "186a4620ad9ccc70c8ad107ac50ce38afb50ffc595d456f206059cb8f69ab15b"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ed92efb68493a99ef8fd3ceaae8c9f678069a3dd720484a910494274ab24fcc3"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "2feed57bdcd7eb080551df58a5002466ebebf84d97e744932f16a46665d6a9df"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "aa25655d04664e65d51345a68d3c518d12ea6ed4388bde4151bc2bf9b8b3b707"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d7527818a7eb1ea6f29d38df6a789feb06fbf20dd0698d0e067cca180da15a95"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e96effbbbb6a5a291adb8b1b2d57f8e32b12a1fc0ca288ca177b50778c194ae3"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7cce66bf6744ddaca49ade231bd131320652f54321794b7b15ae7564dd455fc7"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "31ad6ad6a6324039180dfbc942624ece0a1f066f4a968a568d48f3fb1f4b7afb"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a6f0dbd79bd035ce8ebac10f7f54476e73f99dfd1f96da3cf467e954f031c9d5"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6f72dc54dbee62d041e2bc2ec5d788a646a82438c6993d2be030c1930a957cce"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "783933ffe824bec914a88375a230860a94f393658e5ed61d6e2a82a6da190834"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "8e91269fcf4c6af2e3d23439773cb9c53e78ba03d4b9db45de184b01e7015e8c"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f83642f7feed5a09ef501f06159b6add95a435011c049823d887fae48f34fb96"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "facdbca25d433a7eb5d4ee7ddff89aca3f3470a5880879e1fb5736857e6baa28"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "74f83c3115a42ee7f5700a2f151e039890802cfbbe8f899daffe7f2a0ca522b1"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3310468fcab07d74f3f46c1eb1a490e1042518f2425374ead192bc591ee383d2"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0187ab29a0b72cfd828665b3a929f0eb3e3b6e242d7604012b2358f2a79dff18"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7791b7a011ea2732668c5aa8e51c9cc1ca7351e8d498b33d09a51541ad7ab6a5"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "64088b69f3030225276cb42b90d934e0529c4417eeeeed51fbfbdc76f8ce3be9"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "19bb76805b15f970a1a760988a7837d26b047a5059a58a3bb153a54cfcce039b"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "46570cc73d047f012d14ed099d7b263370478800d4ad3b6540dda2824467514b"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "facdbca25d433a7eb5d4ee7ddff89aca3f3470a5880879e1fb5736857e6baa28"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "74f83c3115a42ee7f5700a2f151e039890802cfbbe8f899daffe7f2a0ca522b1"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "1e844fc3190836b226d89011b3008275d33536c0b59c87f82c11cc3c9342ed84"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0c07058b2b544cb276c047ede4f42242f427e5a0cfa876b273c68d079c5e10f0"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "44bd28dfeb86a0686236129e88243a6cb9ac721f59ccad389d9c93aad1d1d7dc"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7806faab95363e63fea8a39f5d5315b9a6cac533aa6f99f2f82ba6e80b556290"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "aee727f4231a66419d2265a43472a432e83d26cbc968fc8e0e6075a6eb70ca83"
+    },
+    {
+      "file": "fixtures/appearance/blend_additive/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "674f7111ac8a7cded978105d0facf3e612ab243ecac14931614d6cfd959f2bb7"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "db0fc3e4c9cbb704dcdb3593c2ea8b6a2cecc046bc9190815386d378feb5d928"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6fbd91fb1ffb382a955aa31a0d838b5dbe57fb0951348a712314ebb15b12eecc"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7113a8f5487cfa5aaaea9ad76e57eb83718c89d0188b30487db6576849a30ce1"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9fbcf7166504eca6f9945738ac2d70ca29f192e61167ab48f91130a75a0e7cdc"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f77f4b68f430fdc130759b0b60ddcb044168be9fa370c864dc9d1dd1a649cc6a"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f63683beca0aa70774b0b3710be4fb7764e02ec1620afe35ea63b056efe63f62"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6bb1408a519fac200a1d1a180fc52ff5c6435b14f8415a57b7bfe67ebc7c382a"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "bd627eb47caf5a47c459cdcf4fa46399fb0c1b502be3a772e64917003e35a0bc"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "db0fc3e4c9cbb704dcdb3593c2ea8b6a2cecc046bc9190815386d378feb5d928"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6fbd91fb1ffb382a955aa31a0d838b5dbe57fb0951348a712314ebb15b12eecc"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9b3a421533414d0ee09607c4a04d40a147be019dc6bc5146680f12cd94ef443e"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ab422230201e08f688b553c6b3165c63d51eaee3f750d6146a6f38891ce25074"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c2d6aa35192ae936798e652f6efd15fe6aa25bbc4b9b327363de88beee7901c1"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c6edb6fdfd1ab205062ae5059c49e5f2d817e150a226b5a6c90e6357ebf24f21"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9c48dceb716d92ba5404710b8b94da7761a62a6b02a622d5612899f2209a029e"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ab020dfb31d06e688df82f98b154b60a93beddd7673f00b96e5650e4d4fea85d"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "4e39fef2d3fea47d15f8d42c0ed550b851e778b1436bcdca9696b7cf5cc240e9"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b0d1bb34a847161d711858a7c9656537c011bd445805456110c7461a5d22b40a"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "54ba1101ef470e6eeca047c72065c9c85e1b25d390b9f7202d99c37d0621ba8f"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "99412b236b4e312b4be479256d557741236248188e7d3bb560fc49271f0db15b"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "4401cda2585d9163e7f22690f1b7f9bd453c1bfdc9c07e5b7d18ca0491995b6d"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ee275a59e997f8a3d499c8345f400de4304eeeff91bec42b5259dbcc98391177"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "283b1f768762757b35957723e4a44ec2e045905e13e5208e9fa42363155fef11"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a8f3fde561faf12ba295ef43bec2889fd717b905ec14dad3bddcb9d3b5ab25ca"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "4e39fef2d3fea47d15f8d42c0ed550b851e778b1436bcdca9696b7cf5cc240e9"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b0d1bb34a847161d711858a7c9656537c011bd445805456110c7461a5d22b40a"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "df565c97ae90fa0e378ee31f8fc4fd86be2519314626de628dce984842a5c856"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "137443d2c05f91ac8641ddc9a92a5b05e8c0e6ddc9f4bd1cda812f8668232bed"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "275c887b7898bff625f523253b2e83890463b02c042c91c568e65c4aa060be26"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "68b0ebf60d2d7b27b16e969a9d525e42ef224ba63b3df16b946de84447c61885"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c6592ed01cc47c86e2e002216732dfda7bba89451dd74dc5506debfe37995435"
+    },
+    {
+      "file": "fixtures/appearance/blend_multiply/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "8746e9e33520dba58c2131d33eed8092dbbe5c017e0934527aa4a69771862916"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "866fbf4cf5eaaff7903a84c14c90373e865ada90f785289b343ffdb9d14ace38"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7b2b39f2b7f09eeeb8960494f5482e211455a24d9c556820dd9276ae3a0beaee"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "76789ed9fd8e5fca906d69db51423551f7d1fe9102f4147f7c1840d7151d5dd6"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d512d33089744e36d1df362feab95ba1e9ca27af267a5738ea5e2e36b815889c"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "fe86b356f7e05f544550d686b4c77e0318bb140c846fa223fc2d87b88983d07d"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "92b1ef9e27ff5c1ddc7b7957412b06d4f1a14eb448f7c2a457f77a494be88fdd"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "bc5e03f73f86f2032c83d6374da317d7ce05ca215891a6a49b201b1310456c3b"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b9a05f54fbfc20ba3f05974f387a25c7084a7f69df4b4122f68caf156dc2b6be"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "866fbf4cf5eaaff7903a84c14c90373e865ada90f785289b343ffdb9d14ace38"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7b2b39f2b7f09eeeb8960494f5482e211455a24d9c556820dd9276ae3a0beaee"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7f8e373ed4571bbd07f53dd35cef4d69147849651dd12c1c1f1f155b4c25c6a7"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "131139b64a7f26bab8d67f4bea9bb8c46831b39a063b0b4327495a494e15ac9a"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b5ef1e219e8c8cf2e74428fc0b3086f10678758c4bbd0b7aea90ac796098dcee"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "39a1f26b33b3147d02b7752f24e5238975df0a97fb792996d04ffcf58ec03f56"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "790e49783c45725ea256d38322314aa8a414048201f6a1fd4d2cff1d622d8b70"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ff72873185f1ba7efb3f485a20f8dc60e44013606d3eac6dfdd3000b841ae02e"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d4a50db4ecf7bf39ec51c8da44b2d55f053f29d635c0f6e1d1d1bacfe31909e1"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6c8248be10d968fa02a12e2ea635caf62d6b541db9c2bcc801a2663f9cb45ee6"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6297cc66950053c59ce924d6fdc96af70f1e0e0e30245090b8c690936f30c752"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a425b323208b5882093d915271bf7b0b8dcc5f7f19962f68fb16ec7f16fd3d28"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "db6570543e8a4eccfeddf022133fd1deff81b5098ee5c0e35d6de67070466190"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ddd18a131479d881a75ddb1026951091d66e8183d541a2597ffdb6c365915b39"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "367fb9e6f4452f856a8d32fb2682e4c7d2c3dc3c7357296ba472627c543dbc78"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b72fb9ec540c29af1c92d2b065661c439d8e529b5c4579cbba64983484c9e723"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d4a50db4ecf7bf39ec51c8da44b2d55f053f29d635c0f6e1d1d1bacfe31909e1"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6c8248be10d968fa02a12e2ea635caf62d6b541db9c2bcc801a2663f9cb45ee6"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "774f81d9c77e479b6a5c3cc86a1d14aaae93b9074bd12d7f4687fb4723f6c896"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "366ed4d7a1498ba90984bc5df390a6e473ba04cad503bfe17c43b6e51f55e3d1"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ff0d04560625a1147e4a63b2ae9c5bae7c6c31bdcff4d3ea12ded68b134aecf2"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "59ab94fd354d89e2664a33cde480f3d8e20d82f1a651b60f637ef19176ce1f7f"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "934fe08b750f996f92d0f40493ed43d220c0df0364ae5aa4692128f2e356cabc"
+    },
+    {
+      "file": "fixtures/appearance/blend_normal/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e489a3560a833c0c8e143e733c2c6e126cf889f47f93244c23446bfb7cc9e13b"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "4b80f1af08e4e746581344e120c050fa0bb4fbdaba63444afdf0bbd3953091a3"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "48ae98d0e68a46e3f65c324c4ad79cfa3d44b62627c3a92fe60a06176c512032"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0c701bddb658351dd5daec4f8cfc65446d661c854e46c7edad261acad44164aa"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f8447c8f1c17577d730e18b9e52b7009b307e5fcd14839cefce529190d5e91b3"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "88878a1d05413649e53b6948c2370b0f18b6e553dcc21fb4b6cff5d9836b0538"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ddc7ab6737239f0b7d7b2572f59a129cee4401f03cb026b62f4a36916c4565bd"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f76157ad7ed7862d2707292b91b5015b5b7c5360da39962d4a3d549e1408b9e4"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7d62b8094f2420f1f2da0020a8c77eec1bbe065d8408225e5231ac44037201ed"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "4b80f1af08e4e746581344e120c050fa0bb4fbdaba63444afdf0bbd3953091a3"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "48ae98d0e68a46e3f65c324c4ad79cfa3d44b62627c3a92fe60a06176c512032"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3889f297c49fb7eb8fd72dcdf71b4fcd2e3853e7ebf6657fd830fcf2e7061ff9"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c011ea1bd1a4e6dba57f1d01e8ff3d8826a80f00199fe1425c28113ef8e55938"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "99ba5497ef369e655e1a958fd0ca55a4496b5a12b930d91cc72cf260a3837893"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e5f6ee16494a8492005a176802c0d21323ff8a8068758a3a7014c8fff42ccc6a"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "21b3eb4ea3b220c2af56dc1ca6243295dd387732244f27c25bc6ca265b7d5f15"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7084b127e24322db89467464ea995d80510d9a8f7975b561c82c2f120947c2c4"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a976b3d7cff618fe71c18e95cc4c480e608a889729c2dc1872ca83ac8ce803d2"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "26590fb4b626f663b3be63d51e92acad1230ca408929b746269298a6601f258d"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "fe3d6af41e4f3e36d4936f1453cd5657df1beea5ca6109c642074cb0a1e7f6bc"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d6c77bf165e6e27465687399c187b7d3a0036436aa564dbbe18807a030ab0b1a"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "41e0b729bedf62353be9b8ecd65d682b85a95a628d82371d026aad0c16cd779b"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c8f3137d55dccb6c9617b79b76b14c7fb712b55389e257e9c6adf72dafaf7f55"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f9ec453b2384a18563076dac7aa3636e5c729fb2e9a66c60cd0fbdbe3673883d"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b5c71b1f80e7c40359740934e2f71881db0459acb3109c3f89d2af1c5a4cb0c4"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a976b3d7cff618fe71c18e95cc4c480e608a889729c2dc1872ca83ac8ce803d2"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "26590fb4b626f663b3be63d51e92acad1230ca408929b746269298a6601f258d"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "8d81dc1cad65facc7767db41c2679c1bdc724281d91a2afcf568262d659d03fc"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0f83334f5e5c927a8f01f31fce9a15459520719093f400ec102131419a705e83"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "28b212cc1f167288ea92c6487ddad5d9e041d99296071bf208652f4c8bfbd2d5"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c63c013710f6f0cb2b609a4744d1956f43096c3024665d7e2ed3455bf3ea711c"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "34b58e38e4bba294aeea2f71d7196014dd586b6b106cd7c0bc630bc228f0f6af"
+    },
+    {
+      "file": "fixtures/appearance/blend_screen/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b4dad24228039e43dc13c1ef5afc2f6a95793882234bc0cb1513eaf7195c6be3"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6786e231bf5ea7be0488aa4b21030031dc6df49dc4b705e7dd763b0c761c0429"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c1e16fcd46e07f11fbdf3ec69704103663190bfba8c8982a65fee21cc9c14950"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "fb5446325ffafa340d5129703bb2cab3f4c335a8e2378b13414a2b8e9db1cd7e"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e4d87faed7145c268b7e2661d12de436bc023c2eef96d605bb867764816e7282"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "5146001570fe675ce782a434cf451fca844f705e1fbb0cc0e71f396018367a76"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "bd00a8c7e4da4bd8c4a02f5aa93fb66bfd03687815ce42aee2f5e4510f2b6443"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "4d40d399ee89a84ddb99a569180c8411393a778af5b8861b4a800d76c138c968"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "311295a03dd42cf2b4213c3816d8dbadcb1bbad47e308f87e0601bf2c733bebe"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6786e231bf5ea7be0488aa4b21030031dc6df49dc4b705e7dd763b0c761c0429"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c1e16fcd46e07f11fbdf3ec69704103663190bfba8c8982a65fee21cc9c14950"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "37f8a453501e7e6272b3203f4cdf68f2531913dcabdfedec55aa170f2fd62f32"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f771abd907b9c59afb9fb8276113b0e63c57f913ae5c54d2c91d9f6a0f336add"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "799fd180b58313613c5ba702267ee36af9ff3c0ec9ce888b6224361581874170"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "baf98c6decb18c73ce354975c69992dc93fc8d20f109c10482738e766341e980"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "64658f8646e21a19546fead45b09ff01b8e7f95e333c8f077c7c7c038ab4caba"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "39838cc28822c60fbe7dfc043494072763b618f5db0099f0c8afb384b282f47a"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "5aeb147e1d9364bf0c7bf9b5efeec2919987cda6ee51e5dc3e80129b78392ea5"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3a69f397bbe470a2e34e20f336b5cd43c8230a1746453c2aebfd1177dc16986d"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d4e17e9ee8306a147afbebebf0b527caf8118a3b13511d230540c2753aa6c1bd"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c8aff0778ba1392a563d4cca16cfc4721b87989d4b27a70c8395439e9caa7d35"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "cb194fe5ba2fc57a04c91dbccd4ef2f4da0a71d7c187c3f06de3684ee7f3b882"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b0482b9f0135d2eb18baf66d01f9770c1db2baa0bf9ef051f5bb09bbce076e4c"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9cf341565b3e2e75a44a95ce7a7ac666b0f758a67fcfc672d2d1f10aa7c0287c"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "b991c38900e25ee2dc946f72494b2696386e0fd2ed9f48ff6d1992a1e206728e"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "5aeb147e1d9364bf0c7bf9b5efeec2919987cda6ee51e5dc3e80129b78392ea5"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3a69f397bbe470a2e34e20f336b5cd43c8230a1746453c2aebfd1177dc16986d"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e26e6337401d8f28cbd2a6a872dcbc728bc50c6c5c6e840f4af4fb78b974d04c"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "60f8fdafde4159d9328b5372340af1b80de65e63589bf0cde46ca310b135ba52"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9cac0717b0821c73ed9e1c92b0ab580ecc563216066ac393f007093e23e2ef2b"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "bedeaa8af70c0591350f0a46ae5011cca9c2115d103abfb6fe7627a338ad6389"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "19de409ccfddd7610a2c7fc1869db6d99041a16212a432e55584b1cde2271850"
+    },
+    {
+      "file": "fixtures/appearance/ffd_alt/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f961ef20ef2f7828ce138fda13effc737929c8cf7fa00a97e7f24bc7abbdd2ac"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6786e231bf5ea7be0488aa4b21030031dc6df49dc4b705e7dd763b0c761c0429"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c1e16fcd46e07f11fbdf3ec69704103663190bfba8c8982a65fee21cc9c14950"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "2265d7f6c115d5d01afe555cdb4dd7444b3afecc35f3f5abd77ae493a166e0c0"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "633a5ada94d7f8e82c67da283489fe0a9f76c3c752a8e559e1196c71cd06bab2"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d8307be0e9b3faecb48944950df900f5e323d410b9f6485e2d701f0f9f431399"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73d839b5e959bd74f8f5ebc5e5606cab96f27099b7b32ed5ce6aa161ef2e4053"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d0be85cb9bb52c5b19a886df4d635541d32f85c409ad9f3987637495b5c6a3ac"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "aa5855be9fe3e26fb25daa5f982018600ff699c2e965e72c637e5cab20bd7a39"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6786e231bf5ea7be0488aa4b21030031dc6df49dc4b705e7dd763b0c761c0429"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c1e16fcd46e07f11fbdf3ec69704103663190bfba8c8982a65fee21cc9c14950"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c9ef5ad6727ce75aba112208dae3b56b83ad29a7e3f4b83cc940ddfd44226c7e"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6ad3784bb5b9c1c117bdb9e00e1cf8d750c58582397dfa570ad95e23ab544496"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0b199f521d6aea107081f00b151dfe4fdfeffa44ec1e64bae4539c4b1eef2613"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7c291bbe21fd55d5bf4cb6ff2b8fc8d430c597d4bea70ce2daa4e7b07ab74c4f"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "fc55aa33a2c432d9806347467f1197d2a71ec4ee47abca9846f0a59b0578a0c0"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c9b58c6ec9e03a15726cb3391d4e0c71af2040c18a2642cf5d52897e25036c9c"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d4a50db4ecf7bf39ec51c8da44b2d55f053f29d635c0f6e1d1d1bacfe31909e1"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6c8248be10d968fa02a12e2ea635caf62d6b541db9c2bcc801a2663f9cb45ee6"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "bc20989f59d94bc2f5ad14b3ba28ae36a065226ece28ca2f1e25a98d57bf2a5a"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "23812092b0700eb4ec88da4ef7c0d3224525cc704643b88c4c84c37eff157e78"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d8307be0e9b3faecb48944950df900f5e323d410b9f6485e2d701f0f9f431399"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73d839b5e959bd74f8f5ebc5e5606cab96f27099b7b32ed5ce6aa161ef2e4053"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d0be85cb9bb52c5b19a886df4d635541d32f85c409ad9f3987637495b5c6a3ac"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "aa5855be9fe3e26fb25daa5f982018600ff699c2e965e72c637e5cab20bd7a39"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d4a50db4ecf7bf39ec51c8da44b2d55f053f29d635c0f6e1d1d1bacfe31909e1"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6c8248be10d968fa02a12e2ea635caf62d6b541db9c2bcc801a2663f9cb45ee6"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "774f81d9c77e479b6a5c3cc86a1d14aaae93b9074bd12d7f4687fb4723f6c896"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "366ed4d7a1498ba90984bc5df390a6e473ba04cad503bfe17c43b6e51f55e3d1"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ff0d04560625a1147e4a63b2ae9c5bae7c6c31bdcff4d3ea12ded68b134aecf2"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "59ab94fd354d89e2664a33cde480f3d8e20d82f1a651b60f637ef19176ce1f7f"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "934fe08b750f996f92d0f40493ed43d220c0df0364ae5aa4692128f2e356cabc"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e489a3560a833c0c8e143e733c2c6e126cf889f47f93244c23446bfb7cc9e13b"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73a9e1c7ba18cfe39ce456782ae72d1e3a3cf81a5f4280b9c65a8bb9396b5fce"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "96091bf0b171dfbaf52ac1f6e52e070159aa41c7a4fbf04495ece7b2fc0269c8"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6aa8ce5d6a6e0bb94c867a16ceeefa1e3c382e863b36d2a5d9195f618b60a276"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0c0b8b282e9683c0fbdb241ba61d5903d852bbd4b274362c910268b067e3bc69"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d8307be0e9b3faecb48944950df900f5e323d410b9f6485e2d701f0f9f431399"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73d839b5e959bd74f8f5ebc5e5606cab96f27099b7b32ed5ce6aa161ef2e4053"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d0be85cb9bb52c5b19a886df4d635541d32f85c409ad9f3987637495b5c6a3ac"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "aa5855be9fe3e26fb25daa5f982018600ff699c2e965e72c637e5cab20bd7a39"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73a9e1c7ba18cfe39ce456782ae72d1e3a3cf81a5f4280b9c65a8bb9396b5fce"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "96091bf0b171dfbaf52ac1f6e52e070159aa41c7a4fbf04495ece7b2fc0269c8"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d56293a70b4fa33b16f1bc5761fef5446b4734969c1e5bc50a479afe3f40f76b"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f181727ae0e308737e956910786a43968ef7458ad09eec1392ef922cf8423a16"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3fc6d7840fbc8455f9a345520fb0a50a0bd26ed2e985121284fe7b1f529f128b"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0838f4073b07434f5c62148dad1fe9daf36c84af389d88439df8e0d23b7dd441"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e6f49d39913632f730b1a3ce0767541b0ea9c96be9d4a0b5d30cfbb4214d70cd"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-quad-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "2ba5cb6bb352a3df3533cfc83d23cb03d6790cd436cdad720b91f8ed0b484d36"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c8297266cacbae7a89ac9007d260471efae842d09ee6cc05d5d8cdfc1f9c00ca"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "5d1a7532fc831587db95a6d4fe36f99a91f3522684f2c1fe79351f6ee7aba0e5"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a35f04cfb7e4bd0784b2cf6626a83ecd4b4d57d1c416c20ca6f586bed0770b49"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3525b14402c0c388f49770d8fd7799b1b01f9722ef3f5f728bece6f631c74206"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d8307be0e9b3faecb48944950df900f5e323d410b9f6485e2d701f0f9f431399"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73d839b5e959bd74f8f5ebc5e5606cab96f27099b7b32ed5ce6aa161ef2e4053"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d0be85cb9bb52c5b19a886df4d635541d32f85c409ad9f3987637495b5c6a3ac"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "aa5855be9fe3e26fb25daa5f982018600ff699c2e965e72c637e5cab20bd7a39"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c8297266cacbae7a89ac9007d260471efae842d09ee6cc05d5d8cdfc1f9c00ca"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "5d1a7532fc831587db95a6d4fe36f99a91f3522684f2c1fe79351f6ee7aba0e5"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c561c13273c139107602d1be98cadeafe7408ad746ed9179aefd14f4258f9c84"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "26a27f2f3b9b30d9698786fc4d8e9cb18344d26a697faf9c3ff982419b9e6f26"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "662dde90913c841cbf033135d943b4e2a8a0f90d18aede933a89060e9d1f8963"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ed2dc676672b7dcb9b13437a810d9ff80b98d1e2cafbac7c6d2b9eb70c5ba4df"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "ccfa81fc7f83b71b2c429b1301284c77e3bf90004bdbfb2b8710929c81edd37e"
+    },
+    {
+      "file": "fixtures/appearance/skins/cpu-triangle-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f1db10c9580f35de8428c011b58ffabcf23d858fda754e3febc913a896e3e5bb"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c4c2e372563c7db52fe9df27c8bb5747d27b0843bc184da3743dbd2205a03f0b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "dbb7bdcf730d059ec953d6714209d15db133b0354b6b89192f34c54702a2258c"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "1fe7478ec0852525873b34950ff95ba1febad0b85487c1276031c07c23dfa398"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3f7871a38f0aa81a4b570aeb1449dbb942b862ecfcdde78d47a3d7922717ed86"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "db64f01d04769a06f6e76394023d5c77df01d6327b399351b507ad9551139a3a"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9fd69a9ce713dafe44a22df274a29e1a055460a0cdfc24184bf217493151b4f5"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "c4c2e372563c7db52fe9df27c8bb5747d27b0843bc184da3743dbd2205a03f0b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "dbb7bdcf730d059ec953d6714209d15db133b0354b6b89192f34c54702a2258c"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "1fe7478ec0852525873b34950ff95ba1febad0b85487c1276031c07c23dfa398"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "3f7871a38f0aa81a4b570aeb1449dbb942b862ecfcdde78d47a3d7922717ed86"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "db64f01d04769a06f6e76394023d5c77df01d6327b399351b507ad9551139a3a"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "9fd69a9ce713dafe44a22df274a29e1a055460a0cdfc24184bf217493151b4f5"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a2011246d26087ceaf3d59f70ec0c766ddf8c94a2ad1fe01122582544350303b"
+    },
+    {
+      "file": "fixtures/appearance/tint_grid/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "609dd727845f9cfb0b754a987aaefde9ccd36aecac08bc1e0151b53949c212d8"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e5a9706b597d255c85cd56857f2349ac102b6d59fa5eb7bff1896f9cbe0acdae"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f8739bd2f7c38be7d768cbe00572d7561df18028bef2e610ef1dd901606d96d6"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7af2a1773de144608f50c2b103ec3d32ea5901e7c2b898a9990e06563fa17d1d"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "6b485b489aea490f2230705dba5ba8d1d234700454b7493c515c64ef7abfd5f2"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "bf0a99bb33879ac84456ed4e6fd4c3d1a2e5720bbcf169843f1f78ac126a1fe0"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e4b62d57c828cbdd7063c87ea0df7d989d1d180877a75e86354c9e3ab553177e"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "73025b2d1f46fe8846b5f360722f04d77b749f4b26700d40757bf983bbba1e96"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d4c83d1481f00b23d85d2657896c3a14940e196a6f61ddd6254c609a4f6ea589"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e5a9706b597d255c85cd56857f2349ac102b6d59fa5eb7bff1896f9cbe0acdae"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f8739bd2f7c38be7d768cbe00572d7561df18028bef2e610ef1dd901606d96d6"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a14a8a84ed7ce19dc6f73bfcb738bb1e71a30949b4892451a75c5f34d959531d"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "fccf92082cccf486dcbbe89ecb5216a7485b603422e86048d6a68c71fd7fdc86"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "1776088992163d31dbff03f39695e16b03f4b1372fe0023385e2f57828c1d53a"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "0360cbf485e947eff07c2711365b35e8358c6ff721c172e52b9f1d23b9d4ada2"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e18d706617e26dad61786e33e1d2f1b8bd29c9e92a3927a5c7bc1f347c9a217d"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-alternate-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "7d5e5f2f10a0e126af1a3d4e29ef9b4c7f24414e0760360a25e14bb6905975e0"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a28bc77ad41c3a9903b7eccc67f5f3a6e33cde1fa9c9ce8c2eee0fe0b20f86fc"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f3c51743380593c0a1704c34c5949ac2bc36c6c226d66df7ad620da7ba88c588"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "84cacf6b1883762166b7dbfef397a154f8bd2abc122cd232d9403d9f6f53e9f3"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "23ada169e2b3db02ee16cc0701888a39dbb1b46eab7fb137a27774787a43eece"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "857533678314e6cb1c9187d5dad974f502b3ac748fe9c4276711cd3aeca4db91"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d876bc3d868d9c9b93ca9653cc97de6cbafc659e1d0ffff1ab6f158f28fba6ba"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "86cd2ed5c3651e26504060142a485614b57fd58e6889bd5bdf4bcdde66d309f9"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-clip-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "43c4bbbdea3967f6f4b0262c8d18900d7563cebfc2d78f18de73dcb36c69e964"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-0-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "a28bc77ad41c3a9903b7eccc67f5f3a6e33cde1fa9c9ce8c2eee0fe0b20f86fc"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-0-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "f3c51743380593c0a1704c34c5949ac2bc36c6c226d66df7ad620da7ba88c588"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-1-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "dc84b6221f67dd35a786c5460964377b8b4d5420789cac9ff85864a14869e45e"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-1-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "e4d23accd6752c0990405c111383b1e55208b7b9af59812410d106c8f0c47697"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-2-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "93c9f2115d6fcaee04cf0e2a95fc731959838ccf22d146c97b137f99b67d221a"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-2-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "fdce24217e1c6c50c3ab65810fe2058be1418e4d23df3db006a946b865893e2a"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-3-opaque.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "d84dc6643d43f3c91d79cbf5a83c94e7706321756d0f31fe90b89d57454faafe"
+    },
+    {
+      "file": "fixtures/appearance/tint_mesh/cpu-default-relax-3-transparent.png",
+      "width": 384,
+      "height": 256,
+      "rgba_sha256": "8dad083a6a9ee09d744d1912da8eaed943bc24c2422f6904bef1b98ff367ffb3"
+    }
+  ]
+}

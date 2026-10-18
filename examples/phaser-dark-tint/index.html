@@ -1,0 +1,12 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ankhimate — Teintes sombres Phaser</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+<main><header><p>ANKHIMATE × PHASER · M005.3b</p><h1>La couleur dans les ombres</h1>
+<p>Un vrai export natif, quatre pages d’atlas et deux clips. Le damier révèle la transparence.</p></header>
+<div id="game" tabindex="0" aria-label="Démonstration animée Phaser"></div>
+<nav><button id="pulse">pulse</button><button id="alternate">alternate</button><button id="restart">Recommencer</button><span>← / → : déplacer · Espace : changer de clip</span></nav>
+<p class="legend">Ligne 1 : intensité 0 / 0,5 / 1 · RGB extrêmes · fractions f32 · mesh.<br>Ligne 2 : couleur claire animée · attachment · superposition · bord filtré · texture transparente.<br>Ligne 3 : Add / Multiply / Screen — qualification limitée aux fonds opaques.</p>
+<p id="status" role="status">Chargement…</p><p id="error" role="alert" hidden></p>
+<footer>Teinte sombre statique. Transition entre clips : 0,25 s. Aucun shader ou export retouché dans cet exemple.</footer></main>
+<script src="node_modules/phaser/dist/phaser.min.js"></script>
+<script type="importmap">{"imports":{"@ankhimate/runtime":"./node_modules/@ankhimate/runtime/dist/index.js","@ankhimate/phaser-runtime":"./node_modules/@ankhimate/phaser-runtime/dist/index.js","fflate":"./node_modules/fflate/esm/browser.js"}}</script>
+<script type="module" src="src/game.js"></script></html>

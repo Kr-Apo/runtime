@@ -1,0 +1,935 @@
+{
+  "version": 1,
+  "name": "replacement",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "blue",
+      "file": "8f/8f6c50749ab211451a2f8692a6981046ed58acdddb3b0a61ad6584fb07be3b84.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "clear",
+      "file": "96/96b9fd127576d116f26f3b6e7cbebc722eab5f026bf4bcd65505699f7a9ac4de.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "edge",
+      "file": "a1/a17edd825a5914985e537d20ba3769ef973f34bd3779f53e3aa70ba6e99cf847.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "flat",
+      "file": "ce/cef400078e5689eb671c78c0d56ee026892e5a5805d93f0c033b0176d70ea8bc.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 8.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "maskbone",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -2.0,
+      "ty": 1.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "tip",
+      "parent": "root",
+      "length": 8.0,
+      "tx": 8.0,
+      "ty": 4.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "mask",
+      "bone": "maskbone",
+      "attachment": "mask",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "back",
+      "bone": "root",
+      "attachment": "art",
+      "color": [
+        0.8,
+        0.7,
+        0.9,
+        0.6
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "mask2",
+      "bone": "root",
+      "attachment": "mask",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "thin",
+      "bone": "root",
+      "attachment": "art",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "front",
+      "bone": "tip",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "after",
+      "bone": "root",
+      "attachment": "art",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "art2",
+      "bone": "root",
+      "attachment": "art",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "mask",
+    "back",
+    "mask2",
+    "thin",
+    "front",
+    "after",
+    "art2"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "after",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 62.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "art2",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 62.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "back",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "blue",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "front",
+          "name": "art",
+          "attachment": {
+            "type": "mesh",
+            "texture": "edge",
+            "vertices": [
+              -20.0,
+              20.0,
+              -20.0,
+              -20.0,
+              20.0,
+              -20.0,
+              20.0,
+              20.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": [
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ],
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ],
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ],
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "slot": "front",
+          "name": "switch",
+          "attachment": {
+            "type": "region",
+            "texture": "blue",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "mask",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -24.0,
+              -24.0,
+              10.0,
+              -24.0,
+              10.0,
+              24.0,
+              -24.0,
+              24.0
+            ],
+            "end_slot": "front"
+          }
+        },
+        {
+          "slot": "mask",
+          "name": "switch",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -18.0,
+              -24.0,
+              24.0,
+              -6.0,
+              12.0,
+              24.0,
+              -24.0,
+              12.0
+            ],
+            "end_slot": "front"
+          }
+        },
+        {
+          "slot": "mask2",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -10.0,
+              -22.0,
+              24.0,
+              -22.0,
+              24.0,
+              22.0,
+              -10.0,
+              22.0
+            ],
+            "end_slot": null
+          }
+        },
+        {
+          "slot": "thin",
+          "name": "art",
+          "attachment": {
+            "type": "mesh",
+            "texture": "flat",
+            "vertices": [
+              -8.0,
+              0.0,
+              22.0,
+              0.0,
+              22.0,
+              0.001
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2
+            ],
+            "weights": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "alternate",
+      "entries": [
+        {
+          "slot": "front",
+          "name": "art",
+          "attachment": {
+            "type": "mesh",
+            "texture": "blue",
+            "vertices": [
+              -20.0,
+              20.0,
+              -20.0,
+              -20.0,
+              20.0,
+              -20.0,
+              20.0,
+              20.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": [
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ],
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ],
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ],
+              [
+                [
+                  "root",
+                  0.3
+                ],
+                [
+                  "tip",
+                  0.7
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "slot": "mask",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -24.0,
+              -24.0,
+              24.0,
+              -24.0,
+              24.0,
+              -5.0,
+              0.0,
+              -5.0,
+              0.0,
+              24.0,
+              -24.0,
+              24.0
+            ],
+            "end_slot": "front"
+          }
+        },
+        {
+          "slot": "mask",
+          "name": "switch",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -18.0,
+              -24.0,
+              24.0,
+              -6.0,
+              12.0,
+              24.0,
+              -24.0,
+              12.0
+            ],
+            "end_slot": "front"
+          }
+        }
+      ]
+    },
+    {
+      "name": "convex",
+      "entries": [
+        {
+          "slot": "mask",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -20.0,
+              -24.0,
+              24.0,
+              -6.0,
+              12.0,
+              24.0,
+              -24.0,
+              12.0
+            ],
+            "end_slot": "front"
+          }
+        }
+      ]
+    },
+    {
+      "name": "outside",
+      "entries": [
+        {
+          "slot": "mask",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              100.0,
+              100.0,
+              120.0,
+              100.0,
+              120.0,
+              120.0,
+              100.0,
+              120.0
+            ],
+            "end_slot": "front"
+          }
+        }
+      ]
+    },
+    {
+      "name": "cover",
+      "entries": [
+        {
+          "slot": "mask",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -100.0,
+              -100.0,
+              100.0,
+              -100.0,
+              100.0,
+              100.0,
+              -100.0,
+              100.0
+            ],
+            "end_slot": "front"
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "clip",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 20.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "deform",
+          "slot": "front",
+          "attachment": "art",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "offsets": [
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0,
+                3.0
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                1.2,
+                0.8,
+                -0.1
+              ]
+            },
+            {
+              "time": 1.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "maskbone",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 35.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_scale",
+          "bone": "maskbone",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 1.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 1.3,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_shear",
+          "bone": "maskbone",
+          "axis": "y",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 12.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_attachment",
+          "slot": "mask",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": "mask"
+            },
+            {
+              "time": 0.5,
+              "value": "switch"
+            },
+            {
+              "time": 0.75,
+              "value": null
+            }
+          ]
+        },
+        {
+          "kind": "slot_visible",
+          "slot": "mask",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": true
+            },
+            {
+              "time": 0.25,
+              "value": false
+            },
+            {
+              "time": 0.5,
+              "value": true
+            }
+          ]
+        },
+        {
+          "kind": "slot_attachment",
+          "slot": "back",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": "art"
+            },
+            {
+              "time": 0.5,
+              "value": null
+            },
+            {
+              "time": 0.75,
+              "value": "art"
+            }
+          ]
+        },
+        {
+          "kind": "draw_order",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": []
+            },
+            {
+              "time": 0.25,
+              "offsets": [
+                [
+                  "after",
+                  -2
+                ],
+                [
+                  "back",
+                  1
+                ],
+                [
+                  "front",
+                  1
+                ]
+              ]
+            },
+            {
+              "time": 0.5,
+              "offsets": []
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.25,
+          "name": "quarter"
+        },
+        {
+          "time": 0.75,
+          "name": "three-quarter"
+        }
+      ]
+    },
+    {
+      "name": "relax",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -35.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.5,
+          "name": "relaxed"
+        }
+      ]
+    }
+  ]
+}

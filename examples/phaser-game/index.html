@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ankhimate · Jouer avec Phaser</title><link rel="icon" href="data:,"><link rel="stylesheet" href="style.css"></head>
+<body>
+<main>
+  <header><div><p class="eyebrow">ANKHIMATE × PHASER</p><h1>Du dessin au jeu</h1></div><span class="badge">Exemple alpha local</span></header>
+  <p class="intro">Déplace le personnage pour ramasser les cinq éclats. Essaie les deux animations et observe les pas reçus du rig.</p>
+  <section id="game" aria-label="Jeu Phaser" tabindex="0"></section>
+  <p id="loading" role="status">Chargement des personnages…</p><p id="error" role="alert" hidden></p>
+  <section class="controls" aria-label="Commandes">
+    <div class="movement"><button id="left" aria-label="Déplacer à gauche">←</button><button id="right" aria-label="Déplacer à droite">→</button><span>Flèches ou A / D</span></div>
+    <div id="animations" aria-label="Animations"></div>
+    <button id="restart">Recommencer</button>
+  </section>
+  <footer><span id="score">Éclats : 0 / 5</span><span id="events" aria-live="polite">Pas reçus : 0</span><span>Espace : changer d’animation · transition 0,25 s</span></footer>
+  <p class="note">À droite : le PSD de test exporté depuis Ankhimate. Le personnage jouable utilise les clips réels « walk » et « leg_ik » du projet walker.</p>
+</main>
+<script src="node_modules/phaser/dist/phaser.min.js"></script>
+<script type="importmap">{"imports":{"@ankhimate/runtime":"./node_modules/@ankhimate/runtime/dist/index.js","@ankhimate/phaser-runtime":"./node_modules/@ankhimate/phaser-runtime/dist/index.js","fflate":"./node_modules/fflate/esm/browser.js"}}</script>
+<script type="module" src="src/game.js"></script>
+</body></html>

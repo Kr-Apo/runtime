@@ -1,0 +1,45 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "mesh-multi-dark",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":1.0,"x":0.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"mask","bone":"root","attachment":"mask","color":"ffffffff","blend":"normal"},
+    {"name":"art","bone":"root","attachment":"shape","color":"bfcce5a6","dark_color":[0.20000000298023224,0.10000000149011612,0.30000001192092896,1.0],"blend":"normal"},
+    {"name":"end","bone":"root","attachment":"shape","color":"ffffffff","blend":"normal"},
+    {"name":"after","bone":"root","attachment":"shape","color":"ffffffff","blend":"normal"}
+  ],
+  "drawOrder": ["mask","art","end","after"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"after","name":"shape","attachment":{"height":24.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":16.0,"source_width":16.0,"texture":"red","type":"region","uv":[0.0,0.0,1.0,1.0],"width":24.0,"x":48.0,"y":0.0}},
+      {"slot":"art","name":"shape","attachment":{"edges":[0,1,0,3,1,2,2,3],"edges_x2":[0,2,0,6,2,4,4,6],"flat_vertices":[-32.0,32.0,-32.0,-32.0,32.0,-32.0,32.0,32.0],"hull":4,"linked":null,"scaled_height":24.0,"scaled_width":24.0,"sequence":null,"source_height":16.0,"source_width":16.0,"texture":"flat","triangles":[0,1,2,0,2,3],"type":"mesh","uvs":[0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0],"vertex_count":4,"vertices":[-32.0,32.0,-32.0,-32.0,32.0,-32.0,32.0,32.0],"weighted":false,"weights":[]}},
+      {"slot":"end","name":"shape","attachment":{"height":16.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":16.0,"source_width":16.0,"texture":"green","type":"region","uv":[0.0,0.0,1.0,1.0],"width":16.0,"x":8.0,"y":0.0}},
+      {"slot":"mask","name":"mask","attachment":{"end_slot":"end","type":"clipping","vertex_count":4,"vertices":[-32.0,-32.0,0.0,-32.0,0.0,32.0,-32.0,32.0]}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "clip": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"root","translate_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,2.6666667461395264,0.6666666865348816,5.333333492279053],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":8.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":18,"index":0,"width":18},{"file":"atlas_2.png","height":18,"index":1,"width":18},{"file":"atlas_3.png","height":18,"index":2,"width":18}],"regions":[{"height":16,"name":"flat","offset_x":0,"offset_y":0,"original_height":16,"original_width":16,"page":0,"rotated":false,"width":16,"x":1,"y":1},{"height":16,"name":"green","offset_x":0,"offset_y":0,"original_height":16,"original_width":16,"page":1,"rotated":false,"width":16,"x":1,"y":1},{"height":16,"name":"red","offset_x":0,"offset_y":0,"original_height":16,"original_width":16,"page":2,"rotated":false,"width":16,"x":1,"y":1}]}
+}

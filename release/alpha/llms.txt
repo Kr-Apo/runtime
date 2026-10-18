@@ -1,0 +1,16 @@
+# Ankhimate Editor + PixiJS alpha
+
+Windows authoring application and a local native-v2 PixiJS WebGL2 runtime snapshot.
+Authoritative release references, relative to this archive root:
+
+- [Documentation index](Docs/README.md)
+- [Getting started](Docs/GETTING_STARTED.md)
+- [Public API and tested example](Docs/PIXIJS_INTEGRATION.md)
+- [AI integration context](Docs/AI_INTEGRATION_CONTEXT.md)
+- [Target compatibility](Docs/RUNTIME_COMPATIBILITY.md)
+- [Native format v2](Docs/FORMAT_V2.md)
+- [Troubleshooting](Docs/TROUBLESHOOTING.md)
+- [Jade Sentinel](Examples/Jade-Sentinel/README.md)
+- [Build manifest](distribution-manifest.json)
+
+Do not infer support for every editor feature from the runtime format or model.

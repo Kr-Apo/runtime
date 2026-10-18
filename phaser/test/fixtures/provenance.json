@@ -1,0 +1,31 @@
+{
+  "editorCommit": "25f3a301920a4139db16a7820c42bf5d7c15c822",
+  "runtimeBase": "f478463cc431550cc8faa9788e52ca5fef667c95",
+  "originalPsdSha256": "8c0cb6c1e1491c40a417e467f171584f9cd2fceb947a07532355f73117a85314",
+  "exports": "Byte-identical copies of the real M002 Ankhimate runtime preset outputs. No JSON or atlas patches.",
+  "sources": {
+    "walker": "editor/samples/walker.ankh",
+    "tagged_rig": "tagged_rig.psd imported and animated in the Windows editor during M002 (animation_1, root X 0 to 1 over one second)."
+  },
+  "sha256": {
+    "walker/atlas.png": "92629b1c003a7c47abff9b0769cd7fe7464f7f5555ef2aee84854b33dd217441",
+    "walker/cpu-0.png": "86e496396a6a0be5c81dcb3dab2b75a9deec0789628385ffbc8c9e901e53dfdf",
+    "walker/cpu-1.png": "de26044f57b960a598f2b2c2508dc26d01ac92e5c6ff8381496db9ce45b8d3e7",
+    "walker/cpu-2.png": "681271316e8f4c229e5160622c354a108a054b938433ab0c66dae2dce7564a75",
+    "walker/cpu-3.png": "b060910adaee4d52d48da1f147a1b0d19e51b92e4c824ec24ce3331842b896c8",
+    "walker/cpu-reference.json": "dbbee90fb4b1c97cc7eb471497955439ee3f7d3c4916e7cfb282a42e49136651",
+    "walker/skeleton.json": "a11ccd47bd2c74ae9b9fcdfba17d6e8a04ee264353968f3fd8171dee11c0c777",
+    "tagged_rig/atlas.png": "d25c0a9421c59ec7d4eb6036a968edc619f7fe550511961a34de84b856349434",
+    "tagged_rig/cpu-0.png": "cec64c2e9de387e6d86fde38d816f5f46aaacd2f445aa5e3ddd9e3fa97541221",
+    "tagged_rig/cpu-1.png": "7ab8098f38a3bf3504dffbb41d43ae145318ca4d8aa830562a365903f6de670a",
+    "tagged_rig/cpu-2.png": "d657a9f14e897c3c91dc77566eb3b211b11a150cc3bb77ed0dd2264b54b2f0fa",
+    "tagged_rig/cpu-3.png": "4ebbcb2db6a67a8b543300ef92cb9b253a9785881e624a7f1ca05de1a8434642",
+    "tagged_rig/cpu-reference.json": "b855171a78d57ead16fbd792ce86653d3d20a2ead776a79965353fae40d117db",
+    "tagged_rig/skeleton.json": "dc3cdaa3e947f6f71e55fabdf79ed0f41c0cf4b88236e48c9941f8106119baf5",
+    "walker/cpu-leg_ik-0.png": "c6b8fe7b7226e0c93b7cbd9b884da46bb6ea2877dfe935c7021361ee520e1e68",
+    "walker/cpu-leg_ik-1.png": "39f497b5a3acba9c992c80d6f83182a3c5c284268fd9cb5d04ca1e50bd249b83",
+    "walker/cpu-leg_ik-2.png": "596df5f3e99d7412181255b15711ac50495cc6ebf5c5cc30453f449e1af1fcb6",
+    "walker/cpu-leg_ik-3.png": "b5d89a208be211037a0e69e7fc209eaeaaf3b85351c550d56961840eabac0e9b",
+    "walker/cpu-leg_ik-reference.json": "51d7bc7f53b7b336bbfa1a55df471d32cd5cffe8b570757a60789f2858debc50"
+  }
+}

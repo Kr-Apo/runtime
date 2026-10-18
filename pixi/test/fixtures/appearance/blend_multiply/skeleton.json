@@ -1,0 +1,59 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "blend_multiply",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":8.0,"x":0.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"tip","parent":0,"length":8.0,"x":8.0,"y":4.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"back","bone":"root","attachment":"art","color":"ccb2e599","blend":"normal"},
+    {"name":"front","bone":"tip","attachment":"art","color":"b2cc99a6","blend":"multiply"}
+  ],
+  "drawOrder": ["back","front"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"back","name":"art","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"blue","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":0.0,"y":0.0}},
+      {"slot":"front","name":"art","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"flat","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":0.0,"y":0.0}},
+      {"slot":"front","name":"switch","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"blue","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":0.0,"y":0.0}}
+    ]},
+    {"name":"alternate","bones":[],"constraints":[],"attachments":[
+      {"slot":"front","name":"art","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"blue","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":0.0,"y":0.0}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "clip": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"tip","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,6.6666669845581055,0.6666666865348816,13.333333969116211],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":20.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": [{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"quarter","string":"","time":0.25,"volume":1.0},{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"three-quarter","string":"","time":0.75,"volume":1.0}]
+    },
+    "relax": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"tip","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-11.666666984558105,0.6666666865348816,-23.33333396911621],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-35.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": [{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"relaxed","string":"","time":0.5,"volume":1.0}]
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":34,"index":0,"width":34},{"file":"atlas_2.png","height":34,"index":1,"width":34},{"file":"atlas_3.png","height":34,"index":2,"width":34},{"file":"atlas_4.png","height":34,"index":3,"width":34}],"regions":[{"height":32,"name":"blue","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":0,"rotated":false,"width":32,"x":1,"y":1},{"height":32,"name":"clear","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":1,"rotated":false,"width":32,"x":1,"y":1},{"height":32,"name":"edge","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":2,"rotated":false,"width":32,"x":1,"y":1},{"height":32,"name":"flat","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":3,"rotated":false,"width":32,"x":1,"y":1}]}
+}

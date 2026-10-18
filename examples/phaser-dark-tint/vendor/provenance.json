@@ -1,0 +1,31 @@
+{
+  "milestone": "M005.3b",
+  "baseRuntime": "6d8f3454aacd6b69fbc3c242b54ba98e19c23f79",
+  "editor": "367238cfa432fb597bbe3c40a64f1c75217a4312",
+  "note": "Unpublished snapshots; labels unchanged. Code matches five-minute tested archives; final archives update package documentation only.",
+  "sourceSha256Lf": {
+    "core/src/ankh-types.ts": "e9419493775fd02cd015489f66754d32664120d6f756bc59ed89828e64a2c02e",
+    "core/src/ankh.ts": "5dc89f1772077c0615a7a72286c63be4e1a5a64d62e3ab5ff3a1b1cf68f9888c",
+    "core/src/attachments.ts": "da259b68fa7aea0214913e4ae6550eec9f7274772e81ee1a1504ea87f18c76d4",
+    "core/src/compact.ts": "e5131cb2aa6f4ee0a8f5e19a93b223fc0d44992af4beedeaf3dd992e3b868f78",
+    "core/src/constraints.ts": "db6ac1ec571333d0707dfea2b8c2cac059a9cdb72fb170816cf49ade1665bb07",
+    "core/src/evaluate.ts": "92bbce0ab89a9eb2292557e184ce235e6f199e4857e51bea19a1cb22006c847f",
+    "core/src/index.ts": "b00d93e3e6dc4f70561b2408e99be96d8c2cd3e0aec147c86cebe7333d75f304",
+    "core/src/messagepack.ts": "e345a8a3e114cf00e77a020024c1fd113b928fccf914ca3a58c13f3de96459b3",
+    "core/src/player.ts": "6bbac13fcae7c240987c714e231604510b469ad841d42d9c3db5b38f773c7862",
+    "core/src/rig.ts": "a6ea5b31c82bca7e0410f6eab38bcba6d7b963882b8fa315d445ef94a56dc84a",
+    "core/src/types.ts": "9f2341c8c68eb6cfe1db74b28659dcc5457a1de7e727113343d7d6eb74fa5759",
+    "phaser/src/dark-tint.ts": "7429d547ed35585db4c62e65e3833d3d1517aff4031c8117dd41e99a77e7db2b",
+    "phaser/src/index.ts": "6472edb04fb6f1ad6d7812064c2e950f1e0832ad67fff3f8baf5948c60ed3e05",
+    "phaser/src/phaser.ts": "41bcd662d1348ce2f505efd36ad76b71e25866350ec7eb85fc52bbd6cf45db7d"
+  },
+  "sha256": {
+    "vendor/ankhimate-phaser-runtime-0.1.0.tgz": "d4e5742b566e03b5160985de468569ee41980fa25978124dcdffbcfd752946e1",
+    "vendor/ankhimate-runtime-0.1.1.tgz": "ab9464f57bc3ad18005222f999416e330774ebe4d6b1bd004cc3887bd4ab2c6a",
+    "assets/atlas_2.png": "0fd17ea9c58041f671b1e176c929e35ffaf5a27d3466174c0cc791f24afdb7b2",
+    "assets/atlas_3.png": "50d316c0582962b542664c4e0cf58de809a7c1e6594eec0d0ee25de0fb70e6cf",
+    "assets/atlas_4.png": "5e9a1d5aae65286edde5d383063683d9dd082ffe595b7b2975cb42cf1e76c3c8",
+    "assets/atlas.png": "b637d533813173082f74e835a9a8a1265db8abaa74b3780784514ea810ad2cc2",
+    "assets/skeleton.json": "98729c7b1cf114bbe84bb775614de18953333020a380df8dd298657a0d4b914a"
+  }
+}

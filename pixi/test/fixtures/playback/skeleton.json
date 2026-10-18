@@ -1,0 +1,52 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "Pixi playback qualification",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":32.0,"x":3.0,"y":-4.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"art","bone":"root","attachment":"banner","color":"ffffffff","blend":"normal"}
+  ],
+  "drawOrder": ["art"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"art","name":"banner","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":16.0,"source_width":24.0,"texture":"banner","type":"region","uv":[0.0,0.0,1.0,1.0],"width":48.0,"x":0.0,"y":0.0}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "rise": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"root","translate_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,6.6666669845581055,0.6666666865348816,13.333333969116211],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":20.0}],"rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-60.0,0.6666666865348816,-120.0],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-180.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": [{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"late","string":"","time":0.75,"volume":1.0},{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"start","string":"","time":0.0,"volume":1.0},{"audio":"","balance":0.0,"float":0.25,"int":7,"name":"impact","string":"écho \\\" royal","time":0.5,"volume":1.0},{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"end","string":"","time":1.0,"volume":1.0}]
+    },
+    "recover": {
+      "duration": 1.0,
+      "looping": false,
+      "bones": [
+        {"name":"root","translate_y":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-4.0,0.6666666865348816,4.0],"points":[],"time":0.0,"value":-12.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":12.0}],"rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,60.0,0.6666666865348816,120.0],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":180.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": [{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"incoming","string":"","time":0.25,"volume":1.0},{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"rest","string":"","time":1.0,"volume":1.0}]
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":18,"index":0,"width":26}],"regions":[{"height":16,"name":"banner","offset_x":0,"offset_y":0,"original_height":16,"original_width":24,"page":0,"rotated":false,"width":24,"x":1,"y":1}]}
+}

@@ -1,0 +1,8 @@
+# Export and oracle hashes must survive Git checkouts with core.autocrlf=true.
+phaser/test/fixtures/** -text
+pixi/test/fixtures/** -text
+core/test/fixtures/ffd_sparse_v2.json -text
+examples/phaser-game/assets/** -text
+examples/phaser-game/vendor/*.tgz binary
+examples/phaser-dark-tint/assets/** -text
+examples/phaser-dark-tint/vendor/*.tgz binary

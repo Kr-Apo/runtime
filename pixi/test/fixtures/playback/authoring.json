@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "name": "Pixi playback qualification",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "banner",
+      "file": "01/01a380f2a1446ce0a8e068dc499da1b8523e21d50eb9ec4c61929c1dca3c9d23.png",
+      "width": 24,
+      "height": 16,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 32.0,
+      "tx": 3.0,
+      "ty": -4.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "art",
+      "bone": "root",
+      "attachment": "banner",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "art"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "art",
+          "name": "banner",
+          "attachment": {
+            "type": "region",
+            "texture": "banner",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 48.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "rise",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 20.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "root",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -180.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.75,
+          "name": "late"
+        },
+        {
+          "time": 0.0,
+          "name": "start"
+        },
+        {
+          "time": 0.5,
+          "name": "impact",
+          "int_value": 7,
+          "float_value": 0.25,
+          "string_value": "écho \\\" royal"
+        },
+        {
+          "time": 1.0,
+          "name": "end"
+        }
+      ]
+    },
+    {
+      "name": "recover",
+      "duration": 1.0,
+      "looping": false,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "y",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -12.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 12.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "root",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 180.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.25,
+          "name": "incoming"
+        },
+        {
+          "time": 1.0,
+          "name": "rest"
+        }
+      ]
+    }
+  ]
+}

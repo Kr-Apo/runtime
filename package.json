@@ -3,11 +3,28 @@
   "private": true,
   "workspaces": [
     "core",
-    "phaser"
+    "phaser",
+    "pixi"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
-    "test": "npm run test --workspaces",
-    "typecheck": "npm run typecheck --workspaces"
+    "test": "npm run test --workspaces && node scripts/check-phaser-fixtures.mjs && node scripts/check-dark-tint-fixtures.mjs && node scripts/check-skin-uv-fixtures.mjs && node scripts/check-clipping-fixtures.mjs",
+    "typecheck": "npm run typecheck --workspaces",
+    "test:webgl": "npm run build && node scripts/test-webgl.mjs",
+    "test:dark-tint": "npm run build && node scripts/test-dark-tint.mjs",
+    "test:skin-uv": "npm run build && node scripts/test-skin-uv.mjs",
+    "test:clipping": "npm run build && node scripts/test-clipping.mjs",
+    "test:dark-tint-game": "node scripts/test-dark-tint-game.mjs",
+    "test:game": "node scripts/test-game.mjs",
+    "test:pixi-webgl": "npm run build && node scripts/test-pixi-webgl.mjs",
+    "example:pixi": "node examples/pixi-regions/server.mjs",
+    "test:pixi-playback": "npm run build && node scripts/test-pixi-playback.mjs",
+    "example:pixi-playback": "node examples/pixi-playback/server.mjs",
+    "test:pixi-meshes": "npm run build && node scripts/test-pixi-meshes.mjs",
+    "test:pixi-appearance": "npm run build && node scripts/test-pixi-appearance.mjs",
+    "test:pixi-clipping": "npm run build && node scripts/test-pixi-clipping.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2"
   }
 }

@@ -69,7 +69,12 @@ function scalar(keys: readonly ScalarKey[], time: number, angle = false): number
   const [from, to, t] = located;
   if (from === to) return from.value;
   let delta = to.value - from.value;
-  if (angle) delta = wrap(delta * DEG) / DEG;
+  if (angle) {
+    // Rust's signed shortest arc keeps both exact half-turn directions.
+    delta %= 360;
+    if (delta > 180) delta -= 360;
+    else if (delta < -180) delta += 360;
+  }
   return from.value + delta * t;
 }
 
@@ -190,6 +195,7 @@ export function evaluate(rig: RuntimeRigData, layers: readonly AnimationLayer[] 
     attachment: slot.attachment,
     visible: true,
     color: color(slot.color),
+    ...(slot.dark_color === undefined ? {} : { dark_color: [...slot.dark_color] as [number, number, number, number] }),
     sequenceFrame: 0,
   }));
   let drawOrder = [...rig.drawOrder];
@@ -208,23 +214,43 @@ export function evaluate(rig: RuntimeRigData, layers: readonly AnimationLayer[] 
       const index = boneIndex.get(track.name);
       if (index === undefined) continue;
       const bone = bones[index]!;
-      const time = layer.time - (track.offset ?? 0);
-      const translate = track.translate ? vector(track.translate, time) : undefined;
+      // V2 key times already contain the author's bone offset. Keep the legacy
+      // paired path unchanged, including its optional sampling offset.
+      const scalarAxes = rig.format_version === 2;
+      // Match Rust's f32 playhead at exact stepped boundaries (e.g. 1.6s,
+      // serialized as 1.600000023841858). Leave legacy v1 timing untouched.
+      const time = scalarAxes ? Math.fround(layer.time) : layer.time - (track.offset ?? 0);
       const rotate = track.rotate ? scalar(track.rotate, time, true) : undefined;
-      const scale = track.scale ? vector(track.scale, time) : undefined;
-      const shear = track.shear ? vector(track.shear, time) : undefined;
-      if (translate) {
-        bone.x += translate[0] * layer.alpha;
-        bone.y += translate[1] * layer.alpha;
-      }
       if (rotate !== undefined) bone.rotation = wrap(bone.rotation + rotate * DEG * layer.alpha);
-      if (scale) {
-        bone.scaleX *= 1 + (scale[0] - 1) * layer.alpha;
-        bone.scaleY *= 1 + (scale[1] - 1) * layer.alpha;
-      }
-      if (shear) {
-        bone.shearX += shear[0] * DEG * layer.alpha;
-        bone.shearY += shear[1] * DEG * layer.alpha;
+      if (scalarAxes) {
+        const tx = track.translate_x ? scalar(track.translate_x, time) : undefined;
+        const ty = track.translate_y ? scalar(track.translate_y, time) : undefined;
+        const sx = track.scale_x ? scalar(track.scale_x, time) : undefined;
+        const sy = track.scale_y ? scalar(track.scale_y, time) : undefined;
+        const hx = track.shear_x ? scalar(track.shear_x, time) : undefined;
+        const hy = track.shear_y ? scalar(track.shear_y, time) : undefined;
+        if (tx !== undefined) bone.x += tx * layer.alpha;
+        if (ty !== undefined) bone.y += ty * layer.alpha;
+        if (sx !== undefined) bone.scaleX *= 1 + (sx - 1) * layer.alpha;
+        if (sy !== undefined) bone.scaleY *= 1 + (sy - 1) * layer.alpha;
+        if (hx !== undefined) bone.shearX += hx * DEG * layer.alpha;
+        if (hy !== undefined) bone.shearY += hy * DEG * layer.alpha;
+      } else {
+        const translate = track.translate ? vector(track.translate, time) : undefined;
+        const scale = track.scale ? vector(track.scale, time) : undefined;
+        const shear = track.shear ? vector(track.shear, time) : undefined;
+        if (translate) {
+          bone.x += translate[0] * layer.alpha;
+          bone.y += translate[1] * layer.alpha;
+        }
+        if (scale) {
+          bone.scaleX *= 1 + (scale[0] - 1) * layer.alpha;
+          bone.scaleY *= 1 + (scale[1] - 1) * layer.alpha;
+        }
+        if (shear) {
+          bone.shearX += shear[0] * DEG * layer.alpha;
+          bone.shearY += shear[1] * DEG * layer.alpha;
+        }
       }
     }
     for (const track of animation.slots) {
@@ -240,11 +266,15 @@ export function evaluate(rig: RuntimeRigData, layers: readonly AnimationLayer[] 
         slot.visible = key.value ?? true;
         visibleWinners.set(index, layer.alpha);
       } else if (track.channel === "color" && key.color) {
-        slot.color = slot.color.map((component, i) => component + (key.color![i]! - component) * layer.alpha) as [number, number, number, number];
+        const keys = track.keys.map(item => ({ ...item, curve: item.curve ?? ("stepped" as const) }));
+        const sampled = numbers(keys, layer.time, item => item.color ?? key.color!);
+        if (sampled) slot.color = slot.color.map((component, i) => component + (sampled[i]! - component) * layer.alpha) as [number, number, number, number];
       }
     }
     for (const track of animation.deform) {
-      const sampled = numbers(track.keys, layer.time, (key) => key.offsets);
+      // Match v2 bone sampling at Rust's f32 stepped boundaries; keep v1 timing.
+      const time = rig.format_version === 2 ? Math.fround(layer.time) : layer.time;
+      const sampled = numbers(track.keys, time, (key) => key.offsets);
       if (!sampled) continue;
       const key = `${track.slot}\0${track.attachment}`;
       const current = deforms[key];

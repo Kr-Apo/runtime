@@ -18,15 +18,25 @@ export interface VectorKey {
 
 export interface BoneTrack {
   name: string;
+  /** Legacy v1 sampling offset. V2 exports bake this into scalar key times. */
   offset?: number;
+  /** Legacy v1 paired tracks. V2 uses the six independent scalar axes below. */
   translate?: VectorKey[];
   rotate?: ScalarKey[];
   scale?: VectorKey[];
   shear?: VectorKey[];
+  translate_x?: ScalarKey[];
+  translate_y?: ScalarKey[];
+  scale_x?: ScalarKey[];
+  scale_y?: ScalarKey[];
+  shear_x?: ScalarKey[];
+  shear_y?: ScalarKey[];
 }
 
 export interface SlotTrackKey {
   time: number;
+  /** Authored light-color curve. Omitted legacy keys retain stepped sampling. */
+  curve?: Curve;
   value?: boolean;
   name?: string | null;
   color?: readonly [number, number, number, number];
@@ -125,6 +135,8 @@ export interface RuntimeSlot {
   bone: string;
   attachment: string | null;
   color: string;
+  /** Static R, G, B, shadow intensity. Missing means no dark contribution. */
+  dark_color?: [number, number, number, number];
   blend: string;
 }
 
@@ -252,6 +264,8 @@ export interface RuntimeAtlas {
 
 export interface RuntimeRigData {
   format: "ankhimate-runtime";
+  /** Absent or 1: legacy paired tracks. 2: independent scalar bone axes. */
+  format_version?: 1 | 2;
   context_version: 1;
   name: string;
   fps: number;
@@ -292,6 +306,7 @@ export interface SlotPose {
   attachment: string | null;
   visible: boolean;
   color: readonly [number, number, number, number];
+  dark_color?: readonly [number, number, number, number];
   sequenceFrame: number;
 }
 

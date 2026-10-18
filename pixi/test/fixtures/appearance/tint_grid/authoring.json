@@ -1,0 +1,943 @@
+{
+  "version": 1,
+  "name": "tint_grid",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "blue",
+      "file": "8f/8f6c50749ab211451a2f8692a6981046ed58acdddb3b0a61ad6584fb07be3b84.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "clear",
+      "file": "96/96b9fd127576d116f26f3b6e7cbebc722eab5f026bf4bcd65505699f7a9ac4de.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "edge",
+      "file": "a1/a17edd825a5914985e537d20ba3769ef973f34bd3779f53e3aa70ba6e99cf847.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "flat",
+      "file": "ce/cef400078e5689eb671c78c0d56ee026892e5a5805d93f0c033b0176d70ea8bc.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 8.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b0",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -69.0,
+      "ty": 46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b1",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -23.0,
+      "ty": 46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b10",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 23.0,
+      "ty": -46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b11",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 69.0,
+      "ty": -46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b2",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 23.0,
+      "ty": 46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b3",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 69.0,
+      "ty": 46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b4",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -69.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b5",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -23.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b6",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 23.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b7",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 69.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b8",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -69.0,
+      "ty": -46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b9",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -23.0,
+      "ty": -46.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "tip",
+      "parent": "root",
+      "length": 8.0,
+      "tx": 8.0,
+      "ty": 4.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "swatch0",
+      "bone": "b0",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch1",
+      "bone": "b1",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch2",
+      "bone": "b2",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch3",
+      "bone": "b3",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch4",
+      "bone": "b4",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.2,
+        0.6,
+        0.9,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch5",
+      "bone": "b5",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch6",
+      "bone": "b6",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.0,
+        1.0,
+        0.0,
+        0.25
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch7",
+      "bone": "b7",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.0,
+        0.0,
+        1.0,
+        0.75
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch8",
+      "bone": "b8",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.2,
+        0.6,
+        0.9,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch9",
+      "bone": "b9",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.0
+      ],
+      "dark_color": [
+        0.2,
+        0.6,
+        0.9,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch10",
+      "bone": "b10",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.2,
+        0.6,
+        0.9,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "swatch11",
+      "bone": "b11",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": [
+        0.2,
+        0.6,
+        0.9,
+        0.5
+      ],
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "swatch0",
+    "swatch1",
+    "swatch2",
+    "swatch3",
+    "swatch4",
+    "swatch5",
+    "swatch6",
+    "swatch7",
+    "swatch8",
+    "swatch9",
+    "swatch10",
+    "swatch11"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "swatch0",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch1",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch10",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "clear",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch11",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "edge",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch2",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch3",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch4",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch5",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch6",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch7",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch8",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "swatch9",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "name": "alternate",
+      "entries": []
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "clip",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 20.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_color",
+          "slot": "swatch8",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": [
+                0.7,
+                0.8,
+                0.6,
+                0.65
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": [
+                1.0,
+                0.2,
+                0.5,
+                0.4
+              ],
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.25,
+          "name": "quarter"
+        },
+        {
+          "time": 0.75,
+          "name": "three-quarter"
+        }
+      ]
+    },
+    {
+      "name": "relax",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -35.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.5,
+          "name": "relaxed"
+        }
+      ]
+    }
+  ]
+}

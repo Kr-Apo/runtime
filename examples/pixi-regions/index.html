@@ -1,0 +1,9 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ankhimate — premier rendu PixiJS</title><link rel="icon" href="data:,">
+<style>body{margin:24px;background:#171c24;color:#eef2fa;font:16px system-ui}main{max-width:960px}canvas{max-width:100%;height:auto;background:repeating-conic-gradient(#26303c 0% 25%,#333f4e 0% 50%) 0/24px 24px}label{display:block;margin:12px 0}input{width:300px}p{line-height:1.5}#status{color:#9ed8ca}</style>
+<main><h1>Un rig, deux poses indépendantes</h1><p>Export natif réel de tagged_rig · PixiJS 8.17.0 · WebGL · régions uniquement.</p>
+<label>Pose gauche <input id="left" type="range" min="0" max="0.999" value="0.25" step="0.001"> <output id="left-time">0,25 s</output></label>
+<label>Pose droite <input id="right" type="range" min="0" max="0.999" value="0.75" step="0.001"> <output id="right-time">0,75 s</output></label>
+<div id="view"></div><p id="status">Chargement…</p><p>Déplacez un curseur : l'autre personnage garde sa pose. Cet exemple échantillonne directement un clip ; il ne présente pas de contrat de lecture, crossfade ou événements.</p></main>
+<script type="importmap">{"imports":{"pixi.js":"/node_modules/pixi.js/dist/pixi.mjs","@ankhimate/runtime":"/core/dist/index.js","@ankhimate/pixi-runtime":"/pixi/dist/index.js","fflate":"/node_modules/fflate/esm/browser.js"}}</script>
+<script type="module" src="./example.mjs"></script></html>

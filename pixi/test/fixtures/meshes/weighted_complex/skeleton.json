@@ -1,0 +1,57 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "weighted_complex",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":8.0,"x":3.0,"y":-4.0,"rotation":9.0,"scaleX":-1.1,"scaleY":0.85,"shearX":7.0,"shearY":-4.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"host","parent":0,"length":20.0,"x":4.0,"y":5.0,"rotation":17.0,"scaleX":1.1,"scaleY":0.9,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"other","parent":0,"length":16.0,"x":-8.0,"y":-3.0,"rotation":-12.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"tip","parent":2,"length":12.0,"x":14.0,"y":5.0,"rotation":22.0,"scaleX":1.0,"scaleY":1.0,"shearX":-6.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"art","bone":"host","attachment":"shape","color":"ffffffcc","blend":"normal"}
+  ],
+  "drawOrder": ["art"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"art","name":"shape","attachment":{"edges":[0,1,0,4,1,2,2,3,3,4],"edges_x2":[0,2,0,8,2,4,4,6,6,8],"flat_vertices":[2.0,1.0,-23.999998092651367,23.999998092651367,0.25,3.0,-30.65022850036621,21.42108154296875,0.75,2.0,1.0,-29.999998092651367,-16.0,0.25,3.0,-32.82565689086914,-15.34230899810791,0.75,2.0,1.0,7.999998092651367,-26.000001907348633,0.25,3.0,9.994168281555176,-14.705195426940918,0.75,2.0,1.0,29.999998092651367,-3.999999523162842,0.25,3.0,31.71979331970215,10.167401313781738,0.75,2.0,1.0,12.0,27.999998092651367,0.25,3.0,8.429954528808594,33.9052619934082,0.75],"hull":5,"linked":null,"scaled_height":64.0,"scaled_width":64.0,"sequence":null,"source_height":64.0,"source_width":64.0,"texture":"banner","triangles":[0,1,2,0,2,4,2,3,4],"type":"mesh","uvs":[0.0,0.0,0.0,1.0,0.6000000238418579,1.0,1.0,0.6000000238418579,0.800000011920929,0.0],"vertex_count":5,"vertices":[-24.0,24.0,-30.0,-16.0,8.0,-26.0,30.0,-4.0,12.0,28.0],"weighted":true,"weights":[{"bones":[{"bone":"host","weight":0.25,"x":-23.999998092651367,"y":23.999998092651367},{"bone":"tip","weight":0.75,"x":-30.65022850036621,"y":21.42108154296875}],"count":2},{"bones":[{"bone":"host","weight":0.25,"x":-29.999998092651367,"y":-16.0},{"bone":"tip","weight":0.75,"x":-32.82565689086914,"y":-15.34230899810791}],"count":2},{"bones":[{"bone":"host","weight":0.25,"x":7.999998092651367,"y":-26.000001907348633},{"bone":"tip","weight":0.75,"x":9.994168281555176,"y":-14.705195426940918}],"count":2},{"bones":[{"bone":"host","weight":0.25,"x":29.999998092651367,"y":-3.999999523162842},{"bone":"tip","weight":0.75,"x":31.71979331970215,"y":10.167401313781738}],"count":2},{"bones":[{"bone":"host","weight":0.25,"x":12.0,"y":27.999998092651367},{"bone":"tip","weight":0.75,"x":8.429954528808594,"y":33.9052619934082}],"count":2}]}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "clip": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"host","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,11.666666984558105,0.6666666865348816,23.33333396911621],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":35.0}],"scale_y":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,1.0833333730697632,0.6666666865348816,1.1666666269302368],"points":[],"time":0.0,"value":1.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":1.25}]},
+        {"name":"tip","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-9.333333969116211,0.6666666865348816,-18.666667938232422],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-28.0}]},
+        {"name":"other","shear_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,4.6666669845581055,0.6666666865348816,9.333333969116211],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":14.0}]}
+      ],
+      "slots": [],
+      "deform": [{"attachment":"shape","keys":[{"curve":{"handles":[0.20000000298023224,1.2000000476837158,0.800000011920929,-0.10000000149011612],"in_x":0.800000011920929,"in_y":-0.10000000149011612,"out_x":0.20000000298023224,"out_y":1.2000000476837158,"type":"bezier"},"offsets":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"time":0.0},{"curve":"linear","offsets":[2.0,-2.200000047683716,5.0,-4.600000381469727,8.0,-1.0,11.0,-3.4000000953674316,3.5,-5.800000190734863,6.5,-2.200000047683716,9.5,-4.600000381469727,2.0,-1.0,5.0,-3.4000000953674316,8.0,-5.800000190734863],"time":0.5},{"curve":"linear","offsets":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"time":1.0}],"slot":"art"}],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    },
+    "relax": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"host","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-8.333333969116211,0.6666666865348816,-16.666667938232422],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-25.0}]}
+      ],
+      "slots": [],
+      "deform": [{"attachment":"shape","keys":[{"curve":"linear","offsets":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"time":0.0},{"curve":"linear","offsets":[-1.399999976158142,1.5399999618530273,-3.5,3.2200002670288086,-5.599999904632568,0.699999988079071,-7.699999809265137,2.380000114440918,-2.450000047683716,4.059999942779541,-4.549999713897705,1.5399999618530273,-6.650000095367432,3.2200002670288086,-1.399999976158142,0.699999988079071,-3.5,2.380000114440918,-5.599999904632568,4.059999942779541],"time":0.5},{"curve":"linear","offsets":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"time":1.0}],"slot":"art"}],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":66,"index":0,"width":66},{"file":"atlas_2.png","height":66,"index":1,"width":66}],"regions":[{"height":64,"name":"banner","offset_x":0,"offset_y":0,"original_height":64,"original_width":64,"page":0,"rotated":false,"width":64,"x":1,"y":1},{"height":64,"name":"second","offset_x":0,"offset_y":0,"original_height":64,"original_width":64,"page":1,"rotated":false,"width":64,"x":1,"y":1}]}
+}

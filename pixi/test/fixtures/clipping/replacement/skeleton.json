@@ -1,0 +1,83 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "replacement",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":8.0,"x":0.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"maskbone","parent":0,"length":1.0,"x":-2.0,"y":1.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"tip","parent":0,"length":8.0,"x":8.0,"y":4.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+    {"name":"mask","bone":"maskbone","attachment":"mask","color":"ffffffff","blend":"normal"},
+    {"name":"back","bone":"root","attachment":"art","color":"ccb2e599","blend":"normal"},
+    {"name":"mask2","bone":"root","attachment":"mask","color":"ffffffff","blend":"normal"},
+    {"name":"thin","bone":"root","attachment":"art","color":"ffffffff","blend":"normal"},
+    {"name":"front","bone":"tip","attachment":"art","color":"b2cc99a6","blend":"normal"},
+    {"name":"after","bone":"root","attachment":"art","color":"ffffffff","blend":"normal"},
+    {"name":"art2","bone":"root","attachment":"art","color":"ffffffff","blend":"normal"}
+  ],
+  "drawOrder": ["mask","back","mask2","thin","front","after","art2"],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+      {"slot":"after","name":"art","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"flat","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":62.0,"y":0.0}},
+      {"slot":"art2","name":"art","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"flat","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":62.0,"y":0.0}},
+      {"slot":"back","name":"art","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"blue","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":0.0,"y":0.0}},
+      {"slot":"front","name":"art","attachment":{"edges":[0,1,0,3,1,2,2,3],"edges_x2":[0,2,0,6,2,4,4,6],"flat_vertices":[2.0,0.0,-12.000000953674316,24.0,0.30000001192092896,2.0,-20.0,20.0,0.699999988079071,2.0,0.0,-11.999999046325684,-16.0,0.30000001192092896,2.0,-20.0,-20.0,0.699999988079071,2.0,0.0,28.000001907348633,-16.0,0.30000001192092896,2.0,20.0,-20.0,0.699999988079071,2.0,0.0,28.0,24.0,0.30000001192092896,2.0,20.0,20.0,0.699999988079071],"hull":4,"linked":null,"scaled_height":32.0,"scaled_width":32.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"edge","triangles":[0,1,2,0,2,3],"type":"mesh","uvs":[0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0],"vertex_count":4,"vertices":[-20.0,20.0,-20.0,-20.0,20.0,-20.0,20.0,20.0],"weighted":true,"weights":[{"bones":[{"bone":"root","weight":0.30000001192092896,"x":-12.000000953674316,"y":24.0},{"bone":"tip","weight":0.699999988079071,"x":-20.0,"y":20.0}],"count":2},{"bones":[{"bone":"root","weight":0.30000001192092896,"x":-11.999999046325684,"y":-16.0},{"bone":"tip","weight":0.699999988079071,"x":-20.0,"y":-20.0}],"count":2},{"bones":[{"bone":"root","weight":0.30000001192092896,"x":28.000001907348633,"y":-16.0},{"bone":"tip","weight":0.699999988079071,"x":20.0,"y":-20.0}],"count":2},{"bones":[{"bone":"root","weight":0.30000001192092896,"x":28.0,"y":24.0},{"bone":"tip","weight":0.699999988079071,"x":20.0,"y":20.0}],"count":2}]}},
+      {"slot":"front","name":"switch","attachment":{"height":32.0,"pivot_x":0.5,"pivot_y":0.5,"rotation":0.0,"scale_x":1.0,"scale_y":1.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"blue","type":"region","uv":[0.0,0.0,1.0,1.0],"width":32.0,"x":0.0,"y":0.0}},
+      {"slot":"mask","name":"mask","attachment":{"end_slot":"front","type":"clipping","vertex_count":4,"vertices":[-24.0,-24.0,10.0,-24.0,10.0,24.0,-24.0,24.0]}},
+      {"slot":"mask","name":"switch","attachment":{"end_slot":"front","type":"clipping","vertex_count":4,"vertices":[-18.0,-24.0,24.0,-6.0,12.0,24.0,-24.0,12.0]}},
+      {"slot":"mask2","name":"mask","attachment":{"end_slot":null,"type":"clipping","vertex_count":4,"vertices":[-10.0,-22.0,24.0,-22.0,24.0,22.0,-10.0,22.0]}},
+      {"slot":"thin","name":"art","attachment":{"edges":[0,1,0,2,1,2],"edges_x2":[0,2,0,4,2,4],"flat_vertices":[-8.0,0.0,22.0,0.0,22.0,0.0010000000474974513],"hull":3,"linked":null,"scaled_height":32.0,"scaled_width":32.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"flat","triangles":[0,1,2],"type":"mesh","uvs":[0.0,0.0,1.0,0.0,1.0,1.0],"vertex_count":3,"vertices":[-8.0,0.0,22.0,0.0,22.0,0.0010000000474974513],"weighted":false,"weights":[]}}
+    ]},
+    {"name":"alternate","bones":[],"constraints":[],"attachments":[
+      {"slot":"front","name":"art","attachment":{"edges":[0,1,0,3,1,2,2,3],"edges_x2":[0,2,0,6,2,4,4,6],"flat_vertices":[2.0,0.0,-12.000000953674316,24.0,0.30000001192092896,2.0,-20.0,20.0,0.699999988079071,2.0,0.0,-11.999999046325684,-16.0,0.30000001192092896,2.0,-20.0,-20.0,0.699999988079071,2.0,0.0,28.000001907348633,-16.0,0.30000001192092896,2.0,20.0,-20.0,0.699999988079071,2.0,0.0,28.0,24.0,0.30000001192092896,2.0,20.0,20.0,0.699999988079071],"hull":4,"linked":null,"scaled_height":32.0,"scaled_width":32.0,"sequence":null,"source_height":32.0,"source_width":32.0,"texture":"blue","triangles":[0,1,2,0,2,3],"type":"mesh","uvs":[0.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0],"vertex_count":4,"vertices":[-20.0,20.0,-20.0,-20.0,20.0,-20.0,20.0,20.0],"weighted":true,"weights":[{"bones":[{"bone":"root","weight":0.30000001192092896,"x":-12.000000953674316,"y":24.0},{"bone":"tip","weight":0.699999988079071,"x":-20.0,"y":20.0}],"count":2},{"bones":[{"bone":"root","weight":0.30000001192092896,"x":-11.999999046325684,"y":-16.0},{"bone":"tip","weight":0.699999988079071,"x":-20.0,"y":-20.0}],"count":2},{"bones":[{"bone":"root","weight":0.30000001192092896,"x":28.000001907348633,"y":-16.0},{"bone":"tip","weight":0.699999988079071,"x":20.0,"y":-20.0}],"count":2},{"bones":[{"bone":"root","weight":0.30000001192092896,"x":28.0,"y":24.0},{"bone":"tip","weight":0.699999988079071,"x":20.0,"y":20.0}],"count":2}]}},
+      {"slot":"mask","name":"mask","attachment":{"end_slot":"front","type":"clipping","vertex_count":6,"vertices":[-24.0,-24.0,24.0,-24.0,24.0,-5.0,0.0,-5.0,0.0,24.0,-24.0,24.0]}},
+      {"slot":"mask","name":"switch","attachment":{"end_slot":"front","type":"clipping","vertex_count":4,"vertices":[-18.0,-24.0,24.0,-6.0,12.0,24.0,-24.0,12.0]}}
+    ]},
+    {"name":"convex","bones":[],"constraints":[],"attachments":[
+      {"slot":"mask","name":"mask","attachment":{"end_slot":"front","type":"clipping","vertex_count":4,"vertices":[-20.0,-24.0,24.0,-6.0,12.0,24.0,-24.0,12.0]}}
+    ]},
+    {"name":"outside","bones":[],"constraints":[],"attachments":[
+      {"slot":"mask","name":"mask","attachment":{"end_slot":"front","type":"clipping","vertex_count":4,"vertices":[100.0,100.0,120.0,100.0,120.0,120.0,100.0,120.0]}}
+    ]},
+    {"name":"cover","bones":[],"constraints":[],"attachments":[
+      {"slot":"mask","name":"mask","attachment":{"end_slot":"front","type":"clipping","vertex_count":4,"vertices":[-100.0,-100.0,100.0,-100.0,100.0,100.0,-100.0,100.0]}}
+    ]}
+  ],
+  "constraints": [
+  ],
+  "constraintOrder": [],
+  "animations": {
+    "clip": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"tip","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,6.6666669845581055,0.6666666865348816,13.333333969116211],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":20.0}]},
+        {"name":"maskbone","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,11.666666984558105,0.6666666865348816,23.33333396911621],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":35.0}],"scale_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,1.100000023841858,0.6666666865348816,1.1999999284744263],"points":[],"time":0.0,"value":1.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":1.2999999523162842}],"shear_y":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,4.0,0.6666666865348816,8.0],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":12.0}]}
+      ],
+      "slots": [{"channel":"attachment","keys":[{"curve":"stepped","name":"mask","time":0.0},{"curve":"stepped","name":"switch","time":0.5},{"curve":"stepped","name":null,"time":0.75}],"name":"mask"},{"channel":"visible","keys":[{"curve":"stepped","time":0.0,"value":true},{"curve":"stepped","time":0.25,"value":false},{"curve":"stepped","time":0.5,"value":true}],"name":"mask"},{"channel":"attachment","keys":[{"curve":"stepped","name":"art","time":0.0},{"curve":"stepped","name":null,"time":0.5},{"curve":"stepped","name":"art","time":0.75}],"name":"back"}],
+      "deform": [{"attachment":"art","keys":[{"curve":{"handles":[0.20000000298023224,1.2000000476837158,0.800000011920929,-0.10000000149011612],"in_x":0.800000011920929,"in_y":-0.10000000149011612,"out_x":0.20000000298023224,"out_y":1.2000000476837158,"type":"bezier"},"offsets":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"time":0.0},{"curve":"linear","offsets":[3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0],"time":0.5},{"curve":"linear","offsets":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"time":1.0}],"slot":"front"}],
+      "drawOrder": [{"offsets":[],"time":0.0},{"offsets":[{"offset":-2,"slot":"after"},{"offset":1,"slot":"back"},{"offset":1,"slot":"front"}],"time":0.25},{"offsets":[],"time":0.5}],
+      "ik": [],
+      "transform": [],
+      "events": [{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"quarter","string":"","time":0.25,"volume":1.0},{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"three-quarter","string":"","time":0.75,"volume":1.0}]
+    },
+    "relax": {
+      "duration": 1.0,
+      "looping": true,
+      "bones": [
+        {"name":"tip","rotate":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.3333333432674408,-11.666666984558105,0.6666666865348816,-23.33333396911621],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":1.0,"value":-35.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": [{"audio":"","balance":0.0,"float":0.0,"int":0,"name":"relaxed","string":"","time":0.5,"volume":1.0}]
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":34,"index":0,"width":34},{"file":"atlas_2.png","height":34,"index":1,"width":34},{"file":"atlas_3.png","height":34,"index":2,"width":34},{"file":"atlas_4.png","height":34,"index":3,"width":34}],"regions":[{"height":32,"name":"blue","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":0,"rotated":false,"width":32,"x":1,"y":1},{"height":32,"name":"clear","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":1,"rotated":false,"width":32,"x":1,"y":1},{"height":32,"name":"edge","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":2,"rotated":false,"width":32,"x":1,"y":1},{"height":32,"name":"flat","offset_x":0,"offset_y":0,"original_height":32,"original_width":32,"page":3,"rotated":false,"width":32,"x":1,"y":1}]}
+}

@@ -198,3 +198,110 @@ test("path constraints place bones along the selected skin path", () => {
   assert.equal(world.tx, 2);
   assert.equal(world.ty, 3);
 });
+
+
+// M001a regression fixtures use parseRig so the versioned wire contract is tested.
+function scalarFixture(channels: Record<string, unknown>): RuntimeRigData {
+  const data = fixture();
+  data.bones[1] = { ...data.bones[1]!, x: 0, y: 0, scaleX: 1, scaleY: 1, shearX: 0, shearY: 0 };
+  return parseRig({ ...data, format_version: 2, animations: {
+    walk: { ...data.animations.walk, bones: [{ name: "child", ...channels }] },
+  } });
+}
+
+test("v2 scalar axes work without sibling channels and leave missing axes at setup", () => {
+  for (const channel of ["translate_x", "translate_y", "scale_x", "scale_y", "shear_x", "shear_y"]) {
+    const scale = channel.startsWith("scale");
+    const rig = scalarFixture({ [channel]: [
+      { time: 0, value: scale ? 1 : 0, curve: "linear" },
+      { time: 1, value: scale ? 2 : 10, curve: "linear" },
+    ] });
+    const pose = evaluate(rig, [{ animation: "walk", time: 0.5, alpha: 1 }]).bones[1]!;
+    const expected = { x: 0, y: 0, scaleX: 1, scaleY: 1, shearX: 0, shearY: 0 };
+    const property = { translate_x: "x", translate_y: "y", scale_x: "scaleX", scale_y: "scaleY", shear_x: "shearX", shear_y: "shearY" }[channel]! as keyof typeof expected;
+    expected[property] = scale ? 1.5 : channel.startsWith("shear") ? 5 * Math.PI / 180 : 5;
+    for (const name of Object.keys(expected) as Array<keyof typeof expected>) {
+      assert.ok(Math.abs(pose[name] - expected[name]) < 1e-6, channel + " " + name);
+    }
+  }
+});
+
+test("v2 independent steps and asynchronous key times do not contaminate X/Y", () => {
+  const rig = scalarFixture({
+    translate_x: [{ time: 0, value: 0, curve: "linear" }, { time: 1, value: 10, curve: "linear" }],
+    translate_y: [{ time: 0, value: 0, curve: "stepped" }, { time: 0.5, value: 4, curve: "linear" }, { time: 1, value: 8, curve: "linear" }],
+  });
+  const early = evaluate(rig, [{ animation: "walk", time: 0.25, alpha: 1 }]).bones[1]!;
+  assert.equal(early.x, 2.5);
+  assert.equal(early.y, 0);
+  const late = evaluate(rig, [{ animation: "walk", time: 0.75, alpha: 1 }]).bones[1]!;
+  assert.equal(late.x, 7.5);
+  assert.equal(late.y, 6);
+});
+
+test("v2 independent bezier axes preserve their own easing and key times", () => {
+  const rig = scalarFixture({
+    translate_x: [{ time: 0, value: 0, curve: { type: "bezier", handles: [0.3, 0, 0.7, 1] } }, { time: 1, value: 10, curve: "linear" }],
+    translate_y: [{ time: 0.25, value: 0, curve: { type: "bezier", handles: [1 / 3, 0, 2 / 3, 0] } }, { time: 1.25, value: 8, curve: "linear" }],
+  });
+  const pose = evaluate(rig, [{ animation: "walk", time: 0.5, alpha: 1 }]).bones[1]!;
+  assert.ok(Math.abs(pose.x - 5) < 0.01);
+  assert.ok(Math.abs(pose.y - 0.125) < 0.01);
+});
+
+test("v2 baked times and empty axes preserve offset and setup semantics", () => {
+  const rig = scalarFixture({
+    translate_x: [{ time: 0.25, value: 0, curve: "linear" }, { time: 1.25, value: 10, curve: "linear" }],
+    scale_y: [],
+  });
+  const pose = evaluate(rig, [{ animation: "walk", time: 0.75, alpha: 1 }]).bones[1]!;
+  assert.equal(pose.x, 5);
+  assert.equal(pose.scaleY, 1);
+});
+
+test("runtime versions distinguish legacy paired tracks from scalar v2", () => {
+  const legacy = fixture();
+  assert.deepEqual(evaluate(parseRig(legacy)), evaluate(parseRig({ ...legacy, format_version: 1 })));
+  assert.throws(() => parseRig({ ...legacy, format_version: 3 }), RigFormatError);
+  assert.throws(() => parseRig({ ...legacy, format_version: null }), RigFormatError);
+  assert.throws(() => parseRig({ ...legacy, format_version: 2 }), RigFormatError);
+  const scalar = scalarFixture({ translate_x: [{ time: 0, value: 3, curve: "linear" }] });
+  assert.throws(() => parseRig({ ...scalar, format_version: 1 }), RigFormatError);
+  assert.throws(() => parseRig({ ...scalar, format_version: undefined }), RigFormatError);
+  scalar.animations.walk!.bones[0]!.offset = 0.25;
+  assert.throws(() => parseRig(scalar), RigFormatError);
+});
+
+test("v2 validates scalar keys, sorted times and finite bezier handles", () => {
+  for (const keys of [
+    [{ time: 0, value: "bad", curve: "linear" }],
+    [{ time: NaN, value: 1, curve: "linear" }],
+    [{ time: 1, value: 1, curve: "linear" }, { time: 0, value: 0, curve: "linear" }],
+    [{ time: 0, value: 1, curve: { type: "bezier", handles: [0, 0, Infinity, 1] } }],
+    [{ time: 0, value: 1, curve: { type: "bezier", handles: [-1, 0, 1, 1] } }],
+    [{ time: 0, value: 1, curve: null }],
+  ]) assert.throws(() => scalarFixture({ translate_x: keys }), RigFormatError);
+});
+
+test("v2 reaches a stepped decimal endpoint at the same f32 instant as Rust", () => {
+  const rig = scalarFixture({ translate_x: [
+    { time: Math.fround(0.8), value: 12, curve: "stepped" },
+    { time: Math.fround(1.6), value: -4, curve: "linear" },
+  ] });
+  assert.equal(evaluate(rig, [{ animation: "walk", time: 1.6, alpha: 1 }]).bones[1]!.x, -4);
+  assert.equal(evaluate(rig, [{ animation: "walk", time: 1.599, alpha: 1 }]).bones[1]!.x, 12);
+});
+
+test("legacy v1 FFD retains double-precision playhead semantics", () => {
+  for (const version of [undefined, 1] as const) {
+    const rig = fixture();
+    if (version !== undefined) rig.format_version = version;
+    rig.animations.walk!.deform = [{ slot: "part", attachment: "part", keys: [
+      { time: 0.25, offsets: [0, 0], curve: "stepped" },
+      { time: Math.fround(0.8), offsets: [10, 20], curve: "linear" },
+    ] }];
+    const read = parseRig(rig);
+    assert.deepEqual(evaluate(read, [{ animation: "walk", time: 0.8, alpha: 1 }]).deforms["part\0part"], [0, 0]);
+    assert.deepEqual(evaluate(read, [{ animation: "walk", time: Math.fround(0.8), alpha: 1 }]).deforms["part\0part"], [10, 20]);
+  }
+});

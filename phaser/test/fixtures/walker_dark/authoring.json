@@ -1,0 +1,1183 @@
+{
+  "version": 1,
+  "name": "walker",
+  "fps": 30,
+  "assets": [
+    {
+      "name": "arm_far",
+      "file": "ae/ae9c2697710c5518da707f3d656b48ecde35e6bc3f5443016a4f5a3c89e6aaf0.png",
+      "width": 26,
+      "height": 62,
+      "source_path": null
+    },
+    {
+      "name": "arm_near",
+      "file": "48/4842dca882e217455786a0890f107c6ba2dab31bdf70eb73421c057ec863227e.png",
+      "width": 28,
+      "height": 62,
+      "source_path": null
+    },
+    {
+      "name": "forearm_far",
+      "file": "29/299bfda523072f03a0487310ac087210451a06855055fd9a197e8d5cb8a7a828.png",
+      "width": 24,
+      "height": 58,
+      "source_path": null
+    },
+    {
+      "name": "forearm_near",
+      "file": "9d/9d941bf76b598cac566da9c331ba6787e3e60301a15c3968e9a0ba44072ecc41.png",
+      "width": 26,
+      "height": 58,
+      "source_path": null
+    },
+    {
+      "name": "head",
+      "file": "0f/0f3c812963629e86b9915a3efe6281aa3793718334376c01bf4d29db4561644b.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "shin_far",
+      "file": "76/76d0fabd7d86f4725e25cbe53b8a9220fccdde9a75c5f2275dd6100c47f098ae.png",
+      "width": 26,
+      "height": 68,
+      "source_path": null
+    },
+    {
+      "name": "shin_near",
+      "file": "cf/cf3f4501458429d7b5afb24a1a1dbc5bb42d8bbeeb4de199fd3d4a454df80c1e.png",
+      "width": 28,
+      "height": 68,
+      "source_path": null
+    },
+    {
+      "name": "thigh_far",
+      "file": "05/0524eee386bb6783bcd72a845eaa66abd5a46ce8a4bdb76251046830b72fd0f0.png",
+      "width": 30,
+      "height": 72,
+      "source_path": null
+    },
+    {
+      "name": "thigh_near",
+      "file": "94/94e6e22ec2e24ade5563ef7032bed04913b2912b7608e7e315ba321cf126530b.png",
+      "width": 32,
+      "height": 72,
+      "source_path": null
+    },
+    {
+      "name": "torso",
+      "file": "92/92fa0092676fc210015a5b5dceaa6ecb32a836ef0fd294dd04089db5170164ae.png",
+      "width": 70,
+      "height": 95,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "foot_target_l",
+      "parent": "",
+      "length": 0.0,
+      "tx": 20.0,
+      "ty": -125.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "root",
+      "parent": "",
+      "length": 40.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "thigh_l",
+      "parent": "root",
+      "length": 70.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": -80.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "shin_l",
+      "parent": "thigh_l",
+      "length": 65.0,
+      "tx": 70.0,
+      "ty": 0.0,
+      "rotation": 5.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "thigh_r",
+      "parent": "root",
+      "length": 70.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": -100.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "shin_r",
+      "parent": "thigh_r",
+      "length": 65.0,
+      "tx": 70.0,
+      "ty": 0.0,
+      "rotation": 5.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "torso",
+      "parent": "root",
+      "length": 90.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 90.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "arm_l",
+      "parent": "torso",
+      "length": 60.0,
+      "tx": 80.0,
+      "ty": 0.0,
+      "rotation": -100.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "forearm_l",
+      "parent": "arm_l",
+      "length": 55.0,
+      "tx": 60.0,
+      "ty": 0.0,
+      "rotation": 10.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "arm_r",
+      "parent": "torso",
+      "length": 60.0,
+      "tx": 80.0,
+      "ty": 0.0,
+      "rotation": -80.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "forearm_r",
+      "parent": "arm_r",
+      "length": 55.0,
+      "tx": 60.0,
+      "ty": 0.0,
+      "rotation": 10.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "length": 50.0,
+      "tx": 90.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "arm_far_slot",
+      "bone": "arm_r",
+      "attachment": "arm_far",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "forearm_far_slot",
+      "bone": "forearm_r",
+      "attachment": "forearm_far",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "thigh_far_slot",
+      "bone": "thigh_r",
+      "attachment": "thigh_far",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "shin_far_slot",
+      "bone": "shin_r",
+      "attachment": "shin_far",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "torso_slot",
+      "bone": "torso",
+      "attachment": "torso",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "head_slot",
+      "bone": "head",
+      "attachment": "head",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "thigh_near_slot",
+      "bone": "thigh_l",
+      "attachment": "thigh_near",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "shin_near_slot",
+      "bone": "shin_l",
+      "attachment": "shin_near",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "arm_near_slot",
+      "bone": "arm_l",
+      "attachment": "arm_near",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "forearm_near_slot",
+      "bone": "forearm_l",
+      "attachment": "forearm_near",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": [
+        0.2,
+        0.1,
+        0.3,
+        0.5
+      ],
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "arm_far_slot",
+    "forearm_far_slot",
+    "thigh_far_slot",
+    "shin_far_slot",
+    "torso_slot",
+    "head_slot",
+    "thigh_near_slot",
+    "shin_near_slot",
+    "arm_near_slot",
+    "forearm_near_slot"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "arm_far_slot",
+          "name": "arm_far",
+          "attachment": {
+            "type": "region",
+            "texture": "arm_far",
+            "offset_x": 30.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 26.0,
+            "height": 62.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "arm_near_slot",
+          "name": "arm_near",
+          "attachment": {
+            "type": "region",
+            "texture": "arm_near",
+            "offset_x": 30.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 28.0,
+            "height": 62.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "forearm_far_slot",
+          "name": "forearm_far",
+          "attachment": {
+            "type": "region",
+            "texture": "forearm_far",
+            "offset_x": 27.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 24.0,
+            "height": 58.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "forearm_near_slot",
+          "name": "forearm_near",
+          "attachment": {
+            "type": "region",
+            "texture": "forearm_near",
+            "offset_x": 27.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 26.0,
+            "height": 58.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "head_slot",
+          "name": "head",
+          "attachment": {
+            "type": "region",
+            "texture": "head",
+            "offset_x": 30.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.15
+          }
+        },
+        {
+          "slot": "shin_far_slot",
+          "name": "shin_far",
+          "attachment": {
+            "type": "region",
+            "texture": "shin_far",
+            "offset_x": 32.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 26.0,
+            "height": 68.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "shin_near_slot",
+          "name": "shin_near",
+          "attachment": {
+            "type": "region",
+            "texture": "shin_near",
+            "offset_x": 32.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 28.0,
+            "height": 68.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "thigh_far_slot",
+          "name": "thigh_far",
+          "attachment": {
+            "type": "region",
+            "texture": "thigh_far",
+            "offset_x": 35.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 30.0,
+            "height": 72.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "thigh_near_slot",
+          "name": "thigh_near",
+          "attachment": {
+            "type": "region",
+            "texture": "thigh_near",
+            "offset_x": 35.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 72.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.0,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "torso_slot",
+          "name": "torso",
+          "attachment": {
+            "type": "region",
+            "texture": "torso",
+            "offset_x": 45.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 70.0,
+            "height": 95.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.1
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [
+    {
+      "name": "leg_ik_l",
+      "type": "ik",
+      "target": "foot_target_l",
+      "bones": [
+        "thigh_l",
+        "shin_l"
+      ],
+      "bend_direction": 1.0,
+      "mix": 1.0,
+      "softness": 0.0,
+      "stretch": false,
+      "stretch_limit": 1.1,
+      "stiffness": 0.0
+    }
+  ],
+  "constraint_order": [
+    "leg_ik_l"
+  ],
+  "animations": [
+    {
+      "name": "walk",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "thigh_l",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 25.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": -25.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 25.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "shin_l",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -10.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.25,
+              "value": -35.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -10.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "thigh_r",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -25.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 25.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -25.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "shin_r",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": -10.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.75,
+              "value": -35.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "arm_l",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -20.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 20.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -20.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "forearm_l",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -15.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": -5.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -15.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "arm_r",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 20.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": -20.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 20.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "forearm_r",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -5.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": -15.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -5.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "y",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.25,
+              "value": -6.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.75,
+              "value": -6.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": -3.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 3.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -3.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "head",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 3.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": -3.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 3.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "ik_mix",
+          "constraint": "leg_ik_l",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "stepped"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.0,
+          "name": "footstep",
+          "float_value": 1.0,
+          "string_value": "left"
+        },
+        {
+          "time": 0.5,
+          "name": "footstep",
+          "int_value": 1,
+          "float_value": 1.0,
+          "string_value": "right"
+        }
+      ],
+      "markers": [
+        {
+          "time": 0.0,
+          "name": "contact",
+          "color": [
+            0.95,
+            0.72,
+            0.3,
+            1.0
+          ]
+        },
+        {
+          "time": 0.25,
+          "name": "down",
+          "color": [
+            0.95,
+            0.72,
+            0.3,
+            1.0
+          ]
+        },
+        {
+          "time": 0.5,
+          "name": "passing",
+          "color": [
+            0.95,
+            0.72,
+            0.3,
+            1.0
+          ]
+        },
+        {
+          "time": 0.75,
+          "name": "up",
+          "color": [
+            0.95,
+            0.72,
+            0.3,
+            1.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "leg_ik",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "foot_target_l",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.25,
+              "value": 45.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 80.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.75,
+              "value": 40.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_translate",
+          "bone": "foot_target_l",
+          "axis": "y",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.25,
+              "value": 35.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.75,
+              "value": -6.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

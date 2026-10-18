@@ -1,0 +1,19 @@
+{
+  "name": "ankhimate-phaser-alpha-example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check src/game.js && node --check server.mjs && node scripts/check-assets.mjs"
+  },
+  "dependencies": {
+    "@ankhimate/phaser-runtime": "file:vendor/ankhimate-phaser-runtime-0.1.0-m0061-8888e0e.tgz",
+    "@ankhimate/runtime": "file:vendor/ankhimate-runtime-0.1.1-m0061-8888e0e.tgz",
+    "phaser": "3.90.0"
+  },
+  "license": "MIT OR Apache-2.0"
+}

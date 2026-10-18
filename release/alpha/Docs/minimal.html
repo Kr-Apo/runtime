@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><link rel="icon" href="data:,"><title>Ankhimate minimal integration</title>
+<body><div id="view"></div><pre id="status">Loading…</pre>
+<script type="importmap">{"imports":{"pixi.js":"../Runtime/vendor/pixi.mjs","@ankhimate/runtime":"../Runtime/core/index.js","@ankhimate/pixi-runtime":"../Runtime/pixi/index.js","fflate":"../Runtime/vendor/fflate.mjs"}}</script>
+<script type="module">
+import {start} from './minimal.mjs';
+try { window.integration = await start(document.querySelector('#view')); document.querySelector('#status').textContent = 'Ready'; }
+catch(error) { document.querySelector('#status').textContent = String(error); }
+</script></body></html>

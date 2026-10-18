@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "name": "clip_identity",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "flat",
+      "file": "62/628ce6b407a64c1928c0c1e39d0607ddcdeed8fa6aa85ec580fe3a19f1722a3e.png",
+      "width": 16,
+      "height": 16,
+      "source_path": null
+    },
+    {
+      "name": "red",
+      "file": "ac/ac6a32769637f8a7a869965da03d1c6671f0b12ae3c5b2a7afa30c7ebd7a1355.png",
+      "width": 16,
+      "height": 16,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 1.0,
+      "tx": 128.0,
+      "ty": -128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "mask",
+      "bone": "root",
+      "attachment": "mask",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "art",
+      "bone": "root",
+      "attachment": "shape",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "end",
+      "bone": "root",
+      "attachment": null,
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "after",
+      "bone": "root",
+      "attachment": "shape",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "mask",
+    "art",
+    "end",
+    "after"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "after",
+          "name": "shape",
+          "attachment": {
+            "type": "region",
+            "texture": "red",
+            "offset_x": 48.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 24.0,
+            "height": 24.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "art",
+          "name": "shape",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "mask",
+          "name": "mask",
+          "attachment": {
+            "type": "clipping",
+            "vertices": [
+              -32.0,
+              -32.0,
+              0.0,
+              -32.0,
+              0.0,
+              32.0,
+              -32.0,
+              32.0
+            ],
+            "end_slot": "art"
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "clip",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 8.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

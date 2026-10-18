@@ -13,6 +13,33 @@ function object(value: unknown, label: string): asserts value is Record<string, 
   }
 }
 
+const SCALAR_AXES = ["translate_x", "translate_y", "scale_x", "scale_y", "shear_x", "shear_y"] as const;
+const PAIRED_AXES = ["translate", "scale", "shear"] as const;
+
+function scalarKeys(value: unknown, label: string): void {
+  if (!Array.isArray(value)) throw new RigFormatError(`${label} must be an array`);
+  let previousTime = -Infinity;
+  value.forEach((key, index) => {
+    const at = `${label}[${index}]`;
+    object(key, at);
+    if (typeof key.time !== "number" || !Number.isFinite(key.time) || key.time < previousTime) {
+      throw new RigFormatError(`${at}.time must be finite and sorted`);
+    }
+    previousTime = key.time;
+    if (typeof key.value !== "number" || !Number.isFinite(key.value)) {
+      throw new RigFormatError(`${at}.value must be finite`);
+    }
+    if (key.curve === "linear" || key.curve === "stepped") return;
+    object(key.curve, `${at}.curve`);
+    const handles = key.curve.handles;
+    if (key.curve.type !== "bezier" || !Array.isArray(handles) || handles.length !== 4
+      || !handles.every((handle) => typeof handle === "number" && Number.isFinite(handle))
+      || handles[0] < 0 || handles[0] > 1 || handles[2] < 0 || handles[2] > 1) {
+      throw new RigFormatError(`${at}.curve must be linear, stepped, or bezier with finite handles and X in [0,1]`);
+    }
+  });
+}
+
 export function parseRig(source: string | unknown): RuntimeRigData {
   let value: unknown;
   try {
@@ -23,6 +50,10 @@ export function parseRig(source: string | unknown): RuntimeRigData {
   object(value, "rig");
   if (value.format !== "ankhimate-runtime") {
     throw new RigFormatError(`unsupported format ${JSON.stringify(value.format)}`);
+  }
+  const formatVersion = value.format_version === undefined ? 1 : value.format_version;
+  if (formatVersion !== 1 && formatVersion !== 2) {
+    throw new RigFormatError(`unsupported format_version ${JSON.stringify(value.format_version)}`);
   }
   if (value.context_version !== 1) {
     throw new RigFormatError(`unsupported context_version ${JSON.stringify(value.context_version)}`);
@@ -53,6 +84,13 @@ export function parseRig(source: string | unknown): RuntimeRigData {
     if (typeof raw.bone !== "string" || !boneNames.has(raw.bone)) {
       throw new RigFormatError(`slots[${index}].bone does not name a bone`);
     }
+    if ("dark_color" in raw) {
+      const dark = raw.dark_color;
+      if (!Array.isArray(dark) || dark.length !== 4
+        || ![0, 1, 2, 3].every(channel => typeof dark[channel] === "number" && Number.isFinite(dark[channel]))) {
+        throw new RigFormatError(`slots[${index}].dark_color must contain four finite numbers (R, G, B, intensity)`);
+      }
+    }
     slotNames.add(raw.name);
   });
 
@@ -61,9 +99,21 @@ export function parseRig(source: string | unknown): RuntimeRigData {
     if (typeof raw.duration !== "number" || raw.duration < 0 || !Number.isFinite(raw.duration)) {
       throw new RigFormatError(`animations.${name}.duration must be a finite non-negative number`);
     }
-    for (const track of (raw.bones ?? []) as Array<{ name?: unknown }>) {
+    for (const track of (raw.bones ?? []) as unknown[]) {
+      object(track, `animations.${name}.bones[]`);
       if (typeof track.name !== "string" || !boneNames.has(track.name)) {
         throw new RigFormatError(`animations.${name} targets missing bone ${JSON.stringify(track.name)}`);
+      }
+      const label = `animations.${name}.bones.${track.name}`;
+      if (formatVersion === 2) {
+        if (PAIRED_AXES.some((axis) => track[axis] !== undefined) || track.offset !== undefined) {
+          throw new RigFormatError(`${label}: v2 requires scalar axes with baked times, not paired tracks or offset`);
+        }
+        for (const axis of SCALAR_AXES) {
+          if (track[axis] !== undefined) scalarKeys(track[axis], `${label}.${axis}`);
+        }
+      } else if (SCALAR_AXES.some((axis) => track[axis] !== undefined)) {
+        throw new RigFormatError(`${label}: scalar axes require format_version 2`);
       }
     }
   }

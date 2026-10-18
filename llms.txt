@@ -1,0 +1,25 @@
+# Ankhimate — Windows + PixiJS experimental alpha
+
+> The editor authors projects; the TypeScript core evaluates native exports and
+> the PixiJS adapter renders only the documented native v2 WebGL2 subset.
+
+## Start here
+- [Getting Started](docs/alpha/GETTING_STARTED.md)
+- [PixiJS public APIs and ownership](docs/alpha/PIXIJS_INTEGRATION.md)
+- [Compatibility and exclusions](docs/alpha/RUNTIME_COMPATIBILITY.md)
+- [Native runtime v2](docs/alpha/FORMAT_V2.md)
+- [Troubleshooting](docs/alpha/TROUBLESHOOTING.md)
+- [AI integration context](docs/alpha/AI_INTEGRATION_CONTEXT.md)
+- [Licenses](docs/ALPHA-LICENSES.md)
+
+## Rules for integrations
+Use real public APIs; do not invent constraint, blend, linked-mesh or audio support.
+Core v1 reading does not mean the PixiJS adapter accepts v1. Do not invert export
+coordinates, change normalized curves or reinterpret weighted FFD offsets.
+Events at t=0 are ignored on startup and every loop. Interrupted crossfades may
+jump. Explicitly clean up instances before their asset. Jade Sentinel is the only
+official sample. No AI model is bundled or required.
+
+## Repositories
+- [Editor](https://github.com/Ankhimate/ankhimate)
+- [Runtime](https://github.com/Ankhimate/ankhimate-runtime)

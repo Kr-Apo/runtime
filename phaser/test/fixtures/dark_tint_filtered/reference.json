@@ -1,0 +1,222 @@
+{
+  "editorCommit": "367238cfa432fb597bbe3c40a64f1c75217a4312",
+  "height": 384,
+  "normalSlots": [
+    {
+      "center": [
+        -240,
+        128
+      ],
+      "name": "zero",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        -144,
+        128
+      ],
+      "name": "half",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        -48,
+        128
+      ],
+      "name": "full",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        48,
+        128
+      ],
+      "name": "extreme",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        144,
+        128
+      ],
+      "name": "fraction",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        240,
+        128
+      ],
+      "name": "mesh",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        -240,
+        32
+      ],
+      "name": "animated",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        -144,
+        32
+      ],
+      "name": "switch",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        0,
+        32
+      ],
+      "name": "under",
+      "texture": "flat"
+    },
+    {
+      "center": [
+        0,
+        32
+      ],
+      "name": "over",
+      "texture": "red"
+    },
+    {
+      "center": [
+        144,
+        32
+      ],
+      "name": "edge",
+      "texture": "edge"
+    },
+    {
+      "center": [
+        240,
+        32
+      ],
+      "name": "transparent",
+      "texture": "transparent"
+    }
+  ],
+  "origin": [
+    320.25,
+    192.25
+  ],
+  "samples": [
+    {
+      "background": "clear",
+      "clip": "pulse",
+      "file": "cpu-pulse-clear-0.png",
+      "index": 0,
+      "time": 0.0
+    },
+    {
+      "background": "opaque",
+      "clip": "pulse",
+      "file": "cpu-pulse-opaque-0.png",
+      "index": 0,
+      "time": 0.0
+    },
+    {
+      "background": "clear",
+      "clip": "pulse",
+      "file": "cpu-pulse-clear-1.png",
+      "index": 1,
+      "time": 0.25
+    },
+    {
+      "background": "opaque",
+      "clip": "pulse",
+      "file": "cpu-pulse-opaque-1.png",
+      "index": 1,
+      "time": 0.25
+    },
+    {
+      "background": "clear",
+      "clip": "pulse",
+      "file": "cpu-pulse-clear-2.png",
+      "index": 2,
+      "time": 0.5
+    },
+    {
+      "background": "opaque",
+      "clip": "pulse",
+      "file": "cpu-pulse-opaque-2.png",
+      "index": 2,
+      "time": 0.5
+    },
+    {
+      "background": "clear",
+      "clip": "pulse",
+      "file": "cpu-pulse-clear-3.png",
+      "index": 3,
+      "time": 0.75
+    },
+    {
+      "background": "opaque",
+      "clip": "pulse",
+      "file": "cpu-pulse-opaque-3.png",
+      "index": 3,
+      "time": 0.75
+    },
+    {
+      "background": "clear",
+      "clip": "alternate",
+      "file": "cpu-alternate-clear-0.png",
+      "index": 0,
+      "time": 0.0
+    },
+    {
+      "background": "opaque",
+      "clip": "alternate",
+      "file": "cpu-alternate-opaque-0.png",
+      "index": 0,
+      "time": 0.0
+    },
+    {
+      "background": "clear",
+      "clip": "alternate",
+      "file": "cpu-alternate-clear-1.png",
+      "index": 1,
+      "time": 0.25
+    },
+    {
+      "background": "opaque",
+      "clip": "alternate",
+      "file": "cpu-alternate-opaque-1.png",
+      "index": 1,
+      "time": 0.25
+    },
+    {
+      "background": "clear",
+      "clip": "alternate",
+      "file": "cpu-alternate-clear-2.png",
+      "index": 2,
+      "time": 0.5
+    },
+    {
+      "background": "opaque",
+      "clip": "alternate",
+      "file": "cpu-alternate-opaque-2.png",
+      "index": 2,
+      "time": 0.5
+    },
+    {
+      "background": "clear",
+      "clip": "alternate",
+      "file": "cpu-alternate-clear-3.png",
+      "index": 3,
+      "time": 0.75
+    },
+    {
+      "background": "opaque",
+      "clip": "alternate",
+      "file": "cpu-alternate-opaque-3.png",
+      "index": 3,
+      "time": 0.75
+    }
+  ],
+  "scale": 1.25,
+  "width": 640
+}

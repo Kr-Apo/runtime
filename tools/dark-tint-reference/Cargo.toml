@@ -1,0 +1,17 @@
+[package]
+name = "ankhimate-dark-tint-reference"
+version = "0.0.0"
+default-run = "ankhimate-dark-tint-reference"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+ankhimate-core = { path = "../../../editor/core" }
+ankhimate-document = { path = "../../../editor/document" }
+ankhimate-formats = { path = "../../../editor/formats" }
+ankhimate-export = { path = "../../../editor/export" }
+ankhimate-render = { path = "../../../editor/render" }
+serde_json = "1"
+image = { version = "0.25.10", default-features = false, features = ["png"] }

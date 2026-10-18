@@ -1,0 +1,1176 @@
+{
+  "version": 1,
+  "name": "dark-tint-reference",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "edge",
+      "file": "99/99008d3234a6b5c890052c7ea4757ffb29913513f16380861fd8611229d5ad72.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "flat",
+      "file": "f5/f5ae392f1bf0e90f6eb3996aa5b976ba9be484d5e1267c0a2406b3f60ac626d8.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "red",
+      "file": "81/810145d2240851ed408c189a7421f6415b78183f84ac0fed05a8b11ed3d06ef5.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "transparent",
+      "file": "a2/a280516749fce1fb8a27af4725b11a7667149c8560c3d0cce1fada6645d093c7.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 1.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "add",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -240.0,
+      "ty": -96.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "animated",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -240.0,
+      "ty": 32.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "edge",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 144.0,
+      "ty": 32.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "extreme",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 48.0,
+      "ty": 128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "fraction",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 144.0,
+      "ty": 128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "full",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -48.0,
+      "ty": 128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "half",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -144.0,
+      "ty": 128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "mesh",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 240.0,
+      "ty": 128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "multiply",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -144.0,
+      "ty": -96.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "over",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 0.0,
+      "ty": 32.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "screen",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -48.0,
+      "ty": -96.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "switch",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -144.0,
+      "ty": 32.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "transparent",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 240.0,
+      "ty": 32.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "under",
+      "parent": "root",
+      "length": 1.0,
+      "tx": 0.0,
+      "ty": 32.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "zero",
+      "parent": "root",
+      "length": 1.0,
+      "tx": -240.0,
+      "ty": 128.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "zero",
+      "bone": "zero",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "half",
+      "bone": "half",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "full",
+      "bone": "full",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "extreme",
+      "bone": "extreme",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "fraction",
+      "bone": "fraction",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.12345679,
+        0.2345679,
+        0.3456789,
+        0.375
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "mesh",
+      "bone": "mesh",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "animated",
+      "bone": "animated",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "switch",
+      "bone": "switch",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "under",
+      "bone": "under",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        1.0,
+        0.0,
+        0.0,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "over",
+      "bone": "over",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.0,
+        1.0,
+        0.0,
+        0.5
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "edge",
+      "bone": "edge",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "transparent",
+      "bone": "transparent",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "add",
+      "bone": "add",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.5
+      ],
+      "blend_mode": "additive"
+    },
+    {
+      "name": "multiply",
+      "bone": "multiply",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.5
+      ],
+      "blend_mode": "multiply"
+    },
+    {
+      "name": "screen",
+      "bone": "screen",
+      "attachment": "art",
+      "color": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "dark_color": [
+        0.2,
+        0.4,
+        0.6,
+        0.5
+      ],
+      "blend_mode": "screen"
+    }
+  ],
+  "draw_order": [
+    "zero",
+    "half",
+    "full",
+    "extreme",
+    "fraction",
+    "mesh",
+    "animated",
+    "switch",
+    "under",
+    "over",
+    "edge",
+    "transparent",
+    "add",
+    "multiply",
+    "screen"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "add",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "animated",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "edge",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "edge",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "extreme",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "fraction",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "full",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "half",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "mesh",
+          "name": "art",
+          "attachment": {
+            "type": "mesh",
+            "texture": "flat",
+            "vertices": [
+              -32.0,
+              32.0,
+              -32.0,
+              -32.0,
+              32.0,
+              -32.0,
+              32.0,
+              32.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": []
+          }
+        },
+        {
+          "slot": "multiply",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "over",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "red",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "screen",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "switch",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "switch",
+          "name": "red",
+          "attachment": {
+            "type": "region",
+            "texture": "red",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "transparent",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "transparent",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "under",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "zero",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 64.0,
+            "height": 64.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "pulse",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 4.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_color",
+          "slot": "animated",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": [
+                0.4,
+                0.6,
+                0.8,
+                0.25
+              ],
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_attachment",
+          "slot": "switch",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": "art"
+            },
+            {
+              "time": 0.5,
+              "value": "red"
+            }
+          ]
+        },
+        {
+          "kind": "draw_order",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": []
+            },
+            {
+              "time": 0.5,
+              "offsets": [
+                [
+                  "under",
+                  1
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.25,
+          "name": "step",
+          "string_value": "shadow"
+        }
+      ]
+    },
+    {
+      "name": "alternate",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -4.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.75,
+          "name": "step",
+          "string_value": "alternate"
+        }
+      ]
+    }
+  ]
+}

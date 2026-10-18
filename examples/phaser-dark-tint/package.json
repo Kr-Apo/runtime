@@ -1,0 +1,17 @@
+{
+  "name": "ankhimate-phaser-dark-tint-example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check src/game.js && node --check server.mjs && node scripts/check-assets.mjs"
+  },
+  "dependencies": {
+    "@ankhimate/phaser-runtime": "file:vendor/ankhimate-phaser-runtime-0.1.0.tgz",
+    "@ankhimate/runtime": "file:vendor/ankhimate-runtime-0.1.1.tgz",
+    "phaser": "3.90.0"
+  },
+  "license": "MIT OR Apache-2.0"
+}

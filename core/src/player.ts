@@ -105,10 +105,12 @@ function normalizeTime(animation: { duration: number; looping: boolean }, time: 
 
 function eventsBetween(animation: { duration: number; looping: boolean; events: RuntimeEvent[] }, from: number, delta: number): RuntimeEvent[] {
   if (delta <= 0 || animation.events.length === 0 || animation.duration <= 0) return [];
+  // Stable sorting matches Rust without mutating the authored event storage.
+  const events = [...animation.events].sort((a, b) => a.time - b.time);
   const result: RuntimeEvent[] = [];
   if (!animation.looping) {
     const to = Math.min(animation.duration, from + delta);
-    return animation.events.filter((event) => event.time > from && event.time <= to);
+    return events.filter((event) => event.time > from && event.time <= to);
   }
   let cursor = from;
   let remaining = delta;
@@ -116,11 +118,11 @@ function eventsBetween(animation: { duration: number; looping: boolean; events: 
     const toEnd = animation.duration - cursor;
     const step = Math.min(remaining, toEnd);
     const end = cursor + step;
-    result.push(...animation.events.filter((event) => event.time > cursor && event.time <= end));
+    result.push(...events.filter((event) => event.time > cursor && event.time <= end));
     remaining -= step;
     if (remaining > 0 || end >= animation.duration) {
       cursor = 0;
-      if (remaining > 0) result.push(...animation.events.filter((event) => event.time === 0));
+      // Each lap uses (from,to], like Rust: time-zero events never fire.
     } else {
       cursor = end;
     }

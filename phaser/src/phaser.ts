@@ -1,12 +1,13 @@
 import type Phaser from "phaser";
 import { evaluate, RigPlayer } from "@ankhimate/runtime";
 import type { Affine, MeshAttachment, RegionAttachment, RigPose, RuntimeAttachment, RuntimeRigData, RuntimeSkin } from "@ankhimate/runtime";
+import { applyDarkTint } from "./dark-tint.js";
 
 export interface PhaserRigOptions { pageTextureKeys: readonly string[]; skin?: string; }
 interface MeshView { object: Phaser.GameObjects.Mesh; attachmentKey: string; indices: number[]; }
-interface ClipView { graphics: Phaser.GameObjects.Graphics; mask: Phaser.Display.Masks.GeometryMask; }
+interface ClipView { graphics: Phaser.GameObjects.Graphics; mask: Phaser.Display.Masks.GeometryMask; vertices: number[]; }
 
-/** Exact WebGL rendering and playback for an Ankhimate runtime export. */
+/** WebGL rendering and playback for an Ankhimate runtime export. */
 export class PhaserRig {
   readonly player: RigPlayer;
   readonly root: Phaser.GameObjects.Container;
@@ -49,8 +50,8 @@ export class PhaserRig {
       const textureKey = this.pageTextureKeys[region.page];
       if (!textureKey) throw new Error(`missing pageTextureKeys[${region.page}] for ${region.name}`);
       const texture = this.scene.textures.get(textureKey);
-      let frame = texture.get(region.name);
-      if (!texture.has(region.name)) frame = texture.add(region.name, 0, region.x, region.y, region.width, region.height)!;
+      const frame = texture.has(region.name) ? texture.get(region.name)
+        : texture.add(region.name, 0, region.x, region.y, region.width, region.height)!;
       frame.rotated = region.rotated;
       if (region.rotated) frame.updateUVsInverted();
       if (region.width !== region.original_width || region.height !== region.original_height) frame.setTrim(region.original_width, region.original_height, region.offset_x, region.offset_y, region.width, region.height);
@@ -87,17 +88,17 @@ export class PhaserRig {
     let clipEnd: string | null | undefined;
     for (let order = 0; order < pose.drawOrder.length; order += 1) {
       const slotName = pose.drawOrder[order]!; const slot = slots.get(slotName); const setup = setupSlots.get(slotName);
+      // The end slot is still clipped if drawn, but every skip path must close
+      // the group before processing the following slot (matching Rust).
+      const slotMask = currentMask;
+      if (clipEnd === slotName) { currentMask = undefined; clipEnd = undefined; }
       if (!slot || !setup || !slot.visible || !slot.attachment) continue;
       const attachmentKey = `${slotName}\0${slot.attachment}`; const attachment = this.attachments.get(attachmentKey);
       if (attachment?.type === "clipping") {
         const host = pose.bones.find((bone) => bone.name === setup.bone)?.world;
         if (host) {
           const clip = this.ensureClip(slotName);
-          const vertices = transformPositions(attachment.vertices, host);
-          clip.graphics.clear().fillStyle(0xffffff).beginPath();
-          clip.graphics.moveTo(vertices[0]!, -vertices[1]!);
-          for (let index = 2; index < vertices.length; index += 2) clip.graphics.lineTo(vertices[index]!, -vertices[index + 1]!);
-          clip.graphics.closePath().fillPath();
+          clip.vertices = transformPositions(attachment.vertices, host);
           currentMask = clip.mask; clipEnd = attachment.end_slot;
         }
         continue;
@@ -110,18 +111,23 @@ export class PhaserRig {
       const view = this.ensureView(slotName, attachmentKey, textureKey, textureName, atlasUvs, geometry.indices);
       active.add(slotName);
       view.object.setVisible(true).setDepth(order).setBlendMode(blendMode(setup.blend)).setTexture(textureKey, textureName);
+      applyDarkTint(this.scene, view.object, slot.color, slot.dark_color);
       view.object.setOrtho(view.object.width, view.object.height);
-      if (currentMask) view.object.setMask(currentMask); else view.object.clearMask(false);
+      if (slotMask) view.object.setMask(slotMask); else view.object.clearMask(false);
       const tint = rgbTint(slot.color);
       for (let index = 0; index < view.object.vertices.length; index += 1) {
         const sourceIndex = view.indices[index]!; const vertex = view.object.vertices[index]!;
-        vertex.x = geometry.positions[sourceIndex * 2]!; vertex.y = -geometry.positions[sourceIndex * 2 + 1]!; vertex.color = tint; vertex.alpha = slot.color[3];
-        vertex.u = atlasUvs[sourceIndex * 2]!; vertex.v = atlasUvs[sourceIndex * 2 + 1]!;
+        // Mesh vertices are Y-up: Phaser's Vertex projection converts to screen
+        // Y-down. Unlike 2D Graphics, they must not be negated here as well.
+        vertex.x = geometry.positions[sourceIndex * 2]!; vertex.y = geometry.positions[sourceIndex * 2 + 1]!; vertex.color = tint; vertex.alpha = slot.color[3];
+        // Phaser submits translated tu/tv, which setUVs updates along with u/v.
+        vertex.setUVs(atlasUvs[sourceIndex * 2]!, atlasUvs[sourceIndex * 2 + 1]!);
       }
       (view.object as Phaser.GameObjects.Mesh & { dirtyCache: number[] }).dirtyCache[9] = -1;
-      if (clipEnd === slotName) { currentMask = undefined; clipEnd = undefined; }
     }
     for (const [slot, view] of this.views) if (!active.has(slot)) view.object.setVisible(false);
+    // Container children do not participate in the Scene's automatic depth sort.
+    this.root.sort("depth");
   }
 
   private atlasUvs(textureKey: string, frameName: string, local: number[]): number[] {
@@ -137,8 +143,39 @@ export class PhaserRig {
 
   private ensureClip(slot: string): ClipView {
     const existing = this.clips.get(slot); if (existing) return existing;
-    const graphics = this.scene.add.graphics(); graphics.setVisible(false); this.root.add(graphics);
-    const view = { graphics, mask: graphics.createGeometryMask() }; this.clips.set(slot, view); return view;
+    if (this.clips.size === 0) {
+      this.scene.events.on("prerender", this.syncClips, this);
+      this.root.once("destroy", this.releaseClips, this);
+    }
+    // GeometryMask renders Graphics without its parent Container matrix.
+    const graphics = this.scene.make.graphics({}, false); graphics.setVisible(false);
+    const view = { graphics, mask: graphics.createGeometryMask(), vertices: [] }; this.clips.set(slot, view); return view;
+  }
+
+  private syncClips(): void {
+    // Run after game updates, so public root/ancestor transform changes made
+    // after rig.update also take effect. Phaser still applies each camera.
+    const matrix = this.root.getWorldTransformMatrix();
+    let scrollX = 1; let scrollY = 1;
+    for (let parent: Phaser.GameObjects.Container | null = this.root; parent; parent = parent.parentContainer) {
+      scrollX *= parent.scrollFactorX; scrollY *= parent.scrollFactorY;
+    }
+    for (const { graphics, vertices } of this.clips.values()) {
+      graphics.clear().setScrollFactor(scrollX, scrollY).fillStyle(0xffffff).beginPath();
+      for (let i = 0; i < vertices.length; i += 2) {
+        const x = matrix.getX(vertices[i]!, -vertices[i + 1]!); const y = matrix.getY(vertices[i]!, -vertices[i + 1]!);
+        if (i === 0) graphics.moveTo(x, y); else graphics.lineTo(x, y);
+      }
+      graphics.closePath().fillPath();
+    }
+  }
+
+  private releaseClips(): void {
+    this.scene.events.off("prerender", this.syncClips, this);
+    for (const view of this.views.values()) view.object.clearMask(false);
+    for (const { graphics, mask } of this.clips.values()) { mask.destroy(); graphics.destroy(); }
+    this.views.clear();
+    this.clips.clear();
   }
 
   private ensureView(slot: string, attachmentKey: string, textureKey: string, frame: string, uvs: number[], indices: number[]): MeshView {

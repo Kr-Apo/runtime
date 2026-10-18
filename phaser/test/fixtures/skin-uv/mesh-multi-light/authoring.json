@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "name": "mesh-multi-light",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "flat",
+      "file": "62/628ce6b407a64c1928c0c1e39d0607ddcdeed8fa6aa85ec580fe3a19f1722a3e.png",
+      "width": 16,
+      "height": 16,
+      "source_path": null
+    },
+    {
+      "name": "red",
+      "file": "40/40729a8f3018de2cd60c7468009c667d5ab1dec283020e811bf1dbab99cfa32a.png",
+      "width": 12,
+      "height": 20,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 1.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "host",
+      "parent": "root",
+      "length": 16.0,
+      "tx": 8.0,
+      "ty": 4.0,
+      "rotation": 15.000001,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "other",
+      "parent": "root",
+      "length": 16.0,
+      "tx": 20.0,
+      "ty": -8.0,
+      "rotation": -20.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "art",
+      "bone": "host",
+      "attachment": "shape",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "art"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "art",
+          "name": "shape",
+          "attachment": {
+            "type": "mesh",
+            "texture": "flat",
+            "vertices": [
+              -24.0,
+              24.0,
+              -24.0,
+              -24.0,
+              24.0,
+              -24.0,
+              24.0,
+              24.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": []
+          }
+        },
+        {
+          "slot": "art",
+          "name": "spare",
+          "attachment": {
+            "type": "mesh",
+            "texture": "red",
+            "vertices": [
+              -24.0,
+              24.0,
+              -24.0,
+              -24.0,
+              24.0,
+              -24.0,
+              24.0,
+              24.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "alternate",
+      "entries": [
+        {
+          "slot": "art",
+          "name": "shape",
+          "attachment": {
+            "type": "mesh",
+            "texture": "red",
+            "vertices": [
+              -16.0,
+              16.0,
+              -16.0,
+              -16.0,
+              16.0,
+              -16.0,
+              16.0,
+              16.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": []
+          }
+        },
+        {
+          "slot": "art",
+          "name": "spare",
+          "attachment": {
+            "type": "mesh",
+            "texture": "flat",
+            "vertices": [
+              -16.0,
+              16.0,
+              -16.0,
+              -16.0,
+              16.0,
+              -16.0,
+              16.0,
+              16.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": []
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "clip",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "other",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 24.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "host",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 30.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_attachment",
+          "slot": "art",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": "shape"
+            },
+            {
+              "time": 0.5,
+              "value": "spare"
+            },
+            {
+              "time": 0.75,
+              "value": "shape"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "editorCommit": "17d85aec3da14e82d3e7f1d5b65cea1844c8619c",
+  "height": 256,
+  "samples": [
+    {
+      "bones": [
+        {
+          "a": 1.0,
+          "b": 0.0,
+          "c": -1.7484555314695172e-7,
+          "d": 1.0,
+          "name": "root",
+          "tx": 128.00001525878906,
+          "ty": -128.0
+        }
+      ],
+      "config": {
+        "camera": {
+          "rotation": 0,
+          "scrollX": 0,
+          "scrollY": 0,
+          "zoom": 1
+        },
+        "root": {
+          "rotation": 0.0,
+          "scrollFactorX": 1,
+          "scrollFactorY": 1,
+          "sx": 1.0,
+          "sy": 1.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "file": "cpu-audit-0.png",
+      "index": 0,
+      "mode": "audit",
+      "probes": [
+        {
+          "label": "inside",
+          "x": 112.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "masked",
+          "x": 144.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "after",
+          "x": 176.00001525878906,
+          "y": 128.0
+        }
+      ],
+      "time": 0.0
+    },
+    {
+      "bones": [
+        {
+          "a": 1.0,
+          "b": 0.0,
+          "c": -1.7484555314695172e-7,
+          "d": 1.0,
+          "name": "root",
+          "tx": 130.00001525878906,
+          "ty": -128.0
+        }
+      ],
+      "config": {
+        "camera": {
+          "rotation": 0,
+          "scrollX": 0,
+          "scrollY": 0,
+          "zoom": 1
+        },
+        "root": {
+          "rotation": 0.0,
+          "scrollFactorX": 1,
+          "scrollFactorY": 1,
+          "sx": 1.0,
+          "sy": 1.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "file": "cpu-audit-1.png",
+      "index": 1,
+      "mode": "audit",
+      "probes": [
+        {
+          "label": "inside",
+          "x": 114.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "masked",
+          "x": 146.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "after",
+          "x": 178.00001525878906,
+          "y": 128.0
+        }
+      ],
+      "time": 0.25
+    },
+    {
+      "bones": [
+        {
+          "a": 1.0,
+          "b": 0.0,
+          "c": -1.7484555314695172e-7,
+          "d": 1.0,
+          "name": "root",
+          "tx": 132.00001525878906,
+          "ty": -128.0
+        }
+      ],
+      "config": {
+        "camera": {
+          "rotation": 0,
+          "scrollX": 0,
+          "scrollY": 0,
+          "zoom": 1
+        },
+        "root": {
+          "rotation": 0.0,
+          "scrollFactorX": 1,
+          "scrollFactorY": 1,
+          "sx": 1.0,
+          "sy": 1.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "file": "cpu-audit-2.png",
+      "index": 2,
+      "mode": "audit",
+      "probes": [
+        {
+          "label": "inside",
+          "x": 116.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "masked",
+          "x": 148.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "after",
+          "x": 180.00001525878906,
+          "y": 128.0
+        }
+      ],
+      "time": 0.5
+    },
+    {
+      "bones": [
+        {
+          "a": 1.0,
+          "b": 0.0,
+          "c": -1.7484555314695172e-7,
+          "d": 1.0,
+          "name": "root",
+          "tx": 134.00001525878906,
+          "ty": -128.0
+        }
+      ],
+      "config": {
+        "camera": {
+          "rotation": 0,
+          "scrollX": 0,
+          "scrollY": 0,
+          "zoom": 1
+        },
+        "root": {
+          "rotation": 0.0,
+          "scrollFactorX": 1,
+          "scrollFactorY": 1,
+          "sx": 1.0,
+          "sy": 1.0,
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "file": "cpu-audit-3.png",
+      "index": 3,
+      "mode": "audit",
+      "probes": [
+        {
+          "label": "inside",
+          "x": 118.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "masked",
+          "x": 150.00001525878906,
+          "y": 112.0
+        },
+        {
+          "label": "after",
+          "x": 182.00001525878906,
+          "y": 128.0
+        }
+      ],
+      "time": 0.75
+    }
+  ],
+  "width": 256
+}

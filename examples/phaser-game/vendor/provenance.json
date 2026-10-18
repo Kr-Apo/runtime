@@ -1,0 +1,28 @@
+{
+  "runtimeCodeCommit": "8888e0e74ad642818c076c6446cca3d9358dd05f",
+  "editorCommit": "25f3a301920a4139db16a7820c42bf5d7c15c822",
+  "packages": {
+    "core": "0.1.1",
+    "phaserAdapter": "0.1.0",
+    "phaser": "3.90.0"
+  },
+  "note": "M006.1 local snapshot including static dark tint, FFD timing, skin GPU UV and clipping fixes. No npm publication. Package labels alone do not identify these archives. Historical vendor archives are preserved.",
+  "sha256": {
+    "assets/walker/skeleton.json": "a11ccd47bd2c74ae9b9fcdfba17d6e8a04ee264353968f3fd8171dee11c0c777",
+    "assets/walker/atlas.png": "92629b1c003a7c47abff9b0769cd7fe7464f7f5555ef2aee84854b33dd217441",
+    "assets/tagged_rig/skeleton.json": "dc3cdaa3e947f6f71e55fabdf79ed0f41c0cf4b88236e48c9941f8106119baf5",
+    "assets/tagged_rig/atlas.png": "d25c0a9421c59ec7d4eb6036a968edc619f7fe550511961a34de84b856349434",
+    "vendor/ankhimate-runtime-0.1.1-m0061-8888e0e.tgz": "21b71f7e478371eae953a8a66054c265537ebfe0d78f25adb3b67cec28f4ddb4",
+    "vendor/ankhimate-phaser-runtime-0.1.0-m0061-8888e0e.tgz": "7a716605584fa049fd1fd132821bcdd19272779ef14aae2870d84c5e895833d1"
+  },
+  "rendererJavaScriptSha256": "0b96e7914fa3f0ec809a0842aee85ce600f01396f4382ac48db88bf15b99f778",
+  "snapshot": "m0061-8888e0e",
+  "editorReferenceCommit": "17d85aec3da14e82d3e7f1d5b65cea1844c8619c",
+  "codeFilesSha256": {
+    "core/src/types.ts": "208232c3774482d0f3f8120e37e5c0af441881681c85eaf3af7c741b41c0924d",
+    "core/src/rig.ts": "c8e061e99e8c99f6112435731a24a36f32e537c9e205d40eddec157e84903ff5",
+    "core/src/evaluate.ts": "ebf217d0182795440f4c040c492d50d9ff79543c725a923071e1b15569230eb2",
+    "phaser/src/phaser.ts": "d5eaa3e58ca3f765f279ecaa3673caabfb42748593db62aeac56d0afc343e3ed",
+    "phaser/src/dark-tint.ts": "3b2349051f7d1f15c28e8e39727b578d70e25d395c03575002718df3843d290b"
+  }
+}

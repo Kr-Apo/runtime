@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "name": "blend_screen",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "blue",
+      "file": "8f/8f6c50749ab211451a2f8692a6981046ed58acdddb3b0a61ad6584fb07be3b84.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "clear",
+      "file": "96/96b9fd127576d116f26f3b6e7cbebc722eab5f026bf4bcd65505699f7a9ac4de.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "edge",
+      "file": "a1/a17edd825a5914985e537d20ba3769ef973f34bd3779f53e3aa70ba6e99cf847.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    },
+    {
+      "name": "flat",
+      "file": "ce/cef400078e5689eb671c78c0d56ee026892e5a5805d93f0c033b0176d70ea8bc.png",
+      "width": 32,
+      "height": 32,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 8.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "tip",
+      "parent": "root",
+      "length": 8.0,
+      "tx": 8.0,
+      "ty": 4.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "back",
+      "bone": "root",
+      "attachment": "art",
+      "color": [
+        0.8,
+        0.7,
+        0.9,
+        0.6
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "front",
+      "bone": "tip",
+      "attachment": "art",
+      "color": [
+        0.7,
+        0.8,
+        0.6,
+        0.65
+      ],
+      "dark_color": null,
+      "blend_mode": "screen"
+    }
+  ],
+  "draw_order": [
+    "back",
+    "front"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "back",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "blue",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "front",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "flat",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "front",
+          "name": "switch",
+          "attachment": {
+            "type": "region",
+            "texture": "blue",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "name": "alternate",
+      "entries": [
+        {
+          "slot": "front",
+          "name": "art",
+          "attachment": {
+            "type": "region",
+            "texture": "blue",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 32.0,
+            "height": 32.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "clip",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 20.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.25,
+          "name": "quarter"
+        },
+        {
+          "time": 0.75,
+          "name": "three-quarter"
+        }
+      ]
+    },
+    {
+      "name": "relax",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -35.0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "time": 0.5,
+          "name": "relaxed"
+        }
+      ]
+    }
+  ]
+}

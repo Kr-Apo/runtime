@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "name": "weighted_complex",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "banner",
+      "file": "25/25d72fcfd1ea395b571bf44d1fa1124ac1c4a541b6849a068c616857d6769394.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "second",
+      "file": "67/673e7a9881bb1532856714de329e33428c69ee33c04f2accae40d7216a13fc76.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 8.0,
+      "tx": 3.0,
+      "ty": -4.0,
+      "rotation": 9.0,
+      "sx": -1.1,
+      "sy": 0.85,
+      "shear_x": 7.0,
+      "shear_y": -4.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "host",
+      "parent": "root",
+      "length": 20.0,
+      "tx": 4.0,
+      "ty": 5.0,
+      "rotation": 17.0,
+      "sx": 1.1,
+      "sy": 0.9,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "other",
+      "parent": "root",
+      "length": 16.0,
+      "tx": -8.0,
+      "ty": -3.0,
+      "rotation": -12.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "tip",
+      "parent": "other",
+      "length": 12.0,
+      "tx": 14.0,
+      "ty": 5.0,
+      "rotation": 22.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": -6.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "art",
+      "bone": "host",
+      "attachment": "shape",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        0.8
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "art"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "art",
+          "name": "shape",
+          "attachment": {
+            "type": "mesh",
+            "texture": "banner",
+            "vertices": [
+              -24.0,
+              24.0,
+              -30.0,
+              -16.0,
+              8.0,
+              -26.0,
+              30.0,
+              -4.0,
+              12.0,
+              28.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.6,
+              1.0,
+              1.0,
+              0.6,
+              0.8,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              4,
+              2,
+              3,
+              4
+            ],
+            "weights": [
+              [
+                [
+                  "host",
+                  0.25
+                ],
+                [
+                  "tip",
+                  0.75
+                ]
+              ],
+              [
+                [
+                  "host",
+                  0.25
+                ],
+                [
+                  "tip",
+                  0.75
+                ]
+              ],
+              [
+                [
+                  "host",
+                  0.25
+                ],
+                [
+                  "tip",
+                  0.75
+                ]
+              ],
+              [
+                [
+                  "host",
+                  0.25
+                ],
+                [
+                  "tip",
+                  0.75
+                ]
+              ],
+              [
+                [
+                  "host",
+                  0.25
+                ],
+                [
+                  "tip",
+                  0.75
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [],
+  "constraint_order": [],
+  "animations": [
+    {
+      "name": "clip",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "host",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 35.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "tip",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -28.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_scale",
+          "bone": "host",
+          "axis": "y",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 1.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 1.25,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_shear",
+          "bone": "other",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": 14.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "deform",
+          "slot": "art",
+          "attachment": "shape",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "offsets": [
+                2.0,
+                -2.2,
+                5.0,
+                -4.6000004,
+                8.0,
+                -1.0,
+                11.0,
+                -3.4,
+                3.5,
+                -5.8,
+                6.5,
+                -2.2,
+                9.5,
+                -4.6000004,
+                2.0,
+                -1.0,
+                5.0,
+                -3.4,
+                8.0,
+                -5.8
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                1.2,
+                0.8,
+                -0.1
+              ]
+            },
+            {
+              "time": 1.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "relax",
+      "duration": 1.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "host",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "value": -25.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "deform",
+          "slot": "art",
+          "attachment": "shape",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "offsets": [
+                -1.4,
+                1.54,
+                -3.5,
+                3.2200003,
+                -5.6,
+                0.7,
+                -7.7,
+                2.38,
+                -2.45,
+                4.06,
+                -4.5499997,
+                1.54,
+                -6.65,
+                3.2200003,
+                -1.4,
+                0.7,
+                -3.5,
+                2.38,
+                -5.6,
+                4.06
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 1.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
