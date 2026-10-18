@@ -1,9 +1,17 @@
-# Ankhimate runtime
+# Ankhimate — Kr-Apo Community Fork (Unofficial)
+
+This is a community-developed derivative maintained independently by Kr-Apo.
+The original projects are [Ankhimate/editor](https://github.com/Ankhimate/editor)
+and [Ankhimate/runtime](https://github.com/Ankhimate/runtime).
+This derivative is not officially endorsed or maintained by the upstream
+Ankhimate organization. Original MIT OR Apache-2.0 licensing, copyrights and
+third-party attribution requirements are preserved. Naming identifies upstream
+origin; no upstream trademark license or endorsement is claimed.
 
 TypeScript animation evaluation and game adapters for native Ankhimate exports.
 The experimental public alpha pairs the **Windows editor with PixiJS 8 / WebGL2**.
 
-**[Editor and alpha download](https://github.com/Ankhimate/ankhimate/releases/tag/alpha-2026.10.18-rc2)** ·
+**[Editor and alpha download](https://github.com/Kr-Apo/ankhimate/releases/tag/alpha-2026.10.18-rc2)** ·
 **[Integration guide](docs/alpha/PIXIJS_INTEGRATION.md)** ·
 **[Compatibility matrix](docs/alpha/RUNTIME_COMPATIBILITY.md)**
 
@@ -68,7 +76,7 @@ and WebGL1 are not certified. Consult the matrix before making capability claims
 Use Node.js 22 or later and the committed npm lockfile.
 
 ```sh
-git clone https://github.com/Ankhimate/ankhimate-runtime.git
+git clone https://github.com/Kr-Apo/ankhimate-runtime.git
 cd ankhimate-runtime
 npm ci
 npm run build

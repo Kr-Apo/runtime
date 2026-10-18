@@ -47,12 +47,12 @@ clipping have separate historical qualification evidence, not a new Jade demo.
 
 ## Documentation and source
 
-- [Getting Started](https://github.com/Ankhimate/ankhimate/blob/main/docs/alpha/GETTING_STARTED.md)
-- [PixiJS Integration](https://github.com/Ankhimate/ankhimate-runtime/blob/main/docs/alpha/PIXIJS_INTEGRATION.md)
-- [Compatibility](https://github.com/Ankhimate/ankhimate-runtime/blob/main/docs/alpha/RUNTIME_COMPATIBILITY.md)
-- [Native v2](https://github.com/Ankhimate/ankhimate-runtime/blob/main/docs/alpha/FORMAT_V2.md)
-- [Troubleshooting](https://github.com/Ankhimate/ankhimate/blob/main/docs/alpha/TROUBLESHOOTING.md)
-- [Runtime source](https://github.com/Ankhimate/ankhimate-runtime) Â· [Editor source](https://github.com/Ankhimate/ankhimate)
+- [Getting Started](https://github.com/Kr-Apo/ankhimate/blob/main/docs/alpha/GETTING_STARTED.md)
+- [PixiJS Integration](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/alpha/PIXIJS_INTEGRATION.md)
+- [Compatibility](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/alpha/RUNTIME_COMPATIBILITY.md)
+- [Native v2](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/alpha/FORMAT_V2.md)
+- [Troubleshooting](https://github.com/Kr-Apo/ankhimate/blob/main/docs/alpha/TROUBLESHOOTING.md)
+- [Runtime source](https://github.com/Kr-Apo/ankhimate-runtime) Â· [Editor source](https://github.com/Kr-Apo/ankhimate)
 
 The same integration guides are inside the ZIP. Its review-era wording remains
 unchanged to preserve the tested bytes; this pre-release notice records the
@@ -70,11 +70,11 @@ their accepted evidence; not all were rerun during packaging or launch preparati
 
 ## Feedback and license
 
-Use the [bug template](https://github.com/Ankhimate/ankhimate/issues/new?template=bug_report.md). Include this
+Use the [bug template](https://github.com/Kr-Apo/ankhimate/issues/new?template=bug_report.md). Include this
 distribution identifier, environment, exact steps and a minimal original
 reproduction you may publish. Redact personal paths; never attach credentials,
 private projects or proprietary assets. For vulnerabilities, read
-[SECURITY](https://github.com/Ankhimate/ankhimate/blob/main/SECURITY.md) and use private reporting.
+[SECURITY](https://github.com/Kr-Apo/ankhimate/blob/main/SECURITY.md) and use private reporting.
 
 Ankhimate code is MIT OR Apache-2.0. The archive includes complete dependency,
 font and toolchain notices plus Jade Sentinel's MIT asset grant. Preserve them

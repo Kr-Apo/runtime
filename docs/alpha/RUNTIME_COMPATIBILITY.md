@@ -55,5 +55,5 @@ accepted evidence. A clean-machine trial of this exact ZIP is a separate gate.
 
 ---
 Source-tree note: file locations and runnable browser examples above refer to
-the extracted RC2 archive. Download the [complete alpha archive](https://github.com/Ankhimate/ankhimate/releases/download/alpha-2026.10.18-rc2/Ankhimate-Editor-PixiJS-Alpha-RC2.zip).
+the extracted RC2 archive. Download the [complete alpha archive](https://github.com/Kr-Apo/ankhimate/releases/download/alpha-2026.10.18-rc2/Ankhimate-Editor-PixiJS-Alpha-RC2.zip).
 Source files here document that same API; GitHub does not execute the demo.
