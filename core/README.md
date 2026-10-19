@@ -1,3 +1,5 @@
+> **T-811 local candidate:** proposed 0.2.0-alpha.1. Install the matching core and adapter tarballs together; no npm publication. 125 headless pixel comparisons passed on one configuration, 104 exact. See the [candidate integration guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/RUNTIME_INTEGRATION.md).
+
 # `@ankhimate/runtime`
 
 Framework-independent TypeScript support for Ankhimate data and animation.
@@ -131,8 +133,8 @@ node scripts/check-rust-strings.mjs C:/path/to/editor C:/path/to/cargo.exe
 ## Boundaries
 
 For a reproducible game using the tested local artifacts, see the
-[PSD → Phaser integration guide](../docs/psd-to-phaser.md) and
-[standalone example](../examples/phaser-game/). A package's version label alone
+[PSD → Phaser integration guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/psd-to-phaser.md) and
+[standalone example](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-game). A package's version label alone
 does not identify the unreleased M003.2 source; the example records archive
 integrities and the renderer source commit.
 

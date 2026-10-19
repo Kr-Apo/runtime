@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {policy,compare,png} from './parity-pixels.mjs';
+import {decodeOraclePng} from '../pixi/test/oracle-png.mjs';
+const filled=(w=20,h=20,rgba=[80,60,40,255])=>Buffer.from(Array(w*h).fill(rgba).flat());
+test('parity: identical nonempty raw framebuffers pass',()=>{const a=filled();const r=compare(a,a,20,20,false);assert.equal(r.status,'PASS');assert.equal(r.differentPixels,0);assert.equal(r.foreground.pixi,400);});
+test('parity: identical empty images are not pixel evidence',()=>{assert.equal(compare(filled(20,20,[0,0,0,0]),filled(20,20,[0,0,0,0]),20,20,false).status,'NOT RUN');});
+test('parity: a uniform colour error is a difference',()=>{const a=filled(),b=filled(20,20,[90,60,40,255]);const r=compare(a,b,20,20,false);assert.equal(r.status,'DIFFERENCE');assert.equal(r.uniformPixelsOutsideTolerance,400);assert.equal(r.maxChannelDifference[0],10);});
+test('parity: uniform alpha error cannot be hidden by image background',()=>{const a=filled(),b=filled(20,20,[80,60,40,230]);const r=compare(a,b,20,20,false);assert.equal(r.status,'DIFFERENCE');assert.equal(r.alphaDifferentPixels,400);});
+test('parity: edge allowance uses foreground, not the whole canvas',()=>{const a=filled(20,20,[0,0,0,0]),b=Buffer.from(a);for(let i=0;i<20;i++)for(let c=0;c<4;c++)a[i*4+c]=[80,60,40,255][c];a.copy(b);b[3]=128;const r=compare(a,b,20,20,false);assert.equal(r.foreground.union,20);assert.equal(r.largeDifferenceFractionOfForeground,.05);assert.equal(r.status,'DIFFERENCE');});
+test('parity: source PNG view unpremultiplies while raw metrics remain untouched',()=>{const raw=filled(4,4,[20,40,60,128]),before=Buffer.from(raw),decoded=decodeOraclePng(png(4,4,raw));assert.deepEqual([...decoded.rgba.slice(0,4)],[40,80,120,128]);assert.deepEqual(raw,before);assert.equal(policy.uniformChannelTolerance,3);assert.equal(policy.maxLargeEdgeFractionOfForeground,.02);});

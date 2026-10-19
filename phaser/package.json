@@ -1,10 +1,10 @@
 {
   "name": "@ankhimate/phaser-runtime",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha.1",
   "description": "Phaser 3 playback for Ankhimate runtime exports",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ankhimate/runtime.git",
+    "url": "git+https://github.com/Kr-Apo/ankhimate-runtime.git",
     "directory": "phaser"
   },
   "type": "module",
@@ -26,10 +26,10 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && npm run typecheck"
+    "test": "npm run build && npm run typecheck && node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@ankhimate/runtime": "0.1.1"
+    "@ankhimate/runtime": "0.2.0-alpha.1"
   },
   "peerDependencies": {
     "phaser": ">=3.80 <4"
@@ -39,5 +39,9 @@
     "phaser": "3.90.0",
     "typescript": "^5.9.3"
   },
-  "license": "MIT OR Apache-2.0"
+  "license": "MIT OR Apache-2.0",
+  "homepage": "https://github.com/Kr-Apo/ankhimate-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/Kr-Apo/ankhimate-runtime/issues"
+  }
 }

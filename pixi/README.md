@@ -1,8 +1,16 @@
+> **T-811 local candidate:** proposed 0.2.0-alpha.1. Install the matching core and adapter tarballs together; no npm publication. 125 headless pixel comparisons passed on one configuration, 104 exact. See the [candidate integration guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/RUNTIME_INTEGRATION.md).
+
+> T-810 source note: pure geometry and playback helpers now live in
+> `@ankhimate/runtime/render`, with the public Pixi API preserved. Source import
+> maps need that entry. [Parity matrix](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/PHASER-PIXI-PARITY.md) distinguishes
+> deterministic non-regression from new Phaser manual qualification. Frozen RC2
+> modules are unchanged; do not mix local package snapshots with that bundle.
+
 # Ankhimate / PixiJS — regions, playback and meshes (T-604b.1–b.3)
 
-Private local workspace, version 0.0.0. Not a published package or a full runtime
-fidelity claim. Reuses `@ankhimate/runtime` 0.1.1 and its `RigPlayer`. The separately
-reviewed [shared boundary corrections](../docs/shared-playback-boundaries.md)
+Private local candidate, proposed version 0.2.0-alpha.1. Not a published package or a full runtime
+fidelity claim. Reuses the matching `@ankhimate/runtime` 0.2.0-alpha.1 and its `RigPlayer`. The separately
+reviewed [shared boundary corrections](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/shared-playback-boundaries.md)
 align negative half turns, event order and time-zero handling with Rust.
 PixiJS is pinned to **8.17.0** in the npm workspace lock. WebGL only is qualified;
 the example explicitly selects it. The measured backend is WebGL2; WebGL1
@@ -294,7 +302,7 @@ by the rig's declared skins. The 600-change stress tests count GL buffer,
 texture and program operations after warming **all** exercised skins/pages.
 They demonstrate bounded live resources in those cases, not total VRAM stability.
 
-See [b.4.1 validation](../docs/T604b41-validation.md) for measured results,
+See [b.4.1 validation](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/T604b41-validation.md) for measured results,
 quantization differences and exclusions. Clipping qualification is described below.
 
 ## Evidence and fixtures
@@ -326,7 +334,7 @@ topology/page changes. Its browser harness reads actual GPU buffers and pixels
 in 115 cases, including 600 repeated FFD renders without new GL buffers after
 warmup. The validation is limited to the measured fixtures and WebGL2 backend;
 it is not a performance or total GPU-memory guarantee.
-See [b.3 validation](../docs/T604b3-validation.md).
+See [b.3 validation](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/T604b3-validation.md).
 
 b.2 adds 20 real-browser cases: ten incremental clip samples, five crossfade
 samples, loop, event synchronization, two speeds, deterministic replay and the
@@ -336,7 +344,7 @@ Ten CPU frames, 15 Rust poses and seven event windows supply independent oracles
 The fade pixel oracle draws atlas pixels through the Rust-evaluated corners in
 Canvas2D; it is not a CPU-renderer fade reference. Geometry tolerance stays 0.01,
 UV 1e-6, flat RGB 2/255, alpha 1/255, edges <=2% of canvas. Performance and
-WebGL1 remain unqualified. See [b.2 validation](../docs/T604b2-validation.md).
+WebGL1 remain unqualified. See [b.2 validation](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/T604b2-validation.md).
 
 API reference used for this adapter: [PixiJS MeshGeometry 8.17.0](https://pixijs.download/v8.17.0/docs/scene.MeshGeometry.html)
 and [Mesh 8.17.0](https://pixijs.download/v8.17.0/docs/scene.Mesh.html). Only the
@@ -379,7 +387,7 @@ ends, mask disappearance, outside/full masks and a thin triangle. Geometric and
 GPU/UV checks use independent Rust poses/clipped geometry; sampled CPU PNGs use
 the unchanged 2/255 RGB, 1/255 alpha and 2% edge bounds. Fade checks are numeric
 and GPU checks, not independent CPU fade images. WebGL2 hardware and these
-fixtures only are qualified. See [the validation report](../docs/T604b42-validation.md).
+fixtures only are qualified. See [the validation report](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/T604b42-validation.md).
 
 Changing clipped topology currently replaces the slot geometry and frees its
 old buffers; equal lengths reuse it. The CPU clipping cost grows with source

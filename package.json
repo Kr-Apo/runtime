@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces",
-    "test": "npm run test --workspaces && node scripts/check-phaser-fixtures.mjs && node scripts/check-dark-tint-fixtures.mjs && node scripts/check-skin-uv-fixtures.mjs && node scripts/check-clipping-fixtures.mjs",
+    "test": "npm run test --workspaces && node scripts/check-phaser-fixtures.mjs && node scripts/check-dark-tint-fixtures.mjs && node scripts/check-skin-uv-fixtures.mjs && node scripts/check-clipping-fixtures.mjs && node --test scripts/parity-pixels.test.mjs",
     "typecheck": "npm run typecheck --workspaces",
     "test:webgl": "npm run build && node scripts/test-webgl.mjs",
     "test:dark-tint": "npm run build && node scripts/test-dark-tint.mjs",
@@ -22,7 +22,10 @@
     "example:pixi-playback": "node examples/pixi-playback/server.mjs",
     "test:pixi-meshes": "npm run build && node scripts/test-pixi-meshes.mjs",
     "test:pixi-appearance": "npm run build && node scripts/test-pixi-appearance.mjs",
-    "test:pixi-clipping": "npm run build && node scripts/test-pixi-clipping.mjs"
+    "test:pixi-clipping": "npm run build && node scripts/test-pixi-clipping.mjs",
+    "example:parity": "node examples/phaser-pixi-parity/server.mjs",
+    "check:syntax": "node scripts/check-source-syntax.mjs",
+    "test:parity": "npm run build && node scripts/test-parity-headless.mjs"
   },
   "devDependencies": {
     "playwright": "1.58.2"

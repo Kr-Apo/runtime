@@ -8,68 +8,59 @@ Ankhimate organization. Original MIT OR Apache-2.0 licensing, copyrights and
 third-party attribution requirements are preserved. Naming identifies upstream
 origin; no upstream trademark license or endorsement is claimed.
 
-TypeScript animation evaluation and game adapters for native Ankhimate exports.
-The experimental public alpha pairs the **Windows editor with PixiJS 8 / WebGL2**.
+TypeScript native animation evaluation and game adapters. **T-811 is an unpublished
+local candidate**, proposed as 0.2.0-alpha.1 for all three npm packages. Install
+matching candidate archives together; never substitute the public RC2 core.
 
-**[Editor and alpha download](https://github.com/Kr-Apo/ankhimate/releases/tag/alpha-2026.10.18-rc2)** ·
-**[Integration guide](docs/alpha/PIXIJS_INTEGRATION.md)** ·
-**[Compatibility matrix](docs/alpha/RUNTIME_COMPATIBILITY.md)**
-
-## Packages and scope
-
-| Workspace | Version | Purpose |
+| Package | Proposed version | Tested engine |
 |---|---|---|
-| `core` / `@ankhimate/runtime` | 0.1.1 | Shared parsing, pose evaluation and playback primitives; v1/v2 reader |
-| `pixi` / `@ankhimate/pixi-runtime` | 0.0.0, private workspace | Qualified alpha adapter for explicit native v2, PixiJS 8.17.0, desktop WebGL2 |
-| `phaser` | See its package manifest | Retained source adapter and historical regressions; outside the distributed alpha qualification |
+| `@ankhimate/runtime` | 0.2.0-alpha.1 | Framework independent; v1/v2 reader, shared render helpers |
+| `@ankhimate/pixi-runtime` | 0.2.0-alpha.1 (private local package) | PixiJS 8.17.0, WebGL2 |
+| `@ankhimate/phaser-runtime` | 0.2.0-alpha.1 | Phaser 3.90.0, actual WebGL1 context in headless T-811 |
 
-No PixiJS npm package has been published by this release. Do not assume an npm
-registry package with a similar version is the exact qualified checkpoint.
-The distribution identifier `alpha-2026.10.18-rc2` is independent of these component versions.
+The documented common v2 profile covers regions, weighted meshes/FFD, trim and
+multi-page atlases, compatible skins, sequential clipping, light/static dark tint,
+Normal composition, events and distinct-clip crossfades. Constraints, physics,
+linked meshes, rotated atlases and other blend modes remain outside it.
 
-## Start with the shipped example
+## Evidence and limits
 
-Download the complete Windows alpha from the editor release, extract it and run
-`Start-Demo.exe`. Jade Sentinel is its only official sample. The local demo has
-two independent characters, looping/one-shot playback, fades, events and cleanup;
-it needs no developer toolchain or external downloads. Source `examples/` and
-fixture rigs are development harnesses, not additional official alpha examples.
+T-810: 219 Node tests and 457 unchanged Pixi data snapshots. T-811 adds six pixel
+comparator unit tests and **125 actual headless framebuffer comparisons, 104 exact**,
+plus 20 logical lifecycle cleanups. DPR 1, 640×520, no framebuffer AA, linear texture
+filtering, local unchanged native exports. Browser/GL versions and all per-case
+metrics are recorded in the delivered parity report. One transformed clipping
+contour pixel differs by alpha 64, within the predeclared edge bound. These results
+are specific to one ANGLE/NVIDIA configuration, not broad GPU qualification.
 
-## Integrate using public APIs
+No new runtime feature or product renderer correction was required in T-811.
+No inference or interactive editor/desktop automation was run. An interactive GPU
+review remains required via `npm run example:parity`. Historical RC2 and its narrower
+public scope are unchanged. Read [features](docs/FEATURES.md),
+[limitations](docs/KNOWN_LIMITATIONS.md), [integration](docs/RUNTIME_INTEGRATION.md),
+[readiness](docs/RELEASE_READINESS.md) and [changelog](CHANGELOG.md).
 
-The archive provides an import map and [complete runnable example](docs/alpha/minimal.mjs).
-Resolve `pixi.js`, `@ankhimate/runtime`, `@ankhimate/pixi-runtime` and `fflate`
-using those shipped modules, or configure your own build from this source tree.
-Serve assets over HTTP; `file://` is not supported by the demo loader.
+## Public API example
 
 ```js
 import { loadPixiRig } from '@ankhimate/pixi-runtime';
-
 const asset = await loadPixiRig('/characters/sentinel/skeleton.json');
 const instance = asset.createInstance({ skin: 'default' });
-app.stage.addChild(instance.root); // app is an initialized PixiJS WebGL2 Application
+app.stage.addChild(instance.root);
 instance.playback.play('idle', { loop: true });
 const off = instance.playback.onEvent(event => console.log(event.name));
 const tick = ticker => instance.playback.update(ticker.deltaMS / 1000);
 app.ticker.add(tick);
-
-// During scene cleanup:
-app.ticker.remove(tick);
-off();
-app.stage.removeChild(instance.root);
-instance.destroy();
-asset.destroy(); // after every instance has been destroyed
+// Cleanup before destroying the asset:
+app.ticker.remove(tick); off(); instance.destroy(); asset.destroy();
 ```
 
-See [ownership, error handling and complete cleanup](docs/alpha/PIXIJS_INTEGRATION.md).
-Use `setSkin(name)` for a compatible authored skin; Jade itself authors only
-default. Events at t=0 are ignored at startup and on each loop. Interrupted
-crossfades can visibly jump because they do not snapshot the displayed mixture.
-
-The qualified subset includes bones, regions, weighted meshes, FFD, Normal
-light/static dark tint, compatible skins and sequential clipping. Unsupported
-constraints, linked meshes and non-Normal blending are rejected. Mobile, WebGPU
-and WebGL1 are not certified. Consult the matrix before making capability claims.
+Phaser uses `new PhaserRig(scene, raw, { pageTextureKeys })`, then
+`rig.playback.play(name)` / `rig.playback.update(seconds)`. Legacy `rig.update(ms)`
+is retained. Use `setTime(clip, time)` for direct sampling and `setSkin(name)` for a
+compatible authored skin. Time-zero events are ignored each loop; interrupted
+crossfades can jump. Asset ownership and complete loading are documented in the
+[integration guide](docs/RUNTIME_INTEGRATION.md).
 
 ## Build and test from source
 

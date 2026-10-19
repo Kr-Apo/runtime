@@ -1,18 +1,44 @@
 {
   "name": "@ankhimate/pixi-runtime",
-  "version": "0.0.0",
+  "version": "0.2.0-alpha.1",
   "private": true,
-  "description": "Initial region-only Ankhimate adapter for PixiJS v8 WebGL",
+  "description": "Ankhimate native v2 adapter for PixiJS 8 WebGL2",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build && node --test test/*.test.mjs && node ../scripts/check-pixi-fixtures.mjs"
   },
-  "dependencies": { "@ankhimate/runtime": "0.1.1", "pixi.js": "8.17.0" },
-  "devDependencies": { "@types/node": "26.2.0", "typescript": "5.9.3" },
-  "license": "MIT OR Apache-2.0"
+  "dependencies": {
+    "@ankhimate/runtime": "0.2.0-alpha.1",
+    "pixi.js": "8.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.2.0",
+    "typescript": "5.9.3"
+  },
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kr-Apo/ankhimate-runtime.git",
+    "directory": "pixi"
+  },
+  "homepage": "https://github.com/Kr-Apo/ankhimate-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/Kr-Apo/ankhimate-runtime/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+  ]
 }

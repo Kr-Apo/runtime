@@ -1,3 +1,20 @@
+# T-811 candidate context (unpublished)
+
+Proposed Editor/Core/Phaser/PixiJS version: 0.2.0-alpha.1, local review only.
+Use matching candidate package archives and the core/render import-map subpath.
+The public RC2 remains unchanged. This candidate adds native approved AI tools,
+consented viewport vision, mesh-weight assistance and simple external-FFmpeg MP4.
+125 actual headless framebuffer comparisons passed fixed thresholds (104 exact)
+on one ANGLE/NVIDIA configuration; manual GUI and broad GPU review remain distinct.
+No model/FFmpeg is bundled. Do not infer unsupported runtime constraints/blends.
+Jade Sentinel is unchanged RC2; the maintainer's unsaved Qwen edits are not included.
+
+- [Candidate features](docs/FEATURES.md)
+- [Limitations](docs/KNOWN_LIMITATIONS.md)
+- [Readiness](docs/RELEASE_READINESS.md)
+
+## Historical RC2 context follows
+
 # Ankhimate — Windows + PixiJS experimental alpha
 
 > The editor authors projects; the TypeScript core evaluates native exports and
