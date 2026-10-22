@@ -1,3 +1,5 @@
+> **Historical frozen Alpha documentation.** Former Kr-Apo fork URLs were removed and are not current installation/download endpoints. T838 creates no replacement repositories; see the current root README and local preparation guide. Retained bodies below document their original artifacts, not product0.1.5.
+
 # Alpha documentation
 
 This documentation describes the files shipped in this Windows candidate. Component

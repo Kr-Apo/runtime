@@ -1,42 +1,7 @@
-# T-811 candidate context (unpublished)
+# Ankhimate runtime — local T838 preparation
 
-Proposed Editor/Core/Phaser/PixiJS version: 0.2.0-alpha.1, local review only.
-Use matching candidate package archives and the core/render import-map subpath.
-The public RC2 remains unchanged. This candidate adds native approved AI tools,
-consented viewport vision, mesh-weight assistance and simple external-FFmpeg MP4.
-125 actual headless framebuffer comparisons passed fixed thresholds (104 exact)
-on one ANGLE/NVIDIA configuration; manual GUI and broad GPU review remain distinct.
-No model/FFmpeg is bundled. Do not infer unsupported runtime constraints/blends.
-Jade Sentinel is unchanged RC2; the maintainer's unsaved Qwen edits are not included.
+Original upstream: https://github.com/Ankhimate/runtime
+Future community Editor/Runtime URLs unset; do not use deleted former fork installation URLs. Product0.1.5 is separate from unchanged runtime package0.2.0-alpha.1. Nativev2 subset only, PathPosition unsupported.
 
-- [Candidate features](docs/FEATURES.md)
-- [Limitations](docs/KNOWN_LIMITATIONS.md)
-- [Readiness](docs/RELEASE_READINESS.md)
-
-## Historical RC2 context follows
-
-# Ankhimate — Windows + PixiJS experimental alpha
-
-> The editor authors projects; the TypeScript core evaluates native exports and
-> the PixiJS adapter renders only the documented native v2 WebGL2 subset.
-
-## Start here
-- [Getting Started](docs/alpha/GETTING_STARTED.md)
-- [PixiJS public APIs and ownership](docs/alpha/PIXIJS_INTEGRATION.md)
-- [Compatibility and exclusions](docs/alpha/RUNTIME_COMPATIBILITY.md)
-- [Native runtime v2](docs/alpha/FORMAT_V2.md)
-- [Troubleshooting](docs/alpha/TROUBLESHOOTING.md)
-- [AI integration context](docs/alpha/AI_INTEGRATION_CONTEXT.md)
-- [Licenses](docs/ALPHA-LICENSES.md)
-
-## Rules for integrations
-Use real public APIs; do not invent constraint, blend, linked-mesh or audio support.
-Core v1 reading does not mean the PixiJS adapter accepts v1. Do not invert export
-coordinates, change normalized curves or reinterpret weighted FFD offsets.
-Events at t=0 are ignored on startup and every loop. Interrupted crossfades may
-jump. Explicitly clean up instances before their asset. Jade Sentinel is the only
-official sample. No AI model is bundled or required.
-
-## Repositories
-- [Editor](https://github.com/Kr-Apo/ankhimate)
-- [Runtime](https://github.com/Kr-Apo/ankhimate-runtime)
+README.md
+docs/t838-editor-compatibility.md

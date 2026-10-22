@@ -1,4 +1,6 @@
-> **T-811 local candidate:** proposed 0.2.0-alpha.1. Install the matching core and adapter tarballs together; no npm publication. 125 headless pixel comparisons passed on one configuration, 104 exact. See the [candidate integration guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/RUNTIME_INTEGRATION.md).
+> **T838 local preparation:** package versions are unchanged. Former fork destinations are historical; no replacement URL is created. Read the root README and docs/t838-editor-compatibility.md before following historical installation instructions below.
+
+> **T-811 local candidate:** proposed 0.2.0-alpha.1. Install the matching core and adapter tarballs together; no npm publication. 125 headless pixel comparisons passed on one configuration, 104 exact. See the candidate integration guide (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/RUNTIME_INTEGRATION.md`; new destination pending).
 
 # Ankhimate Phaser runtime
 
@@ -9,7 +11,7 @@ Framework-independent parsing, evaluation, playback, constraints, and runtime
 types live in `@ankhimate/runtime`. This package adds only the Phaser WebGL
 renderer adapter and re-exports the core API for compatibility.
 
-**T-810 source checkpoint:** see [Phaser/Pixi parity](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/PHASER-PIXI-PARITY.md)
+**T-810 source checkpoint:** see Phaser/Pixi parity (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/PHASER-PIXI-PARITY.md`; new destination pending)
 for the common native-v2 subset, new playback controller, safe pose/skin checks,
 trim/texel-centre fixes and the manual dual-engine bench. Deterministic Node
 qualification is separate from the T-811 measured WebGL headless suite (interactive GPU review remains pending).
@@ -88,8 +90,8 @@ synthetic UV, alpha, draw-order and v1/v2 probes. M005.3b additionally transport
 static `dark_color` RGBA from the M005.3a native preset and renders it with a
 dedicated Phaser SinglePipeline. Normal composition is qualified on regions,
 an unweighted mesh, four atlas pages, animated light tint and filtered transparent
-borders in Phaser 3.90.0 on Windows. See [dark-tint qualification](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/dark-tint.md)
-and the independent [dark-tint example](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-dark-tint).
+borders in Phaser 3.90.0 on Windows. See dark-tint qualification (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/dark-tint.md`; new destination pending)
+and the independent dark-tint example (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-dark-tint`; new destination pending).
 Physics-driven native playback is incompatible, not merely untested. The
 M005.4b1/b2/b3 reports qualify their specific FFD, skin and clipping scenarios;
 arbitrary weighted/linked/concave and rotated/trimmed combinations remain outside
@@ -110,13 +112,13 @@ coordinates and use a positive scale; do not flip the camera or exported Y.
 
 ## Playable example and integration guide
 
-See [`examples/phaser-game`](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-game) for an independent,
+See `examples/phaser-game` (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-game`; new destination pending) for an independent,
 locked local game using the public API, the two real exports, movement,
 crossfades and observable footstep events. It includes locally packed tested
 runtime artifacts; it does not assume registry packages with the same version
 labels contain this correction.
 
-The [PSD → Phaser guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/psd-to-phaser.md) covers export, loading every
+The PSD → Phaser guide (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/psd-to-phaser.md`; new destination pending) covers export, loading every
 atlas page, animation, versions and known limits. The packages in this checkout
 remain core 0.1.1 / adapter 0.1.0; this is not an npm release.
 

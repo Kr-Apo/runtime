@@ -1,3 +1,5 @@
+> **T838 local preparation:** package versions are unchanged. Former fork destinations are historical; no replacement URL is created. Read the root README and docs/t838-editor-compatibility.md before following historical installation instructions below.
+
 # Candidate feature scope
 
 This document describes the **local T-811 / 0.2.0-alpha.1 proposal**, not the frozen
@@ -17,5 +19,5 @@ documents describe RC2 unless explicitly stated otherwise.
 | PixiJS 8.17.0 | Explicit native v2; regions, rigid/weighted meshes, FFD, trim, multi-page atlas, compatible skins, light/static dark tint, sequential clipping, Normal composition | WebGL2; 125 bounded dual-engine headless comparisons in T-811 |
 | Phaser 3.90.0 | Same documented common v2 subset, public high-level playback and legacy millisecond update | T-811 compared actual Phaser WebGL1 with PixiJS WebGL2 on one ANGLE/NVIDIA configuration; not universal GPU certification |
 
-See [limitations](KNOWN_LIMITATIONS.md), [AI](https://github.com/Kr-Apo/ankhimate/blob/main/docs/AI_ASSISTANT.md),
-[MP4](https://github.com/Kr-Apo/ankhimate/blob/main/docs/EXPORT-MP4.md), and [release readiness](RELEASE_READINESS.md).
+See [limitations](KNOWN_LIMITATIONS.md), AI (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate/blob/main/docs/AI_ASSISTANT.md`; new destination pending),
+MP4 (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate/blob/main/docs/EXPORT-MP4.md`; new destination pending), and [release readiness](RELEASE_READINESS.md).

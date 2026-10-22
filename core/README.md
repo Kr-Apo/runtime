@@ -1,4 +1,6 @@
-> **T-811 local candidate:** proposed 0.2.0-alpha.1. Install the matching core and adapter tarballs together; no npm publication. 125 headless pixel comparisons passed on one configuration, 104 exact. See the [candidate integration guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/RUNTIME_INTEGRATION.md).
+> **T838 local preparation:** package versions are unchanged. Former fork destinations are historical; no replacement URL is created. Read the root README and docs/t838-editor-compatibility.md before following historical installation instructions below.
+
+> **T-811 local candidate:** proposed 0.2.0-alpha.1. Install the matching core and adapter tarballs together; no npm publication. 125 headless pixel comparisons passed on one configuration, 104 exact. See the candidate integration guide (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/RUNTIME_INTEGRATION.md`; new destination pending).
 
 # `@ankhimate/runtime`
 
@@ -133,8 +135,8 @@ node scripts/check-rust-strings.mjs C:/path/to/editor C:/path/to/cargo.exe
 ## Boundaries
 
 For a reproducible game using the tested local artifacts, see the
-[PSD → Phaser integration guide](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/psd-to-phaser.md) and
-[standalone example](https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-game). A package's version label alone
+PSD → Phaser integration guide (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/docs/psd-to-phaser.md`; new destination pending) and
+standalone example (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate-runtime/blob/main/examples/phaser-game`; new destination pending). A package's version label alone
 does not identify the unreleased M003.2 source; the example records archive
 integrities and the renderer source commit.
 
