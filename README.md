@@ -1,11 +1,32 @@
-# Ankhimate Runtime — local fork preparation
+Ankhimate Runtimes
+Game-side animation runtimes for Ankhimate, written in TypeScript. Load exported skeletal animation data, evaluate poses and playback, and render supported rigs in PixiJS or Phaser.
 
-Kr-Apo Community Fork (Unofficial), derived from [Ankhimate/runtime](https://github.com/Ankhimate/runtime), MIT OR Apache-2.0 with upstream credits preserved. This T838 copy changes documentation only. The protected source checkpoint is c4c38df269cfcb30f941221454b7202f40d3fa5b; no new runtime release/package exists.
+This is the unofficial Kr-Apo community fork of Ankhimate/runtime. The source is public under MIT OR Apache-2.0, with upstream credits and third-party notices preserved.
+Status: early development / public source fork. The companion Ankhimate Editor v0.1.5 is available as a Windows pre-release. The runtime source has been published separately; no new npm release is implied. Runtime package versions remain 0.2.0-alpha.1 and must not be confused with the editor's product version.
 
-The compatible editor candidate is product0.1.5; this does not change npm versions: @ankhimate/runtime, @ankhimate/pixi-runtime and @ankhimate/phaser-runtime remain0.2.0-alpha.1. Native exportv2 and the v1/v2 reader contract are unchanged. See [editor/runtime compatibility and minimal loading](docs/t838-editor-compatibility.md) and the existing examples. PathPosition remains unsupported; do not bypass editor export refusals.
+Runtime packages
+Each runtime is a separate workspace package because rendering-engine APIs and release cycles differ.
+Package	Source	Purpose
+@ankhimate/runtime	core/	Framework-independent author-file/runtime-format parsing, animation evaluation, playback, events and pose data.
+@ankhimate/pixi-runtime	pixi/	PixiJS 8 adapter for the supported native runtime v2 subset; WebGL2 is the qualified rendering path.
+@ankhimate/phaser-runtime	phaser/	Phaser 3 WebGL adapter for the supported native runtime v2 subset.
 
-New community Editor/Runtime forks have not been created. Future URLs are intentionally unset. Do not use the deleted former Kr-Apo fork links as installation destinations. Existing package.json repository/homepage/bugs fields describe the historical packages and must be explicitly reviewed once new repository URLs are authorized, before any npm publication. No functional/package metadata/version change is made here.
 
-For an approved source clone: npm ci, npm run build, npm run typecheck, npm test. Graphics scripts and their prerequisites are separate opt-in qualification;37 protected precompiled core tests replayed in T838 are not a fresh full adapter build. Existing PixiJS8.17.0/Phaser3.90.0 qualification is bounded to its recorded fixtures. Advanced constraints/physics/linked meshes and arbitrary blending do not have universal parity. No new inference/GPU/hardware qualification is claimed.
-
-Retain LICENSE-MIT, LICENSE-APACHE and dependency/asset attributions. Source history and earlier README content remain in Git. No push, fork creation, tag, npm publish or release is authorized in this preparation.
+The core does not depend on the editor or a particular rendering engine. Adapters depend on the compatible core. The PixiJS package is marked private in this repository's package.json; source availability is not an npm publication.
+What works today
+- Portable animation core — read supported runtime format v1/v2 data, evaluate bone and slot poses, and inspect attachment state without a rendering engine.
+- Animation playback — play, pause, resume, stop, looping, per-instance time and speed, events, and bounded crossfades.
+- Transform timelines — compatible translation, rotation, scale and shear tracks, including native v2 independent axes and stepped/linear/Bezier sampling.
+- Slots and appearance — supported draw order, attachment changes, light color, static dark tint and compatible skin selection.
+- Meshes and deformation — rigid and weighted meshes, compatible FFD keys, multi-page atlases and tested clipping scenarios within the adapters' documented boundaries.
+- Engine integrations — separate PixiJS and Phaser implementations, examples and targeted parity/graphics tests.
+Implemented code paths are not a promise of identical output for every rig or graphics backend. See the [feature scope](docs/FEATURES.md), [known limitations](docs/KNOWN_LIMITATIONS.md) and [Phaser/PixiJS parity notes](docs/PHASER-PIXI-PARITY.md).
+Compatibility and current limits
+Editor v0.1.5 exports compatible game data using its native Data / atlas preset. The game runtime consumes the exported runtime JSON and atlas pages, not the editor's .ankh authoring project directly.
+- PathPosition is unsupported by the current game runtimes. The editor deliberately rejects incompatible runtime exports rather than silently dropping animation data.
+- Physics, advanced constraints, linked meshes, rotated atlas cases and arbitrary blend/mask combinations do not have universal runtime fidelity or qualification. Use the specific adapter and feature matrix.
+- PixiJS: the documented measured adapter targets PixiJS 8.17.0 / WebGL2. WebGPU and arbitrary WebGL1 fallbacks are not certified.
+- Phaser: the documented measured adapter targets Phaser 3.90.0 / WebGL. Phaser 4 and Canvas rendering are outside this qualification.
+- Playback boundaries: interrupted crossfades may jump; event-time-zero and skin/attachment compatibility have documented rules.
+- Evidence scope: T-838 reran 37 protected, precompiled TypeScript core tests. That is not a fresh build of every adapter, a new GPU campaign or a full cross-engine certification.
+Read [Editor v0.1.5 compatibility](docs/t838-editor-compatibility.md) for the source checkpoints and format versions. The runtime/npm version and editor/product version are independent.
