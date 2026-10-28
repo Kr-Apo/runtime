@@ -1,0 +1,2 @@
+# Tool source bytes are part of qualification identity; preserve them on checkout.
+* -text

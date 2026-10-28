@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {existsSync} from 'node:fs';test('standalone application controller exists',()=>assert(existsSync(new URL('./actor.mjs',import.meta.url))));

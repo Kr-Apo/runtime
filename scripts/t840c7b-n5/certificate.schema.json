@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ankhimate:browser-bounded:1",
+  "title": "Locally supervised Chrome CPU bounded result, not browser admission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "request",
+    "requestHash",
+    "status",
+    "coverage",
+    "tolerances",
+    "maxima",
+    "firstViolation",
+    "violations",
+    "nonfinite",
+    "equivalence",
+    "problems",
+    "proofs",
+    "exactDifferences",
+    "properties",
+    "scope",
+    "trust"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ankhimate.browser.bounded/1"
+    },
+    "request": {},
+    "requestHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "status": {
+      "enum": [
+        "QUALIFIED_BROWSER_BOUNDED",
+        "FAILED_NUMERICAL_PARITY",
+        "FAILED_NONFINITE",
+        "INVALID_INPUT",
+        "INCOMPLETE_EVIDENCE"
+      ]
+    },
+    "coverage": {},
+    "tolerances": {
+      "const": {
+        "localTranslation": 0.01,
+        "rotation": 0.001,
+        "scaleShear": 0.0001,
+        "worldLinear": 0.0001,
+        "worldTranslation": 0.01,
+        "angularVelocity": 0.001,
+        "linearVelocity": 0.01,
+        "anchor": 0.01
+      }
+    },
+    "maxima": {},
+    "firstViolation": {},
+    "violations": {},
+    "nonfinite": {},
+    "equivalence": {},
+    "problems": {},
+    "proofs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "sha256",
+          "bytes"
+        ]
+      }
+    },
+    "exactDifferences": {},
+    "properties": {},
+    "scope": {},
+    "trust": {}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "QUALIFIED_BROWSER_BOUNDED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "violations": {
+            "const": 0
+          },
+          "nonfinite": {
+            "maxItems": 0
+          },
+          "problems": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+import {validateMixingRig} from "@ankhimate/runtime";
+import {linkedMeshSources,linkedFfdSources} from "@ankhimate/runtime";
+import {validateComposedFfdRig} from '@ankhimate/runtime';
+import {validateSlotsEventsRig} from '@ankhimate/runtime';
+import {validateEventRig} from '@ankhimate/runtime';
+import {validateAnimatedSlotsRig} from '@ankhimate/runtime';
+import {slotSelection} from '../animated-slots/geometry.mjs';
+/** Dynamic graphic validation only. Never calculates numerical membership. */
+import{validateSource as fixedSource,weightedPoints,finite,requireThat}from'../bounded-pixi/geometry.mjs';
+import{resolve}from'../../scripts/t840c7c2-q1/projection.mjs';
+export{weightedPoints,finite,requireThat};
+const canonical=v=>v===null||typeof v!=='object'?JSON.stringify(v):Array.isArray(v)?'['+v.map(canonical).join(',')+']':'{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}';
+export function validateSource(rig,options){
+ if(options?.crossfade===true){requireThat((['animatedSlots,animationEvents,crossfade,weightedFfd','animatedSlots,animationEvents,crossfade,interruptible,weightedFfd'].includes(Object.keys(options).sort().join(','))&&Object.values(options).every(v=>v===true)||Object.keys(options).sort().join(',')==='crossfade,weightedFfd'&&options.weightedFfd===true||Object.keys(options).sort().join(',')==='crossfade,interruptible,weightedFfd'&&options.weightedFfd===true&&options.interruptible===true||Object.keys(options).sort().join(',')==='animatedSlots,animationEvents,crossfade,interruptible'&&options.animatedSlots===true&&options.animationEvents===true&&options.interruptible===true||Object.keys(options).sort().join(',')==='animatedSlots,animationEvents,crossfade'&&options.animatedSlots===true&&options.animationEvents===true||Object.keys(options).sort().join(',')==='animatedSlots,crossfade,interruptible'&&options.animatedSlots===true&&options.interruptible===true||Object.keys(options).sort().join(',')==='animatedSlots,crossfade'&&options.animatedSlots===true||Object.keys(options).join(',')==='crossfade'||Object.keys(options).sort().join(',')==='crossfade,interruptible'&&options.interruptible===true),'explicit crossfade only');validateMixingRig(rig,Object.keys(rig.animations)[0],options.animatedSlots===true,options.animationEvents===true,options.weightedFfd===true);return options.animatedSlots||options.weightedFfd?rig:fixedSource(rig);}
+ if(options?.linkedMeshes===true&&options?.weightedFfd===true){requireThat(Object.keys(options).sort().join(',')==='animatedSlots,linkedMeshes,weightedFfd'&&options.animatedSlots===true,'explicit linked+slots+FFD only');fixedSource(linkedFfdSources(rig,Object.keys(rig.animations)[0]).slots,{animatedSlots:true});return rig;}
+ if(options?.linkedMeshes===true){requireThat(Object.keys(options).sort().join(",")==="animatedSlots,linkedMeshes"&&options.animatedSlots===true,"explicit static linked+slots only");fixedSource(linkedMeshSources(rig,Object.keys(rig.animations)[0]),{animatedSlots:true});return rig;}
+ if(options?.weightedFfd===true&&options?.animatedSlots===true){requireThat(!options.animationEvents,'FFD+events excluded');validateComposedFfdRig(rig,Object.keys(rig.animations)[0],undefined,options.clipping===true);return fixedSource(rig,options);}
+ if(options?.clipping===true){requireThat(options.animatedSlots===true&&!options.animationEvents&&!options.weightedFfd,'explicit clipping+slots only');validateAnimatedSlotsRig(rig,Object.keys(rig.animations)[0],undefined,true);return fixedSource(rig,options);}
+ if(options?.animatedSlots===true&&options?.animationEvents===true){requireThat(!options.weightedFfd,'combined FFD');validateSlotsEventsRig(rig,Object.keys(rig.animations)[0]);return fixedSource(rig,options);}
+ if(options?.animationEvents===true){requireThat(!options.weightedFfd&&!options.animatedSlots,'combined channels');validateEventRig(rig,Object.keys(rig.animations)[0]);return fixedSource(rig,options);}
+ if(options?.animatedSlots===true){requireThat(options.weightedFfd!==true,'combined channels');validateAnimatedSlotsRig(rig,Object.keys(rig.animations)[0]);return fixedSource(rig,options);}
+ if(options?.weightedFfd===true)return fixedSource(rig,options);
+ requireThat(rig?.format_version===2&&rig.skins?.length>0&&new Set(rig.skins.map(s=>s.name)).size===rig.skins.length,'dynamic skins');
+ requireThat(rig.skins.some(s=>s.name===rig.defaultSkin),'default');
+ for(const skin of rig.skins){const view=structuredClone(rig),attachments=[];view.slots=view.slots.map(slot=>{const a=resolve(rig,skin.name,slot);if(a)attachments.push(structuredClone(a.entry));return{...slot,attachment:a?slot.attachment:null};});view.skins=[{...skin,name:rig.defaultSkin,attachments}];fixedSource(view);}
+ return rig;
+}
+export function validateFrame(snapshot,binding,rig,options){
+ const slots=options?.animatedSlots===true;
+ if(options?.linkedMeshes===true&&!options?.weightedFfd)requireThat(!snapshot.frame?.deformation,"inherited FFD is HOLD");
+ requireThat(snapshot?.sessionId===binding.sessionId&&snapshot.instanceId===binding.instanceId&&snapshot.qualificationId===binding.qualificationId&&snapshot.history===binding.history,'foreign session/history');requireThat(snapshot.admissionState==='ready'&&Number.isSafeInteger(snapshot.cursor),'unaccepted state');
+ const f=snapshot.frame;if(options?.crossfade)requireThat(f?.mixing?.kind===(options.weightedFfd&&options.animatedSlots&&options.animationEvents?(options.interruptible?'interruptible-integrated-crossfade/v1':'integrated-crossfade/v1'):options.weightedFfd?(options.interruptible?'interruptible-crossfade-ffd/v1':'crossfade-ffd/v1'):options.animationEvents?(options.interruptible?'interruptible-crossfade-slots-events/v1':'crossfade-slots-events/v1'):options.animatedSlots?(options.interruptible?'interruptible-crossfade-slots/v1':'crossfade-slots/v1'):options.interruptible?'interruptible-crossfade/v1':'crossfade/v1')&&f.mixing.tick===f.completed&&(options.weightedFfd?!!f.deformation:!f.deformation)&&(options.animatedSlots?!!f.slotState:!f.slotState)&&!snapshot.preview,'accepted crossfade identity/channel domain');if(!options?.crossfade)requireThat(!f?.mixing,'crossfade capability required');requireThat(f?.health==='healthy'&&(options?.crossfade?f.mixing?.activeClip===f.clip&&Object.hasOwn(rig.animations,f.clip):f.clip===binding.clip)&&f.completed===f.poseTick&&f.completed>=0n&&f.completed<=BigInt(binding.horizon)&&f.requested>=f.completed&&f.requested<=BigInt(binding.horizon)&&f.backlog===f.requested-f.completed,'clock/horizon');
+ if(slots){requireThat(!snapshot.preview,'slot preview forbidden');requireThat(canonical(snapshot.selection)===canonical(slotSelection(rig,f,options?.clipping===true,options?.linkedMeshes===true,options?.weightedFfd===true)),'accepted slot selection');}
+ const verify=(pose,selection)=>{
+  requireThat(binding.selections[pose.skin]&&(slots||canonical(selection)===canonical(binding.selections[pose.skin])),'approved selection');requireThat(pose.bones.length===rig.bones.length&&new Set(pose.bones.map(b=>b.name)).size===rig.bones.length&&rig.bones.every(b=>pose.bones.some(x=>x.name===b.name)),'bones');
+  for(const b of pose.bones)finite([b.x,b.y,b.rotation,b.scaleX,b.scaleY,b.shearX,b.shearY,b.world.a,b.world.b,b.world.c,b.world.d,b.world.tx,b.world.ty],'snapshot');
+  for(const desc of selection.attachments){const base=rig.slots.find(s=>s.name===desc.slot),slot=slots?{...base,attachment:pose.slotState.slots.find(s=>s.name===desc.slot).attachment}:base,found=resolve(rig,pose.skin,slot);requireThat((!found&&desc.type===null)||found&&found.owner===desc.owner&&found.entry.name===desc.name&&found.entry.attachment.type===desc.type&&(options?.clipping&&desc.type==='clipping'?desc.texture===null&&desc.page===null:found.entry.attachment.texture===desc.texture&&rig.atlas.regions.find(r=>r.name===desc.texture).page===desc.page),'native attachment/fallback');}
+ };
+ verify(f,snapshot.selection);requireThat(canonical(f.records.map(r=>r.constraint))===canonical(snapshot.selection.active),'accepted record membership');for(const rec of f.records)finite([rec.rotation,rec.x,rec.y,rec.rotationVelocity,rec.velocityX,rec.velocityY,rec.anchorX,rec.anchorY],'record');
+ if(snapshot.preview){const p=snapshot.preview;requireThat(f.state==='seek_preview'&&snapshot.history==='replay'&&p.tick===BigInt(binding.previewTick)&&p.epoch===f.epoch,'preview identity');verify(p,p.selection);return{...f,bones:p.bones,skin:p.skin,selection:p.selection};}
+ return{...f,selection:snapshot.selection};
+}

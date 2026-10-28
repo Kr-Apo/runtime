@@ -1,4 +1,4 @@
-import type { RuntimeAnimation, RuntimeRigData } from "./types.js";
+import type { PhysicsConstraint, RuntimeAnimation, RuntimeRigData } from "./types.js";
 
 export class RigFormatError extends Error {
   constructor(message: string) {
@@ -15,6 +15,23 @@ function object(value: unknown, label: string): asserts value is Record<string, 
 
 const SCALAR_AXES = ["translate_x", "translate_y", "scale_x", "scale_y", "shear_x", "shear_y"] as const;
 const PAIRED_AXES = ["translate", "scale", "shear"] as const;
+
+/** Native Physics.target is the driven bone, not a separate control bone.
+ * Retain the historical bones-only form when it names exactly one bone.
+ * Never guess which reference wins for contradictory or multi-bone input.
+ */
+export function physicsBone(constraint: PhysicsConstraint, boneNames: ReadonlySet<string>): string {
+  const { target, bones } = constraint;
+  if (typeof target !== "string" || !Array.isArray(bones) || bones.length > 1
+    || (target !== "" && bones.length === 1 && bones[0] !== target)) {
+    throw new RigFormatError(`physics ${JSON.stringify(constraint.name)}: ambiguous driven bone references`);
+  }
+  const name = target || bones[0];
+  if (typeof name !== "string" || !boneNames.has(name)) {
+    throw new RigFormatError(`physics ${JSON.stringify(constraint.name)}: missing driven bone`);
+  }
+  return name;
+}
 
 function scalarKeys(value: unknown, label: string): void {
   if (!Array.isArray(value)) throw new RigFormatError(`${label} must be an array`);
@@ -74,6 +91,14 @@ export function parseRig(source: string | unknown): RuntimeRigData {
     }
     boneNames.add(raw.name);
   });
+
+  // Validate both wire variants without rewriting the caller's rig data.
+  if (Array.isArray(value.constraints)) {
+    for (const raw of value.constraints) {
+      object(raw, "constraints[]");
+      if (raw.type === "physics") physicsBone(raw as unknown as PhysicsConstraint, boneNames);
+    }
+  }
 
   const slotNames = new Set<string>();
   value.slots.forEach((raw, index) => {

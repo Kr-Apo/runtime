@@ -1,0 +1,20 @@
+import {mkdir,readFile,writeFile,copyFile,symlink,rmdir,lstat} from 'node:fs/promises';
+import {resolve} from 'node:path';import {spawnSync} from 'node:child_process';import {fileURLToPath} from 'node:url';import assert from 'node:assert/strict';
+import {chromium} from 'playwright';import {serve,repository} from '../web-server.mjs';
+const out=resolve(process.argv[2]??'');if(!process.argv[2])throw Error('consumer.mjs NEW_OUTPUT');await mkdir(out);const project=resolve(out,'external-project');await mkdir(project);await mkdir(resolve(project,'node_modules/@ankhimate'),{recursive:true});
+for(const name of ['phaser-runtime','runtime'])await symlink(resolve(repository,name==='runtime'?'core':'phaser'),resolve(project,'node_modules/@ankhimate',name),'junction');
+for(const name of ['phaser','fflate'])await symlink(resolve(repository,'node_modules',name),resolve(project,'node_modules',name),'junction');
+await writeFile(resolve(project,'package.json'),'{"private":true,"type":"module"}\n');
+for(const name of ['consumer.ts','tsconfig.json'])await copyFile(resolve(repository,'scripts/t840c5a/external/Phaser',name),resolve(project,name));
+const typecheck=spawnSync(process.execPath,[resolve(repository,'node_modules/typescript/bin/tsc'),'-p',resolve(project,'tsconfig.json')],{encoding:'utf8'});await writeFile(resolve(out,'typecheck.log'),typecheck.stdout+typecheck.stderr);assert.equal(typecheck.status,0,typecheck.stdout+typecheck.stderr);
+const pkg=JSON.parse(await readFile(resolve(repository,'phaser/package.json'),'utf8')),entry=pkg.exports['./experimental-replay'];assert.equal(entry.import,'./dist/experimental-replay.js');assert.equal(entry.types,'./dist/experimental-replay.d.ts');
+const imports={'phaser':'/node_modules/phaser/dist/phaser.esm.js','@ankhimate/runtime':'/core/dist/index.js','@ankhimate/runtime/experimental-host-time':'/core/dist/replay-host-time.js','@ankhimate/runtime/render':'/core/dist/render/index.js','@ankhimate/phaser-runtime':'/phaser/dist/index.js','@ankhimate/phaser-runtime/experimental-replay':'/phaser/'+entry.import.replace('./',''),'fflate':'/node_modules/fflate/esm/browser.js'};
+const server=await serve();let browser;const rows=[];
+try{
+ browser=await chromium.launch({headless:true,executablePath:process.env.ANKHIMATE_BROWSER_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ const page=await browser.newPage(),errors=[],warnings=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='warning')warnings.push(m.text());if(m.type()==='error')errors.push(m.text());});
+ await page.route('**/external-consumer.mjs',route=>route.fulfill({contentType:'text/javascript',path:resolve(project,'build/consumer.js')}));
+ await page.route('**/external-consumer.html',route=>route.fulfill({contentType:'text/html',body:`<!doctype html><link rel="icon" href="data:,"><script type="importmap">${JSON.stringify({imports})}</script><script type="module">import {exercise} from '/external-consumer.mjs';try{window.__result=await exercise(new URL('/examples/replay-character-acceptance/assets/courier/skeleton.json',location.href).href);}catch(e){window.__result={pass:false,error:String(e)};}</script>`}));
+ await page.goto(server.url+'/external-consumer.html');await page.waitForFunction(()=>window.__result,{timeout:30000});const result=await page.evaluate(()=>window.__result);assert.equal(result.pass,true,result.error);assert.equal(result.webgl2,true);await writeFile(resolve(out,'consumer.png'),Buffer.from(result.picture.split(',')[1],'base64'));delete result.picture;assert.deepEqual(errors,[]);assert.deepEqual(warnings,[]);rows.push({name:'external-TypeScript-public-exports',...result,errors,warnings});await page.close();
+}finally{await writeFile(resolve(out,'results.json'),JSON.stringify({browser:browser?.version(),project,entry,rows},null,2));await browser?.close();await server.close();}
+const links=['@ankhimate/phaser-runtime','@ankhimate/runtime','phaser','fflate'];for(const name of links){const p=resolve(project,'node_modules',name);assert.ok((await lstat(p)).isSymbolicLink());await rmdir(p);}console.log('External public TypeScript consumer PASS');

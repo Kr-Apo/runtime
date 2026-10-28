@@ -18,15 +18,7 @@ export class PixiRigAsset {
   /** Already loaded full-page textures are borrowed, never destroyed here. */
   static from(source: unknown, pages: ReadonlyMap<number, Texture>): PixiRigAsset {
     const rig = regionRig(source);
-    for (const page of rig.atlas!.pages) {
-      const texture = pages.get(page.index);
-      requireThat(texture && !texture.destroyed && !texture.source.destroyed, `Missing/destroyed atlas page texture ${page.index}`);
-      requireThat(texture.source.resolution === 1 && texture.frame.x === 0 && texture.frame.y === 0 && !texture.rotate && !texture.trim
-        && texture.width === page.width && texture.height === page.height
-        && texture.source.width === page.width && texture.source.height === page.height,
-      `Page ${page.index}: expected a full-page texture at resolution 1`);
-      requireThat(texture.source.alphaMode !== 'no-premultiply-alpha', `Page ${page.index}: Normal requires premultiplied alpha`);
-    }
+    validatePageTextures(rig, pages);
     return new PixiRigAsset(rig, new Map(pages), false);
   }
 
@@ -81,6 +73,13 @@ interface Appearance {
   atlasMeshes: Map<string, MeshAtlas>;
 }
 
+const replayPresentation = Symbol('owned Replay presentation');
+export interface ReplayPixiView { readonly root: Container; setPose(pose: RigPose, skin: string): void; destroy(): void; }
+/** Internal presentation bridge; never starts the Legacy playback/controller. */
+export function createReplayPixiView(rig: RuntimeRigData, pages: ReadonlyMap<number, Texture>, skin: string): ReplayPixiView {
+  return PixiRigInstance.replayView(replayPresentation, rig, pages, skin);
+}
+
 // Container.destroy(true) must not propagate texture ownership into rig meshes.
 // The instance's listener disposes its own meshes and buffers exactly once.
 class RigRoot extends Container {
@@ -95,7 +94,7 @@ export class PixiRigInstance {
   private disposed = false;
 
   /** Use asset.createInstance; the asset owns instance registration. */
-  constructor(private readonly rig: RuntimeRigData, private readonly pages: ReadonlyMap<number, Texture>, private skin: string, release: () => void) {
+  constructor(private readonly rig: RuntimeRigData, private readonly pages: ReadonlyMap<number, Texture>, private skin: string, release: () => void, mode?: typeof replayPresentation) {
     this.root.onRender = renderer => requireThat(renderer.type === RendererType.WEBGL, 'Pixi rigs require the qualified WebGL renderer; WebGPU/Canvas are unsupported');
     this.appearance(skin);
     this.root.on('destroyed', () => {
@@ -108,8 +107,18 @@ export class PixiRigInstance {
       for (const effect of this.tints.values()) effect.destroy();
       this.tints.clear(); this.views.clear(); this.appearances.clear(); this.disposed = true; release();
     });
-    try { this.setPose(evaluate(rig, [], { skin })); }
+    try { if (mode !== replayPresentation) this.setPose(evaluate(rig, [], { skin })); }
     catch (error) { this.destroy(); throw error; }
+  }
+
+  /** @internal Only the Replay bridge owns this token. Pose and appearance travel together. */
+  static replayView(token: typeof replayPresentation, rig: RuntimeRigData, pages: ReadonlyMap<number, Texture>, skin: string): ReplayPixiView {
+    requireThat(token === replayPresentation, 'Use the experimental Replay asset');
+    const view = new PixiRigInstance(rig, pages, skin, () => {}, token);
+    return { root: view.root, setPose(pose, selected) {
+      view.applyPose(pose, view.appearance(selected));
+      view.skin = selected;
+    }, destroy: () => view.destroy() };
   }
 
   private controller: PixiPlayback | undefined;
@@ -269,3 +278,16 @@ export class PixiRigInstance {
 }
 
 export const loadPixiRig = PixiRigAsset.load;
+
+/** Shared full-page texture ownership preconditions; does not validate rig capabilities. */
+export function validatePageTextures(rig: RuntimeRigData, pages: ReadonlyMap<number, Texture>): void {
+    for (const page of rig.atlas!.pages) {
+      const texture = pages.get(page.index);
+      requireThat(texture && !texture.destroyed && !texture.source.destroyed, `Missing/destroyed atlas page texture ${page.index}`);
+      requireThat(texture.source.resolution === 1 && texture.frame.x === 0 && texture.frame.y === 0 && !texture.rotate && !texture.trim
+        && texture.width === page.width && texture.height === page.height
+        && texture.source.width === page.width && texture.source.height === page.height,
+      `Page ${page.index}: expected a full-page texture at resolution 1`);
+      requireThat(texture.source.alphaMode !== 'no-premultiply-alpha', `Page ${page.index}: Normal requires premultiplied alpha`);
+    }
+}

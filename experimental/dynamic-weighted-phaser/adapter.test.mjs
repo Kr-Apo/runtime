@@ -1,0 +1,2 @@
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';
+test('G2 independent dynamic Phaser view exists and uses qualified geometry plus public UV updates',()=>{const s=readFileSync(new URL('./adapter.mjs',import.meta.url),'utf8');assert.match(s,/BoundedPhaserView/);assert.match(s,/dynamic-weighted-pixi\/geometry/);assert.match(s,/v\.setUVs/);assert.match(s,/found\.owner/);assert.doesNotMatch(s,/new ReplayConsumer|new ReplayPhysics|evaluate\(/);});

@@ -6,3 +6,28 @@ examples/phaser-game/assets/** -text
 examples/phaser-game/vendor/*.tgz binary
 examples/phaser-dark-tint/assets/** -text
 examples/phaser-dark-tint/vendor/*.tgz binary
+
+# T839 native exports are compared with freshly generated Rust bytes.
+core/test/fixtures/t839/** -text
+
+# B4 native exports are compared byte-for-byte with the Rust export pipeline.
+core/test/fixtures/t840b4/** -text
+core/test/fixtures/t840b5a/** -text
+
+/core/test/fixtures/t840b5b1/*.json -text
+
+/core/test/fixtures/t840b5b2/*.json -text
+
+/core/test/fixtures/t840b6/*.json -text
+
+/examples/replay-pixi-pilot/assets/*.json -text
+
+/pixi/test/fixtures/t840c2/**/*.json -text
+
+# C5A native author/export/reference byte provenance.
+/examples/replay-character-acceptance/assets/** -text
+/examples/replay-character-acceptance/authors/** -text
+
+# C6A native export/source bytes retained for provenance.
+examples/replay-visual-skins/assets/** -text
+examples/replay-visual-skins/authors/** -text

@@ -1,0 +1,13 @@
+{
+  "name": "ranger-fault",
+  "editor": "275082e8f26d42389ed05fb92c45e2822006525d",
+  "pipeline": "Native author schema -> unchanged Save/Reload -> unchanged native export; real Rust B6 ReplayConsumer with explicit B5B1 calendars",
+  "sha256": {
+    "atlas.png": "0ceb5e967a4747a1c05eac416587f4c19b1f88e7b8eb780215f674c60fc9de14",
+    "atlas_2.png": "d23c2dacb4876ea9178b6cbcbc230c2beeed625f90023c9b08fa92d4caa66561",
+    "rust-delayed.json": "34f98dffb3870ff082c6cd8740c4d79d2ebe7fef03d517aff9a15c58e8d98482",
+    "rust-primary.json": "34f98dffb3870ff082c6cd8740c4d79d2ebe7fef03d517aff9a15c58e8d98482",
+    "skeleton.json": "f624c52c99c8165b805bef6b9ac020514b8ebcfffff6a6f628ff1d0a141a6eab",
+    "skin-calendars.json": "b71f7690be93aaa2499915ecfe8bcee138eca3d836508af51af6e548de1b9a5d"
+  }
+}

@@ -1,0 +1,461 @@
+{
+  "version": 1,
+  "name": "Replay Scout",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "body",
+      "file": "body.png",
+      "width": 74,
+      "height": 94
+    },
+    {
+      "name": "head",
+      "file": "head.png",
+      "width": 68,
+      "height": 55
+    },
+    {
+      "name": "pennant",
+      "file": "pennant.png",
+      "width": 80,
+      "height": 28
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 1.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "rotation": 0.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "torso",
+      "parent": "root",
+      "length": 65,
+      "tx": 0,
+      "ty": 0,
+      "rotation": 8,
+      "sx": 1.1,
+      "sy": 0.95,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "length": 24,
+      "tx": 0,
+      "ty": 43,
+      "rotation": -8,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "secondary",
+      "parent": "torso",
+      "length": 62,
+      "tx": -30,
+      "ty": 24,
+      "rotation": 12,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "body",
+      "bone": "torso",
+      "attachment": "body",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "attachment": "head",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "blend_mode": "normal"
+    },
+    {
+      "name": "pennant",
+      "bone": "secondary",
+      "attachment": "pennant",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "body",
+    "head",
+    "pennant"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "body",
+          "name": "body",
+          "attachment": {
+            "type": "region",
+            "texture": "body",
+            "offset_x": 0,
+            "offset_y": 0,
+            "rotation": 0,
+            "scale_x": 1,
+            "scale_y": 1,
+            "width": 74,
+            "height": 94,
+            "uv": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "head",
+          "name": "head",
+          "attachment": {
+            "type": "region",
+            "texture": "head",
+            "offset_x": 0,
+            "offset_y": 0,
+            "rotation": 0,
+            "scale_x": 1,
+            "scale_y": 1,
+            "width": 68,
+            "height": 55,
+            "uv": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "pennant",
+          "name": "pennant",
+          "attachment": {
+            "type": "region",
+            "texture": "pennant",
+            "offset_x": 34,
+            "offset_y": 0,
+            "rotation": 0,
+            "scale_x": 1,
+            "scale_y": 1,
+            "width": 80,
+            "height": 28,
+            "uv": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        }
+      ],
+      "bones": [],
+      "constraints": [
+        "secondary"
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [
+    {
+      "name": "secondary",
+      "type": "physics",
+      "target": "secondary",
+      "bones": [],
+      "bend_direction": 1.0,
+      "mix": 1.0,
+      "softness": 0.0,
+      "stretch": false,
+      "stretch_limit": 1.1,
+      "stiffness": 0.0,
+      "physics": [
+        0.8,
+        40,
+        0.6,
+        1
+      ],
+      "forces": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "channels": [
+        true,
+        true
+      ]
+    }
+  ],
+  "constraint_order": [
+    "secondary"
+  ],
+  "animations": [
+    {
+      "name": "sway",
+      "duration": 2.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 24,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": -24,
+              "curve": "linear"
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": "linear"
+            }
+          ],
+          "axis": "x"
+        },
+        {
+          "kind": "bone_translate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 10,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": -5,
+              "curve": "linear"
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": "linear"
+            }
+          ],
+          "axis": "y"
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 18,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": -18,
+              "curve": "linear"
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": "linear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fault_at_9",
+      "duration": 2.0,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_translate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 24,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": -24,
+              "curve": "linear"
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": "linear"
+            }
+          ],
+          "axis": "x"
+        },
+        {
+          "kind": "bone_translate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 10,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": -5,
+              "curve": "linear"
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": "linear"
+            }
+          ],
+          "axis": "y"
+        },
+        {
+          "kind": "bone_rotate",
+          "bone": "torso",
+          "keys": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 18,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": -18,
+              "curve": "linear"
+            },
+            {
+              "time": 2,
+              "value": 0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_scale",
+          "bone": "torso",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0,
+              "value": 1,
+              "curve": "stepped"
+            },
+            {
+              "time": 0.075,
+              "value": 0,
+              "curve": "stepped"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

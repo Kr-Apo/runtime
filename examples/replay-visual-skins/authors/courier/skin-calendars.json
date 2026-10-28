@@ -1,0 +1,102 @@
+{
+  "primary": [
+    {
+      "tick": 0,
+      "skin": "default"
+    },
+    {
+      "tick": 20,
+      "skin": "festival"
+    },
+    {
+      "tick": 40,
+      "skin": "night"
+    },
+    {
+      "tick": 60,
+      "skin": "default"
+    },
+    {
+      "tick": 119,
+      "skin": "festival"
+    },
+    {
+      "tick": 120,
+      "skin": "night"
+    },
+    {
+      "tick": 121,
+      "skin": "default"
+    },
+    {
+      "tick": 239,
+      "skin": "festival"
+    },
+    {
+      "tick": 240,
+      "skin": "night"
+    },
+    {
+      "tick": 241,
+      "skin": "festival"
+    },
+    {
+      "tick": 360,
+      "skin": "default"
+    },
+    {
+      "tick": 600,
+      "skin": "night"
+    }
+  ],
+  "delayed": [
+    {
+      "tick": 0,
+      "skin": "default"
+    },
+    {
+      "tick": 27,
+      "skin": "festival"
+    },
+    {
+      "tick": 47,
+      "skin": "night"
+    },
+    {
+      "tick": 67,
+      "skin": "default"
+    },
+    {
+      "tick": 126,
+      "skin": "festival"
+    },
+    {
+      "tick": 127,
+      "skin": "night"
+    },
+    {
+      "tick": 128,
+      "skin": "default"
+    },
+    {
+      "tick": 246,
+      "skin": "festival"
+    },
+    {
+      "tick": 247,
+      "skin": "night"
+    },
+    {
+      "tick": 248,
+      "skin": "festival"
+    },
+    {
+      "tick": 367,
+      "skin": "default"
+    },
+    {
+      "tick": 607,
+      "skin": "night"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "editor": "275082e8f26d42389ed05fb92c45e2822006525d",
+  "source": "isolated author scout with two bone_scale tracks added to sway; source PNGs unchanged",
+  "pipeline": "native save/reload, default runtime preset max_page128, Rust ReplayConsumer 721frames, no runtime JSON patch",
+  "sha256": {
+    "skeleton.json": "7d30bad7b0df449ecf9c83a6f31c517865b5fcec459b63856dd825937e17e75c",
+    "atlas.png": "dca4896fca0155e0850bbc6e0f2a01395a5ed355bf67e061885a5e3a961aab34",
+    "atlas_2.png": "a773927227af8e45bf041ffd8ca475eada544ca7a38a52a47546cec5378ace57",
+    "rust-reference.json": "d8e56c330a693cc9addc0e04ad31f338664eb2b179ae45be5217b843f3b30f9d"
+  }
+}

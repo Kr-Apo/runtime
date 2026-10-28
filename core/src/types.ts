@@ -349,6 +349,8 @@ export interface TransformConstraint extends ConstraintBase {
 
 export interface PhysicsConstraint extends ConstraintBase {
   type: "physics";
+  // Native: target names the simulated bone, bones is empty. Historical
+  // bones-only input uses target="" and exactly one bone (validated on read).
   physics: { inertia: number; strength: number; damping: number; mass: number };
   forces: { wind_x: number; wind_y: number; gravity_x: number; gravity_y: number };
   channels: { rotate: boolean; translate: boolean };

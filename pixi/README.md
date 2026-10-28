@@ -466,3 +466,20 @@ sides/corners, small/clear sources, multipage atlases, extrusion, transformed
 regions, weighted FFD, skins, attachments and native clipping. Historical CPU
 images and native JSON/atlases are preserved; capture differences and any
 remaining qualification holds are inventoried in the delivery report.
+
+## Experimental ReplayV1 (local, opt-in)
+
+The separate `@ankhimate/pixi-runtime/experimental-replay` entry provides strictly
+validated Physics-only bone playback. Its default C2 mode uses static regions and a fixed default skin.
+It requires WebGL2 and keeps the Legacy asset refusal unchanged. No mixing, meshes/FFD, clipping, dark tint or visual skin switching is enabled in that default mode.
+See [T-840C2 API contract](../docs/t840c2/T840C2-API-CONTRACT.md) and the
+[local pilot](../examples/replay-pixi-pilot/README.md). No version or publication change.
+
+
+### Explicit static meshes (T-840C7A)
+
+`ExperimentalReplayPixiAsset.load(url, { staticMeshes: true })` (or `from` with the same option) permits native v2 static unweighted meshes alongside regions, with one fixed default skin. Existing bone affines from the completed ReplayV1 tick drive the existing Pixi Mesh renderer. Pivots/offsets are already baked by native region-to-mesh conversion; no second attachment transform is applied.
+
+This option is mutually exclusive with C6A `visualSkins:true`, which remains region-only. Weighted/linked meshes, FFD, clipping, sequences, dark tint, slot/draw-order/event animation and non-Physics constraints remain refused. No Legacy capability or numerical core output changes. New mode pages/sources are pinned; context loss rejects presentation after a renderer is bound. GPU effects are not transactional.
+
+See the [static mesh example](../examples/replay-static-meshes/README.md), [contract](../docs/t840c7a/T840C7A-MESH-CONTRACT.md) and [qualification](../docs/t840c7a/T840C7A-WEBGL-QUALIFICATION.md). No version or publication change.

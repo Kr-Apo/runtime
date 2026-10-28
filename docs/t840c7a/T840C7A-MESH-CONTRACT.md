@@ -1,0 +1,23 @@
+# C7A mesh contract
+
+## Native source of truth
+
+Editor core/src/attachment.rs defines MeshAttachment: setup_vertices (bone-local Vec2), UVs, triangle index triples, per-vertex weights, optional linked/sequence, embedded native FFD state and inverse binds skipped by serialization. formats/src/schema.rs Mesh stores flattened coordinates, UVs/indices, weights and references. export/src/context.rs emits the unchanged local vertices for empty weights; export/src/presets/ankhimate_runtime.json serializes the context attachment with its established JSON helper. No format extension.
+
+Native runtime v2 mesh fields: type:'mesh',texture,vertices:[x,y,...],uvs:[u,v,...],triangles:[i,j,k,...],weighted:false,weights:[],vertex_count>=3,linked:null,sequence:null. Other emitted context fields retain their existing meaning. Meshes have no separate x/y/pivot/rotation/scale fields: native from_region already baked those into vertices. Inverse binds are not needed for rigid geometry and weighted data must not fall back to rigid rendering.
+
+For each local p=(x,y), validated completed bone affine M gives X=a*x+c*y+tx,Y=b*x+d*y+ty. Pixi positions are (X,-Y); root/parent/camera TRS follows. No second bone transform is applied. UVs refer to the original image, V down. Atlas coordinates use texel centers: (region.x+0.5+u*(originalWidth-1)-offsetX)/pageWidth, likewise V. Existing MeshAtlas derives trim coverage vertices with barycentric source weights once; native geometry/indices stay unchanged. Derived draw indices can grow for trimmed atlas coverage. Untrimmed meshes preserve original index order exactly.
+
+## Validation and semantics
+
+staticMeshes:true is explicit, incompatible with visualSkins:true; only one fixed default skin with valid slot/bone/attachment references. Validate original complete data before decoding textures. Existing graphicsRig handles finite coordinate arrays, matching counts, UVs in[0,1], complete nonempty integer in-range triangles with distinct indices, atlas pages/rectangles/dimensions. Native CPU accepts either winding and ignores spatial zero-area triangles; C7A adds no area/UV-area repair or rejection. Distinct-index spatial degeneracy and constant UVs remain accepted (validation tests; not separate new pixel qualification for every degeneracy). The inherited Pixi repeated-index refusal remains explicit. Both winding signs and graphical reflection are qualified with real fixtures.
+
+Weights must be exactly empty with weighted:false; linked:null and no sequences. All clips pass unchanged Replay validation: bone-only, positive duration, Physics-only constraints, no deform/slot/draw-order/event/IK/transform channels. Non-native embedded ffd_keyframes/deform/vertex_animation fields are explicitly refused; native per-animation deform timelines are independently refused by the core. No authored animated vertex data is silently stripped by this adapter. Fixed setup light color/alpha and Normal blend only; dark tint is refused in Replay even though Legacy supports it.
+
+## Time, ownership and errors
+
+A presentation token carries a detached, frozen ReplayConsumer frame. Last completed tick drives bones, Physics and vertices together: requested60/completed8/backlog52 displays8. Capture/pure-preview kind, owner, context, epoch and clock guards remain authoritative. Pure preview does not become committed Physics; replay reconstructs from origin; pause/resume and reset preserve B5/B6 rules. B6 fault retains its accepted prefix. No geometry computation advances a second clock.
+
+Appearance caches own local mesh/derived atlas plans. Each instance owns its mutable bindings, MeshGeometry and buffers; shared atlas textures remain asset/caller-owned. Cached unchanged tokens skip pose transfers and buffer writes. New poses still allocate existing world/draw arrays and update position, UV and index buffers; no broad renderer optimization was attempted.
+
+Pinned Texture and TextureSource identities are validated before cached presentations and inside guarded view application. The first real renderer binds the mesh instance's context-loss check; presentation is refused while that context is lost, and Pixi restores/reuploads. Rendering requires actual WebGL2. Before first render, source validation cannot certify a future graphics context. Ordinary graphics errors retain the last accepted display token and allow explicit retry, without changing completed simulation. External GPU/driver writes cannot be rolled back transactionally. Destroy instances before their asset; owned decoded pages are cleaned on ordinary failure/abort; borrowed pages survive asset destruction.

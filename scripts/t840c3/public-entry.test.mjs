@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {ReplayHostTimeBridge} from '@ankhimate/runtime/experimental-host-time';test('shared opt-in host time entry',()=>assert.equal(typeof ReplayHostTimeBridge,'function'));

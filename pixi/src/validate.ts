@@ -17,13 +17,24 @@ export function finite(values: readonly unknown[], label: string): void {
 
 /** Adapter capability gate; does not change the shared v1/v2 reader. */
 export function regionRig(source: unknown): RuntimeRigData {
+  const rig = nativeSource(source);
+  requireThat(Array.isArray(rig.constraints) && rig.constraints.length === 0,
+    'Constraints are not qualified in Pixi b.1 (including physics and paths)');
+  requireThat(Array.isArray(rig.constraintOrder) && rig.constraintOrder.length === 0, 'Unexpected constraint order');
+  return graphicsRig(rig);
+}
+
+/** Native structural read; renderer and simulation capabilities are separate. */
+export function nativeSource(source: unknown): RuntimeRigData {
   let rig: RuntimeRigData;
   try { rig = parseRig(structuredClone(typeof source === 'string' ? JSON.parse(source) : source)); }
   catch (error) { throw new PixiRigError(`Invalid native runtime JSON: ${String(error)}`); }
   requireThat(rig.format_version === 2, 'Pixi b.1 requires native format_version 2; the core v1 reader is unchanged');
-  requireThat(Array.isArray(rig.constraints) && rig.constraints.length === 0,
-    'Constraints are not qualified in Pixi b.1 (including physics and paths)');
-  requireThat(Array.isArray(rig.constraintOrder) && rig.constraintOrder.length === 0, 'Unexpected constraint order');
+  return rig;
+}
+
+/** Renderer properties only. Callers must separately validate all solver/clip capabilities. */
+export function graphicsRig(rig: RuntimeRigData): RuntimeRigData {
   requireThat(rig.atlas && Array.isArray(rig.atlas.pages) && Array.isArray(rig.atlas.regions), 'Missing embedded atlas');
   requireThat(rig.atlas.pages.length > 0, 'Atlas has no pages');
   const names = new Set<string>();

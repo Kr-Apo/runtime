@@ -1,0 +1,1 @@
+Original deterministic paper-puppet artwork authored with Pillow vector primitives, supersampled4x. No existing character/project or private reference image used. Source generator retained. Native author schema loaded through unchanged B6 format APIs, then native Save/Reload and export. No runtime JSON editing.

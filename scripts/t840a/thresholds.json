@@ -1,0 +1,10 @@
+{
+  "contract": "T840A predeclared comparison thresholds; characterization, not production conformance",
+  "localTranslationUnits": 0.01,
+  "worldTranslationUnits": 0.01,
+  "rotationRadians": 0.001,
+  "worldLinearCoefficientAbsolute": 0.0001,
+  "rotationError": "wrapped shortest angular distance",
+  "nonfinite": "always divergent, never coerced to zero",
+  "scope": "local x/y, local rotation radians, world a/b/c/d dimensionless and tx/ty world units; all sampled bones"
+}

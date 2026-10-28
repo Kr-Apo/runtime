@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {ExperimentalReplayPhaserAsset} from '@ankhimate/phaser-runtime/experimental-replay';test('explicit public Phaser Replay entry',()=>assert.equal(typeof ExperimentalReplayPhaserAsset.load,'function'));

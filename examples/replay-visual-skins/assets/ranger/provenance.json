@@ -1,0 +1,15 @@
+{
+  "name": "ranger",
+  "editor": "275082e8f26d42389ed05fb92c45e2822006525d",
+  "pipeline": "Native author schema -> unchanged Save/Reload -> unchanged native export; real Rust B6 ReplayConsumer with explicit B5B1 calendars",
+  "sha256": {
+    "atlas.png": "0ceb5e967a4747a1c05eac416587f4c19b1f88e7b8eb780215f674c60fc9de14",
+    "atlas_2.png": "d23c2dacb4876ea9178b6cbcbc230c2beeed625f90023c9b08fa92d4caa66561",
+    "rust-delayed.json": "033387282a30717b0445aee39a1ea770b2c79aadbd7bf3cd9b2ee7c2f29ade76",
+    "rust-preview-delayed.json": "2b7c5acc9f25d3556cebea8d4e68096c7ec5de444e706c6a5a24efa53b14e8d6",
+    "rust-preview-primary.json": "e6d645b94f99b7d3df17f1ffed990250e5d63ac3c458a450a406ffc2900d8af2",
+    "rust-primary.json": "0dfa6f409447a8f861d9bbd552b044c3becaaf7efd6012bec3459975a4b82de1",
+    "skeleton.json": "5011aaaa32cbac3ca69d47b973c0aef1c92d2aeb0303f7f23eb31382d84f6947",
+    "skin-calendars.json": "b71f7690be93aaa2499915ecfe8bcee138eca3d836508af51af6e548de1b9a5d"
+  }
+}

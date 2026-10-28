@@ -1,3 +1,5 @@
+> **P01-RC1 local candidate — 28 October 2026.** Read the [current contracts and qualification boundary](replay-v1.md) before the historical notes below. Proposed Classic v0.1.6 is not tagged/released here. Runtime package versions are unchanged; ReplayV1 A17 is explicit and separate from Legacy playback.
+
 # Editor v0.1.5 and the prepared runtime source
 
 Local preparation only; no new fork, tag, npm package or release exists. Original upstreams: [Ankhimate/editor](https://github.com/Ankhimate/editor) and [Ankhimate/runtime](https://github.com/Ankhimate/runtime). Future community fork URLs are unset in PUBLICATION-TARGETS.json until creation is authorized and verified.

@@ -1,3 +1,5 @@
+> **P01-RC1 local candidate — 28 October 2026.** Read the [current contracts and qualification boundary](docs/replay-v1.md) before the historical notes below. Proposed Classic v0.1.6 is not tagged/released here. Runtime package versions are unchanged; ReplayV1 A17 is explicit and separate from Legacy playback.
+
 # Ankhimate Runtimes
 
 **Game-side animation runtimes for Ankhimate**, written in TypeScript. Load exported skeletal animation data, evaluate poses and playback, and render supported rigs in PixiJS or Phaser.
@@ -41,3 +43,30 @@ Implemented code paths are **not** a promise of identical output for every rig o
 - **Evidence scope**: T-838 reran **37 protected, precompiled TypeScript core tests**. That is not a fresh build of every adapter, a new GPU campaign or a full cross-engine certification.
 
 Read [Editor v0.1.5 compatibility](docs/t838-editor-compatibility.md) for the source checkpoints and format versions. The runtime/npm version and editor/product version are independent.
+
+## Opt-in canonical clip sampling (T-840B4)
+
+The numerical core offers `ReplayAnimationInstance` for one native v2 bone-transform
+clip driving an explicitly isolated Physics-only replay. This does not activate
+Physics in any graphical adapter or existing player. See the
+[sampling contract](docs/t840b4/T840B4-SAMPLING-CONTRACT.md) for exact tick timing,
+validation, limits and reset/fault behavior.
+
+## Experimental headless transport (T-840B5A)
+
+`ReplayTransport` adds explicit play/pause/resume/stop, canonical pure seek and
+origin-zero historical replay above the opt-in B4 sampler. Existing players and
+graphical/export consumers stay unchanged. Read the [transport contract](docs/t840b5a/T840B5A-TRANSPORT-CONTRACT.md)
+before using its exact logical-time requests, context tokens and bounded replay pumps.
+
+Experimental headless skin calendars: [T-840B5B1 contract](docs/t840b5b1/T840B5B1-SKIN-CONTRACT.md). No graphical adapter activation.
+
+Experimental headless committed bone snapshots: [T-840B5B2 contract](docs/t840b5b2/T840B5B2-CONSUMER-CONTRACT.md). No renderer activation.
+
+ReplayV1 numerical fault transactions: [T-840B6 contract](docs/t840b6/T840B6-TRANSACTION-CONTRACT.md). Core-only; Legacy and graphical gates unchanged.
+
+Experimental opt-in ReplayV1 visual pilot (not distributed activation): [T-840C1](examples/replay-pixi-pilot/README.md). Legacy defaults and Physics refusal remain unchanged.
+
+Public opt-in experimental integration: [T-840C2 API contract](docs/t840c2/T840C2-API-CONTRACT.md). Legacy defaults remain unchanged.
+
+Opt-in absolute host-time conversion for ReplayV1: [T-840C3 time contract](docs/t840c3/T840C3-TIME-CONTRACT.md). Exact ticks remain authoritative; Legacy playback is unchanged.

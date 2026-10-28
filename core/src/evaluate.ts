@@ -179,17 +179,7 @@ export function createEvaluationState(): EvaluationState {
 }
 
 export function evaluate(rig: RuntimeRigData, layers: readonly AnimationLayer[] = [], options: EvaluateOptions = {}): RigPose {
-  const bones: BonePose[] = rig.bones.map((bone) => ({
-    name: bone.name,
-    x: bone.x,
-    y: bone.y,
-    rotation: bone.rotation * DEG,
-    scaleX: bone.scaleX,
-    scaleY: bone.scaleY,
-    shearX: bone.shearX * DEG,
-    shearY: bone.shearY * DEG,
-    world: { a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0 },
-  }));
+  const bones = setupBones(rig);
   const slots: SlotPose[] = rig.slots.map((slot) => ({
     name: slot.name,
     attachment: slot.attachment,
@@ -210,49 +200,7 @@ export function evaluate(rig: RuntimeRigData, layers: readonly AnimationLayer[] 
   for (const layer of layers) {
     if (layer.alpha <= 0) continue;
     const animation = animationOf(rig, layer.animation);
-    for (const track of animation.bones) {
-      const index = boneIndex.get(track.name);
-      if (index === undefined) continue;
-      const bone = bones[index]!;
-      // V2 key times already contain the author's bone offset. Keep the legacy
-      // paired path unchanged, including its optional sampling offset.
-      const scalarAxes = rig.format_version === 2;
-      // Match Rust's f32 playhead at exact stepped boundaries (e.g. 1.6s,
-      // serialized as 1.600000023841858). Leave legacy v1 timing untouched.
-      const time = scalarAxes ? Math.fround(layer.time) : layer.time - (track.offset ?? 0);
-      const rotate = track.rotate ? scalar(track.rotate, time, true) : undefined;
-      if (rotate !== undefined) bone.rotation = wrap(bone.rotation + rotate * DEG * layer.alpha);
-      if (scalarAxes) {
-        const tx = track.translate_x ? scalar(track.translate_x, time) : undefined;
-        const ty = track.translate_y ? scalar(track.translate_y, time) : undefined;
-        const sx = track.scale_x ? scalar(track.scale_x, time) : undefined;
-        const sy = track.scale_y ? scalar(track.scale_y, time) : undefined;
-        const hx = track.shear_x ? scalar(track.shear_x, time) : undefined;
-        const hy = track.shear_y ? scalar(track.shear_y, time) : undefined;
-        if (tx !== undefined) bone.x += tx * layer.alpha;
-        if (ty !== undefined) bone.y += ty * layer.alpha;
-        if (sx !== undefined) bone.scaleX *= 1 + (sx - 1) * layer.alpha;
-        if (sy !== undefined) bone.scaleY *= 1 + (sy - 1) * layer.alpha;
-        if (hx !== undefined) bone.shearX += hx * DEG * layer.alpha;
-        if (hy !== undefined) bone.shearY += hy * DEG * layer.alpha;
-      } else {
-        const translate = track.translate ? vector(track.translate, time) : undefined;
-        const scale = track.scale ? vector(track.scale, time) : undefined;
-        const shear = track.shear ? vector(track.shear, time) : undefined;
-        if (translate) {
-          bone.x += translate[0] * layer.alpha;
-          bone.y += translate[1] * layer.alpha;
-        }
-        if (scale) {
-          bone.scaleX *= 1 + (scale[0] - 1) * layer.alpha;
-          bone.scaleY *= 1 + (scale[1] - 1) * layer.alpha;
-        }
-        if (shear) {
-          bone.shearX += shear[0] * DEG * layer.alpha;
-          bone.shearY += shear[1] * DEG * layer.alpha;
-        }
-      }
-    }
+    applyBoneTracks(rig, animation, layer, bones, boneIndex);
     for (const track of animation.slots) {
       const index = slotIndex.get(track.name);
       if (index === undefined) continue;
@@ -352,4 +300,90 @@ function applyDrawOrder(setup: readonly string[], offsets: readonly { slot: stri
     const offset = offsetBySlot.get(slot) ?? 0;
     return { slot, target: index + offset + Math.sign(offset) * 0.5 };
   }).sort((a, b) => a.target - b.target).map((entry) => entry.slot);
+}
+
+
+// Shared native primitives, internal exports for the opt-in bone-only sampler.
+// No FK, slots or constraints here. The complete evaluator remains unchanged.
+function setupBones(rig: RuntimeRigData): BonePose[] {
+  return rig.bones.map((bone) => ({
+    name: bone.name,
+    x: bone.x,
+    y: bone.y,
+    rotation: bone.rotation * DEG,
+    scaleX: bone.scaleX,
+    scaleY: bone.scaleY,
+    shearX: bone.shearX * DEG,
+    shearY: bone.shearY * DEG,
+    world: { a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0 },
+  }));
+}
+function applyBoneTracks(rig: RuntimeRigData, animation: RuntimeRigData["animations"][string], layer: AnimationLayer, bones: BonePose[], boneIndex: ReadonlyMap<string,number>): void {
+    for (const track of animation.bones) {
+      const index = boneIndex.get(track.name);
+      if (index === undefined) continue;
+      const bone = bones[index]!;
+      // V2 key times already contain the author's bone offset. Keep the legacy
+      // paired path unchanged, including its optional sampling offset.
+      const scalarAxes = rig.format_version === 2;
+      // Match Rust's f32 playhead at exact stepped boundaries (e.g. 1.6s,
+      // serialized as 1.600000023841858). Leave legacy v1 timing untouched.
+      const time = scalarAxes ? Math.fround(layer.time) : layer.time - (track.offset ?? 0);
+      const rotate = track.rotate ? scalar(track.rotate, time, true) : undefined;
+      if (rotate !== undefined) bone.rotation = wrap(bone.rotation + rotate * DEG * layer.alpha);
+      if (scalarAxes) {
+        const tx = track.translate_x ? scalar(track.translate_x, time) : undefined;
+        const ty = track.translate_y ? scalar(track.translate_y, time) : undefined;
+        const sx = track.scale_x ? scalar(track.scale_x, time) : undefined;
+        const sy = track.scale_y ? scalar(track.scale_y, time) : undefined;
+        const hx = track.shear_x ? scalar(track.shear_x, time) : undefined;
+        const hy = track.shear_y ? scalar(track.shear_y, time) : undefined;
+        if (tx !== undefined) bone.x += tx * layer.alpha;
+        if (ty !== undefined) bone.y += ty * layer.alpha;
+        if (sx !== undefined) bone.scaleX *= 1 + (sx - 1) * layer.alpha;
+        if (sy !== undefined) bone.scaleY *= 1 + (sy - 1) * layer.alpha;
+        if (hx !== undefined) bone.shearX += hx * DEG * layer.alpha;
+        if (hy !== undefined) bone.shearY += hy * DEG * layer.alpha;
+      } else {
+        const translate = track.translate ? vector(track.translate, time) : undefined;
+        const scale = track.scale ? vector(track.scale, time) : undefined;
+        const shear = track.shear ? vector(track.shear, time) : undefined;
+        if (translate) {
+          bone.x += translate[0] * layer.alpha;
+          bone.y += translate[1] * layer.alpha;
+        }
+        if (scale) {
+          bone.scaleX *= 1 + (scale[0] - 1) * layer.alpha;
+          bone.scaleY *= 1 + (scale[1] - 1) * layer.alpha;
+        }
+        if (shear) {
+          bone.shearX += shear[0] * DEG * layer.alpha;
+          bone.shearY += shear[1] * DEG * layer.alpha;
+        }
+      }
+    }
+
+}
+export function evaluateBoneLocals(rig: RuntimeRigData, layer: AnimationLayer): BonePose[] {
+  const bones = setupBones(rig);
+  applyBoneTracks(rig, animationOf(rig, layer.animation), layer, bones, new Map(bones.map((b,i)=>[b.name,i])));
+  return bones;
+}
+
+/** Internal opt-in FFD sampling: reuse Legacy numbers/easing, no bones or Physics. */
+export function sampleDeformOffsets(track: import('./types.js').DeformTrack, time: number): number[] | undefined {
+  return numbers(track.keys, Math.fround(time), key => key.offsets);
+}
+
+/** A4 channel-only candidate sampler. Reuses native primitives; no FK/constraints.
+ * Rust holds the first interpolatable color before its time. Discrete channels
+ * retain setup until their first key. Legacy evaluate() is deliberately unchanged.
+ */
+export function sampleSlotChannels(rig: RuntimeRigData, animation: RuntimeRigData['animations'][string], canonical: number): Pick<RigPose,'slots'|'drawOrder'> {
+ const time=Math.fround(canonical),slots:SlotPose[]=rig.slots.map(s=>({name:s.name,color:color(s.color),visible:true,attachment:s.attachment,sequenceFrame:0}));
+ for(const track of animation.slots){const slot=slots.find(s=>s.name===track.name)!;
+  if(track.channel==='color'){const exact=track.keys.find(k=>k.time===time);const sampled=exact?[...exact.color!]:numbers(track.keys.map(k=>({...k,curve:k.curve!})),time,k=>k.color!);if(sampled)slot.color=sampled as [number,number,number,number];}
+  else{const key=stepped(track.keys,time);if(key){if(track.channel==='visible')slot.visible=key.value!;else slot.attachment=key.name!;}}
+ }
+ const key=stepped(animation.drawOrder,time);return{slots,drawOrder:key?applyDrawOrder(rig.drawOrder,key.offsets):[...rig.drawOrder]};
 }

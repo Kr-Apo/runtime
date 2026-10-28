@@ -1,4 +1,6 @@
-> **T838 local preparation:** package versions are unchanged. Former fork destinations are historical; no replacement URL is created. Read the root README and docs/t838-editor-compatibility.md before following historical installation instructions below.
+> **P01-RC1 local candidate — 28 October 2026.** Read the [current contracts and qualification boundary](replay-v1.md) before the historical notes below. Proposed Classic v0.1.6 is not tagged/released here. Runtime package versions are unchanged; ReplayV1 A17 is explicit and separate from Legacy playback.
+
+> **Historical T838 baseline:** current source repositories are Kr-Apo/editor and Kr-Apo/runtime; consult the ReplayV1 guide for later experimental contracts.
 
 # Candidate feature scope
 
@@ -19,5 +21,5 @@ documents describe RC2 unless explicitly stated otherwise.
 | PixiJS 8.17.0 | Explicit native v2; regions, rigid/weighted meshes, FFD, trim, multi-page atlas, compatible skins, light/static dark tint, sequential clipping, Normal composition | WebGL2; 125 bounded dual-engine headless comparisons in T-811 |
 | Phaser 3.90.0 | Same documented common v2 subset, public high-level playback and legacy millisecond update | T-811 compared actual Phaser WebGL1 with PixiJS WebGL2 on one ANGLE/NVIDIA configuration; not universal GPU certification |
 
-See [limitations](KNOWN_LIMITATIONS.md), AI (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate/blob/main/docs/AI_ASSISTANT.md`; new destination pending),
-MP4 (former deleted fork URL: `https://github.com/Kr-Apo/ankhimate/blob/main/docs/EXPORT-MP4.md`; new destination pending), and [release readiness](RELEASE_READINESS.md).
+See [limitations](KNOWN_LIMITATIONS.md), AI (former deleted fork URL: `https://github.com/Kr-Apo/editor/blob/main/docs/AI_ASSISTANT.md`; new destination pending),
+MP4 (former deleted fork URL: `https://github.com/Kr-Apo/editor/blob/main/docs/EXPORT-MP4.md`; new destination pending), and [release readiness](RELEASE_READINESS.md).

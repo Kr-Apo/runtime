@@ -1,0 +1,21 @@
+{
+  "name": "Moss Ranger",
+  "bones": 14,
+  "regions": 12,
+  "physics": 2,
+  "pages": 1,
+  "clips": {
+    "march": 2.0,
+    "salute": 1.5
+  },
+  "editor": "275082e8f26d42389ed05fb92c45e2822006525d",
+  "pipeline": "Native author schema -> native Save/Reload -> unchanged default runtime preset; 721 real Rust ReplayConsumer frames per clip",
+  "sha256": {
+    "atlas.png": "9e9b4697da7283e73dbb7871f4325b4bf5af30b81df78bf4044d229438ee13da",
+    "rust-march.json": "f0aa3aeb37922c4962ba670e7cc7b29ff461d84da2c98284d72bae2c96a9dc22",
+    "rust-preview-march.json": "58c0ca06e0a0d2f0b30826101c62b8b4f9b51b77dd3883508ae252b85c49fd4b",
+    "rust-preview-salute.json": "1e597cf7693935114d3e3ae19cfbc0a5ee22224c7d4b7c4b237b65459f182257",
+    "rust-salute.json": "8c17c50a7123fc60703683e5d4ad0033e7db9d38f64dadf86df913f96a768339",
+    "skeleton.json": "993745f4622877932d60cc7050377d59274ce38cca8c54402ea37cbdc6a01ff7"
+  }
+}
