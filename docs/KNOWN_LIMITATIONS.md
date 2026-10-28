@@ -1,6 +1,14 @@
 > **P01-RC1 local candidate — 28 October 2026.** Read the [current contracts and qualification boundary](replay-v1.md) before the historical notes below. Proposed Classic v0.1.6 is not tagged/released here. Runtime package versions are unchanged; ReplayV1 A17 is explicit and separate from Legacy playback.
 
-# Known limitations — local T-811 candidate
+# Current limits and historical Legacy qualifications
+
+ReplayV1 A17 is experimental and opt-in. Its bounded Physics/weighted FFD,
+slots/events and transitions are covered only inside the admission in
+[the current guide](replay-v1.md). Fixed default skin, Normal, four exact clips,
+one stable weighted owner, finite command/event budgets; no composed
+clipping/linked FFD/dynamic skins, and no general hardware certification.
+
+## Historical T-811 Legacy limits (do not apply as A17 capability claims)
 
 - This is an unsigned Windows x64 alpha candidate. New archive launch on the
   maintainer's machine is pending. macOS/Linux distribution, mobile, WebGPU and

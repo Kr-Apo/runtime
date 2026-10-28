@@ -2,9 +2,11 @@
 
 > **Historical T838 baseline:** current source repositories are Kr-Apo/editor and Kr-Apo/runtime; consult the ReplayV1 guide for later experimental contracts.
 
-# Candidate feature scope
+# Current scope and historical Legacy baseline
 
-This document describes the **local T-811 / 0.2.0-alpha.1 proposal**, not the frozen
+The table below records the **historical T-811 Legacy proposal**, not the current
+ReplayV1 admission. Use [ReplayV1 through A17](replay-v1.md) for the current
+experimental source contract; package versions are unchanged. This is not the frozen
 public RC2. This remains an unofficial Kr-Apo community fork of Ankhimate.
 Jade Sentinel is the only official distributed sample. Legacy `docs/alpha/`
 documents describe RC2 unless explicitly stated otherwise.
