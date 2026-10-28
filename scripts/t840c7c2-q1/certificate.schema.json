@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Q1 independent dynamic skin qualification, not a fixed-skin certificate",
+  "type": "object",
+  "required": [
+    "contract",
+    "request",
+    "requestHash",
+    "status",
+    "coverage",
+    "tolerances",
+    "evidence"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ankhimate.replay.dynamic-skins/1"
+    },
+    "status": {
+      "enum": [
+        "QUALIFIED_DYNAMIC_BOUNDED",
+        "INVALID_INPUT",
+        "INCOMPLETE_EVIDENCE",
+        "FAILED_NONFINITE",
+        "FAILED_NUMERICAL_PARITY"
+      ]
+    },
+    "request": {
+      "type": "object"
+    },
+    "requestHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "tolerances": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    }
+  },
+  "$comment": "Machine relations, exact evidence inventory, event identities, producer hashes, memberships and tick coverage are verified by executable code, not by this schema alone."
+}

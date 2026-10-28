@@ -1,0 +1,7 @@
+{
+  "authorSchemaEqual": true,
+  "imageBytesEqual": true,
+  "images": 21,
+  "noDeform": true,
+  "unweightedOnly": true
+}

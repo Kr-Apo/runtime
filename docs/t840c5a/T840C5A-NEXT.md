@@ -1,0 +1,10 @@
+# Recommended work after review — not started
+
+1. **Targeted experimental Phaser immutable-context validation optimization.** High value, bounded medium cost. Replace repeated immutable VERSION driver roundtrips only with a design that still checks actual Game/renderer/context identity, lost/replaced context policy and texture identity/PMA/size on cached and new presentations. RED/GREEN on repeated query count, all vertices/pixels and C4 removed-texture/B6 tests; independent latency replication and hardware check. Diagnostic ablation here is not a shippable implementation.
+2. **Separate Legacy test-law reconciliation and malformed-reference decision.**181 obsolete expectations and1 incomplete probe need reviewed test-only corrections preserving old evidence and thresholds. For14 dangling-attachment cases choose load rejection versus graceful absence consistently with the supported Legacy contract, then approve a narrow implementation fix if necessary. No mass greenwashing.
+3. **Second GPU/browser plus long-lived medium-character acceptance.** High value before distribution; verify query latency/driver behavior, pauses/hitches, asset cycling and retained memory. Larger Courier costs and source-frame stability must remain visible.
+4. **Mesh/FFD graphical Replay qualification before costume/skin polish.** High author value and high cost; first define bind/deform data, snapshot transfer and numerical/pixel oracles. Dynamic skins depend on immutable asset/skin ownership and committed-tick membership. Do not silently open those gates.
+5. **Mixed constraints and animation mixing.** High cost; require numerical schedules, interruption/transition semantics and Rust parity first. Do not duplicate a solver in either renderer.
+6. **Experimental distributable candidate.** Only after scope choice, portability/performance evidence, useful documentation and explicit release authorization. No version/npm/alpha rebuild in this task.
+
+C5A establishes that larger supported region rigs work, not that the entire Editor feature inventory is ready in ReplayV1 or that25 complex actors can sustain high refresh. No work above was started.

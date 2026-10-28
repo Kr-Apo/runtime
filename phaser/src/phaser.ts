@@ -9,6 +9,12 @@ export interface PhaserRigOptions {
     pageTextureKeys: readonly string[];
     skin?: string;
 }
+const replayPresentation = Symbol('validated Replay presentation');
+export interface PhaserPresentation { readonly root: Phaser.GameObjects.Container; setPose(pose: RigPose, skin?: string): void; destroy(): void; }
+/** Internal factory, not a package export. */
+export function createReplayPhaserView(scene: Phaser.Scene, rig: RuntimeRigData, pageTextureKeys: readonly string[], skin?: string): PhaserPresentation {
+    return PhaserRig.replayView(replayPresentation, scene, rig, pageTextureKeys, skin);
+}
 interface MeshView {
     object: Phaser.GameObjects.Mesh;
     attachmentKey: string;
@@ -50,7 +56,7 @@ interface Draw {
 /** Projects the shared core and pure render geometry into Phaser 3 WebGL Meshes. */
 export class PhaserRig {
     readonly root: Phaser.GameObjects.Container;
-    readonly playback: RigPlayback;
+    readonly playback!: RigPlayback;
     readonly unsupported: readonly string[];
     private readonly views = new Map<string, MeshView>();
     private readonly clips = new Map<string, ClipView>();
@@ -62,7 +68,7 @@ export class PhaserRig {
     private skin: string;
     private disposed = false;
     private listening = false;
-    constructor(private readonly scene: Phaser.Scene, source: RuntimeRigData, options: PhaserRigOptions) {
+    constructor(private readonly scene: Phaser.Scene, source: RuntimeRigData, options: PhaserRigOptions, mode?: typeof replayPresentation, deferReplayPose = false) {
         requireThat(scene?.sys?.game?.renderer && 'gl' in scene.sys.game.renderer, "PhaserRig requires Phaser's WebGL renderer");
         this.rig = phaserSource(source);
         this.pageTextureKeys = [...options.pageTextureKeys];
@@ -74,7 +80,7 @@ export class PhaserRig {
         this.validateFrames();
         const warnings = new Set<string>();
         for (const c of this.rig.constraints)
-            warnings.add(`${c.type} constraints: outside Pixi parity contract; legacy core path only (native physics is not activated)`);
+            warnings.add(`${c.type} constraints: outside Pixi parity contract; legacy core path only; physics integration is not Rust-qualified`);
         for (const s of this.rig.slots)
             if (s.blend !== 'normal')
                 warnings.add(`${s.blend} composition: legacy Phaser path, not qualified Pixi parity`);
@@ -93,6 +99,7 @@ export class PhaserRig {
         this.root.once('destroy', this.release, this);
         try {
             this.installAtlasFrames();
+            if (mode === replayPresentation) { if (!deferReplayPose) this.apply(this.setupPose); return; }
             // Initially running preserves legacy player.play(...); update(ms) use. No clip means not playing.
             this.playback = new RigPlayback(this.rig, this.skin, (pose, skin) => this.apply(pose, this.appearance(skin)), requireThat, true);
             this.apply(this.player.pose());
@@ -101,6 +108,21 @@ export class PhaserRig {
             this.root.destroy(true);
             throw error;
         }
+    }
+    /** @internal Runtime token is held only by the internal factory. */
+    static replayView(token: typeof replayPresentation, scene: Phaser.Scene, rig: RuntimeRigData, keys: readonly string[], skin?: string): PhaserPresentation {
+        requireThat(token === replayPresentation, 'Use the validated experimental asset');
+        const view = new PhaserRig(scene, rig, { pageTextureKeys: keys, ...(skin === undefined ? {} : { skin }) }, token, skin !== undefined);
+        return { root: view.root, setPose: (pose, skin) => {
+            view.apply(pose, skin === undefined ? undefined : view.appearance(skin));
+            // Scene preUpdate precedes prerender. Project the newly committed geometry now,
+            // with the public Face API, without playback or Physics. These adapter-owned
+            // meshes use identity 3D model/view and the existing orthographic projection;
+            // application placement belongs to the public 2D root Container.
+            for (const { object } of view.views.values())
+                for (const face of object.faces)
+                    face.transformCoordinatesLocal(object.projectionMatrix, object.width, object.height, 0);
+        }, destroy: () => view.destroy() };
     }
     get player() { return this.playback.corePlayer; }
     get skinName(): string { return this.skin; }

@@ -187,7 +187,11 @@ const unsupported = [
   ['clipping',r=>r.skins[0].attachments[0].attachment.type='clipping',/clipping/],
   ['invalid dark tint',r=>r.slots[0].dark_color=[0,0,0,2],/dark tint/],
   ['Additive',r=>r.slots[0].blend='additive',/Normal only/],
-  ['physics',r=>r.constraints=[{type:'physics'}],/Constraints/],
+  // Reach the adapter capability gate with a valid core Physics reference.
+  // Malformed references are rejected earlier by parseRig (T839 core tests).
+  ['physics',r=>r.constraints=[{type:'physics',name:'sway',target:r.bones[0].name,bones:[],mix:1,
+    physics:{inertia:.5,strength:40,damping:.5,mass:1},
+    forces:{wind_x:0,wind_y:0,gravity_x:0,gravity_y:0},channels:{rotate:true,translate:false}}],/Constraints/],
   ['paths',r=>r.constraints=[{type:'path'}],/Constraints/],
   ['FFD',r=>Object.values(r.animations)[0].deform=[{}],/deform/],
   ['invalid events',r=>Object.values(r.animations)[0].events=[{time:NaN,name:'hit'}],/events/],

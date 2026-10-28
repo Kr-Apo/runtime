@@ -1,0 +1,18 @@
+/** Offline consistency verification, never browser admission. */
+import{readFileSync,statSync,lstatSync}from'node:fs';import{join}from'node:path';
+import{analyze,canonical,identity,hash,makeCertificate,CONTRACT}from'./contract.mjs';import{deltaSink,json}from'./run.mjs';
+const baseNames=['request.json','chrome.json','execution.json','comparison.json','errors.jsonl','properties.jsonl'];const allowed=[...baseNames,'node-supplement.json','browser-error.json'];
+function unhash(o){const{sha256,...body}=o;return body;}
+export function verify({directory,expected,nativeBytes,rustBytes,javascriptBuild,browserIdentity}){
+ try{if(!expected||!javascriptBuild||!browserIdentity)return {valid:false,status:'INVALID_INPUT',reason:'Independent expected identities required'};
+ const c=json(join(directory,'certificate.json'));if(c.contract!==CONTRACT||c.requestHash!==identity(expected)||canonical(c.request)!==canonical(expected)||hash(nativeBytes)!==expected.trajectory.asset.sha256||nativeBytes.length!==expected.trajectory.asset.byteLength||hash(rustBytes)!==expected.rustReference.sha256||canonical(javascriptBuild)!==canonical(expected.javascriptBuild)||canonical(browserIdentity)!==canonical(expected.browserIdentity)||identity(unhash(javascriptBuild))!==javascriptBuild.sha256||identity(unhash(browserIdentity))!==browserIdentity.sha256)return{valid:false,status:'INVALID_INPUT',reason:'Exact input/build/reference identity changed'};
+ if(lstatSync(directory).isSymbolicLink()||baseNames.some(n=>!c.proofs?.[n])||Object.keys(c.proofs??{}).some(n=>!allowed.includes(n)))return{valid:false,status:'INCOMPLETE_EVIDENCE',reason:'Proof inventory incomplete or invalid'};
+ for(const[n,p]of Object.entries(c.proofs)){const f=join(directory,n);if(lstatSync(f).isSymbolicLink()||hash(readFileSync(f))!==p.sha256||statSync(f).size!==p.bytes)return{valid:false,status:'INCOMPLETE_EVIDENCE',reason:'Proof bytes changed: '+n};}
+ const execution=json(join(directory,'execution.json'));if(!execution.completed||execution.pageErrors.length||execution.engineHash!==browserIdentity.sha256||execution.requestHash!==identity(expected)||execution.rawSHA256!==c.proofs['chrome.json'].sha256)return{valid:false,status:'INCOMPLETE_EVIDENCE',reason:'Chrome execution failed or lost its binding'};
+ if(canonical(execution.scripts.map(s=>s.path).sort())!==canonical(javascriptBuild.requiredScripts))return{valid:false,status:'INCOMPLETE_EVIDENCE',reason:'Executed module graph differs'};
+ for(const s of execution.scripts){const sha=s.path==='/capture.mjs'?expected.qualifier.files.find(f=>f.file==='browser-capture.mjs')?.sha256:javascriptBuild.modules.find(m=>m.path===s.path)?.sha256;if(s.sha256!==sha)return{valid:false,status:'INVALID_INPUT',reason:'Executed JavaScript bytes differ'};}
+ const deltas=deltaSink(null),properties=deltaSink(null),a=analyze(expected,JSON.parse(nativeBytes.toString()),JSON.parse(rustBytes.toString()),json(join(directory,'chrome.json')),x=>{properties.row(x);if(x.absoluteError)deltas.row(x);}),d=deltas.close(),p=properties.close();
+ if(d.sha256!==c.proofs['errors.jsonl'].sha256||p.sha256!==c.proofs['properties.jsonl'].sha256||canonical(a)!==canonical(json(join(directory,'comparison.json'))))return{valid:false,status:'INCOMPLETE_EVIDENCE',reason:'Recomputed data differ'};
+ if(canonical(makeCertificate(expected,a,c.proofs,d,p))!==canonical(c))return{valid:false,status:'INVALID_INPUT',reason:'Certificate claims falsified'};return{valid:a.status==='QUALIFIED_BROWSER_BOUNDED',status:a.status,reason:a.status==='QUALIFIED_BROWSER_BOUNDED'?'locally consistent finite Chrome proof':'executed trajectory refused'};
+ }catch(e){return{valid:false,status:e.code==='ENOENT'?'INCOMPLETE_EVIDENCE':'INVALID_INPUT',reason:String(e)};}
+}

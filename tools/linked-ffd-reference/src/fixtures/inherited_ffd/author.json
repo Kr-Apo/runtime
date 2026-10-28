@@ -1,0 +1,1069 @@
+{
+  "version": 1,
+  "name": "Linked Frog",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "body_art",
+      "file": "2f/2f3bc3266a798c6fb4078f88b680d58c9abb11d4e4e44ea7ecb5ad1412d1ec37.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "cape",
+      "file": "34/34640f8480b4f7240117836baa5ff085746c2a1df5e65071ec23f452da97e72d.png",
+      "width": 32,
+      "height": 64,
+      "source_path": null
+    },
+    {
+      "name": "moon",
+      "file": "0e/0e366348ea657ac956af0cb2bcae6c56a53c51c4ab991632218dfcff5b03a4f7.png",
+      "width": 48,
+      "height": 80,
+      "source_path": null
+    },
+    {
+      "name": "sun",
+      "file": "0c/0caaea271b1da55b2aa67a0aa0f399d856262a0d6135ef83c31c876f13797d60.png",
+      "width": 48,
+      "height": 64,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 10.0,
+      "tx": 10.0,
+      "ty": 5.0,
+      "rotation": 10.0,
+      "sx": 0.9,
+      "sy": 1.05,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b0",
+      "parent": "root",
+      "length": 12.0,
+      "tx": -12.0,
+      "ty": -8.0,
+      "rotation": -12.0,
+      "sx": 1.1,
+      "sy": 0.9,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b1",
+      "parent": "b0",
+      "length": 13.0,
+      "tx": 10.0,
+      "ty": 2.0,
+      "rotation": 18.0,
+      "sx": 0.95,
+      "sy": 1.1,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b2",
+      "parent": "b1",
+      "length": 14.0,
+      "tx": 12.0,
+      "ty": -3.0,
+      "rotation": -7.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b3",
+      "parent": "b2",
+      "length": 9.0,
+      "tx": 11.0,
+      "ty": 2.0,
+      "rotation": 15.000001,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b4",
+      "parent": "b3",
+      "length": 8.0,
+      "tx": 9.0,
+      "ty": 1.0,
+      "rotation": -9.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "body",
+      "bone": "root",
+      "attachment": "linked_royal",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "cape",
+      "bone": "root",
+      "attachment": "linked_cape",
+      "color": [
+        0.8,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "badge",
+      "bone": "root",
+      "attachment": "sun",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    },
+    {
+      "name": "after",
+      "bone": "root",
+      "attachment": "star",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "body",
+    "cape",
+    "badge",
+    "after"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "after",
+          "name": "star",
+          "attachment": {
+            "type": "region",
+            "texture": "sun",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 0.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 30.0,
+            "height": 45.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "badge",
+          "name": "fan",
+          "attachment": {
+            "type": "mesh",
+            "texture": "moon",
+            "vertices": [
+              21.0,
+              -7.0,
+              -1.0,
+              24.0,
+              -1.0,
+              -38.0,
+              43.0,
+              -38.0,
+              43.0,
+              24.0
+            ],
+            "uvs": [
+              0.5,
+              0.5,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3,
+              0,
+              3,
+              4,
+              0,
+              4,
+              1
+            ],
+            "weights": [
+              [
+                [
+                  "b0",
+                  0.35
+                ],
+                [
+                  "b1",
+                  0.65
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.7
+                ],
+                [
+                  "b1",
+                  0.3
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.6
+                ],
+                [
+                  "b1",
+                  0.4
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.2
+                ],
+                [
+                  "b1",
+                  0.8
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.3
+                ],
+                [
+                  "b1",
+                  0.7
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "slot": "badge",
+          "name": "moon",
+          "attachment": {
+            "type": "region",
+            "texture": "moon",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": 8.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 44.0,
+            "height": 62.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "badge",
+          "name": "sun",
+          "attachment": {
+            "type": "region",
+            "texture": "sun",
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "rotation": -9.0,
+            "scale_x": 1.0,
+            "scale_y": 1.0,
+            "width": 38.0,
+            "height": 56.0,
+            "uv": [
+              0.0,
+              0.0,
+              1.0,
+              1.0
+            ],
+            "pivot_x": 0.5,
+            "pivot_y": 0.5
+          }
+        },
+        {
+          "slot": "body",
+          "name": "body",
+          "attachment": {
+            "type": "mesh",
+            "texture": "body_art",
+            "vertices": [
+              -36.0,
+              32.0,
+              -36.0,
+              -40.0,
+              36.0,
+              -40.0,
+              36.0,
+              32.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": [
+              [
+                [
+                  "b0",
+                  0.7
+                ],
+                [
+                  "b1",
+                  0.3
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.2
+                ],
+                [
+                  "b1",
+                  0.4
+                ],
+                [
+                  "b2",
+                  0.6
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.4
+                ],
+                [
+                  "b1",
+                  0.2
+                ],
+                [
+                  "b2",
+                  0.0
+                ],
+                [
+                  "b3",
+                  0.3
+                ],
+                [
+                  "b4",
+                  0.1
+                ]
+              ],
+              []
+            ]
+          }
+        },
+        {
+          "slot": "body",
+          "name": "linked_plain",
+          "attachment": {
+            "type": "mesh",
+            "texture": "body_art",
+            "vertices": [],
+            "uvs": [],
+            "triangles": [],
+            "weights": [],
+            "linked": {
+              "skin": "default",
+              "slot": "body",
+              "attachment": "body",
+              "inherit_deform": false
+            }
+          }
+        },
+        {
+          "slot": "body",
+          "name": "linked_royal",
+          "attachment": {
+            "type": "mesh",
+            "texture": "moon",
+            "vertices": [],
+            "uvs": [],
+            "triangles": [],
+            "weights": [],
+            "linked": {
+              "skin": "default",
+              "slot": "body",
+              "attachment": "body",
+              "inherit_deform": true
+            }
+          }
+        },
+        {
+          "slot": "cape",
+          "name": "cape",
+          "attachment": {
+            "type": "mesh",
+            "texture": "cape",
+            "vertices": [
+              6.0,
+              26.0,
+              6.0,
+              -34.0,
+              36.0,
+              -34.0,
+              36.0,
+              26.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": []
+          }
+        },
+        {
+          "slot": "cape",
+          "name": "linked_cape",
+          "attachment": {
+            "type": "mesh",
+            "texture": "sun",
+            "vertices": [],
+            "uvs": [],
+            "triangles": [],
+            "weights": [],
+            "linked": {
+              "slot": "cape",
+              "attachment": "cape",
+              "inherit_deform": false
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [
+    {
+      "name": "spring",
+      "type": "physics",
+      "target": "b2",
+      "bones": [],
+      "bend_direction": 1.0,
+      "mix": 0.7,
+      "softness": 0.0,
+      "stretch": false,
+      "stretch_limit": 1.1,
+      "stiffness": 0.0,
+      "physics": [
+        0.5,
+        30.0,
+        6.0,
+        1.0
+      ],
+      "forces": [
+        0.3,
+        0.0,
+        0.0,
+        -7.0
+      ],
+      "channels": [
+        true,
+        true
+      ]
+    }
+  ],
+  "constraint_order": [
+    "spring"
+  ],
+  "animations": [
+    {
+      "name": "linked_frog",
+      "duration": 1.5,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "root",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 8.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.8,
+              "value": -4.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 6.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_color",
+          "slot": "body",
+          "keys": [
+            {
+              "time": 0.2,
+              "value": [
+                1.0,
+                0.9,
+                0.8,
+                1.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": [
+                0.5,
+                1.0,
+                0.9,
+                0.45
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                0.0,
+                0.8,
+                1.0
+              ]
+            },
+            {
+              "time": 0.8,
+              "value": [
+                0.9,
+                0.6,
+                1.0,
+                0.65
+              ],
+              "curve": "stepped"
+            },
+            {
+              "time": 1.1,
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": [
+                1.0,
+                0.9,
+                0.8,
+                1.0
+              ],
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "slot_color",
+          "slot": "badge",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.4,
+              "value": [
+                0.7,
+                0.9,
+                1.0,
+                0.3
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": [
+                1.0,
+                0.4,
+                0.2,
+                1.0
+              ],
+              "curve": "stepped"
+            },
+            {
+              "time": 0.8,
+              "value": [
+                1.0,
+                0.8,
+                0.4,
+                0.9
+              ],
+              "curve": "stepped"
+            },
+            {
+              "time": 1.1,
+              "value": [
+                1.0,
+                0.8,
+                0.4,
+                0.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.3,
+                0.0,
+                0.7,
+                1.0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "slot_attachment",
+          "slot": "badge",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": "sun"
+            },
+            {
+              "time": 0.8,
+              "value": null
+            },
+            {
+              "time": 1.0,
+              "value": "moon"
+            },
+            {
+              "time": 1.3,
+              "value": "fan"
+            }
+          ]
+        },
+        {
+          "kind": "slot_visible",
+          "slot": "badge",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": true
+            },
+            {
+              "time": 0.75,
+              "value": false
+            },
+            {
+              "time": 1.0,
+              "value": true
+            }
+          ]
+        },
+        {
+          "kind": "deform",
+          "slot": "body",
+          "attachment": "body",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.4,
+              "offsets": [
+                0.75,
+                -1.75,
+                1.0,
+                -1.75,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                0.0,
+                0.8,
+                0.6
+              ]
+            },
+            {
+              "time": 0.5,
+              "offsets": [
+                3.0,
+                -7.0,
+                4.0,
+                -7.0,
+                -6.0,
+                15.0,
+                -2.0,
+                12.0,
+                -4.0,
+                13.5,
+                -6.0,
+                15.0,
+                -2.0,
+                12.0,
+                -4.0,
+                13.5,
+                -6.0,
+                15.0,
+                -2.0,
+                12.0
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                -0.1,
+                0.8,
+                1.1
+              ]
+            },
+            {
+              "time": 0.8,
+              "offsets": [
+                0.75,
+                -1.75,
+                1.0,
+                -1.75,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0
+              ],
+              "curve": "stepped"
+            },
+            {
+              "time": 1.1,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "draw_order",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": []
+            },
+            {
+              "time": 0.4,
+              "offsets": [
+                [
+                  "after",
+                  -1
+                ]
+              ]
+            },
+            {
+              "time": 0.6,
+              "offsets": []
+            },
+            {
+              "time": 1.1,
+              "offsets": [
+                [
+                  "cape",
+                  -1
+                ]
+              ]
+            },
+            {
+              "time": 1.4,
+              "offsets": []
+            }
+          ]
+        },
+        {
+          "kind": "slot_visible",
+          "slot": "body",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": true
+            },
+            {
+              "time": 0.7,
+              "value": false
+            },
+            {
+              "time": 0.75,
+              "value": true
+            }
+          ]
+        },
+        {
+          "kind": "slot_attachment",
+          "slot": "body",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": "linked_royal"
+            },
+            {
+              "time": 0.25,
+              "value": "body"
+            },
+            {
+              "time": 0.5,
+              "value": "linked_plain"
+            },
+            {
+              "time": 0.75,
+              "value": "linked_royal"
+            },
+            {
+              "time": 1.0,
+              "value": null
+            },
+            {
+              "time": 1.1,
+              "value": "linked_royal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

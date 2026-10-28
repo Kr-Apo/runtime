@@ -1,3 +1,5 @@
+> **P01-RC1 local candidate — 28 October 2026.** Read the [current contracts and qualification boundary](replay-v1.md) before the historical notes below. Proposed Classic v0.1.6 is not tagged/released here. Runtime package versions are unchanged; ReplayV1 A17 is explicit and separate from Legacy playback.
+
 # Integrating the T-811 runtime candidate
 
 This is unpublished local software, proposed 0.2.0-alpha.1. Install all matching

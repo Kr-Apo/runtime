@@ -1,0 +1,40 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "T839 physics",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":1.0,"x":0.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"tassel","parent":0,"length":10.0,"x":10.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"tip","parent":1,"length":2.0,"x":10.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+  ],
+  "drawOrder": [],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+    ]}
+  ],
+  "constraints": [
+    {"bones":[],"channels":{"rotate":true,"translate":true},"forces":{"gravity_x":0.0,"gravity_y":-9.800000190734863,"wind_x":10.0,"wind_y":0.0},"mix":1.0,"name":"sway","not_last":false,"physics":{"damping":0.5,"inertia":0.5,"mass":1.0,"strength":40.0},"target":"tassel","type":"physics"}
+  ],
+  "constraintOrder": ["sway"],
+  "animations": {
+    "move": {
+      "duration": 2.0,
+      "looping": true,
+      "bones": [
+        {"name":"root","translate_x":[{"curve":"linear","has_next":true,"is_bezier":false,"line_points":[0.6666666865348816,8.0,1.3333333730697632,16.0],"points":[],"time":0.0,"value":0.0},{"curve":"linear","has_next":false,"is_bezier":false,"line_points":null,"points":null,"time":2.0,"value":24.0}]}
+      ],
+      "slots": [],
+      "deform": [],
+      "drawOrder": [],
+      "ik": [],
+      "transform": [],
+      "events": []
+    }
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":1,"index":0,"width":1}],"regions":[]}
+}

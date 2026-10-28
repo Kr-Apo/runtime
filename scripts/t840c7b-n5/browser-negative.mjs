@@ -1,0 +1,5 @@
+/** Pure browser diagnostic faults; these are NOT qualified transport histories. */
+export async function diagnose({nativeURL,moduleURL}){
+ const rig=await(await fetch(nativeURL,{cache:'no-store'})).json(),{ReplayConsumerBridge}=await import(moduleURL),c=new ReplayConsumerBridge(rig,'fault_at_20',1n);c.play(c.context,'fault_at_20',false);c.requestTick(c.context,19n);const before=c.currentFrame();const progress=c.pump(c.context,1,()=>{throw Error('N5 deliberate precommit observer rejection');});const after=c.currentFrame();let resumeError=null;try{c.resume(c.context);}catch(e){resumeError=String(e);}const afterResume=c.currentFrame();c.dispose(c.context);
+ return JSON.stringify({contract:'ankhimate.browser.diagnostic/1',notAQualifiedHistory:true,scenario:'real Chrome B6 audit rejection before tick9, target19',before,after,afterResume,stop:{kind:progress.stop.kind,error:String(progress.stop.error)},resumeError},(_,v)=>typeof v==='bigint'?String(v):typeof v==='number'&&!Number.isFinite(v)?{$nonfinite:String(v)}:v);
+}

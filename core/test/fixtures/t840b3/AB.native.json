@@ -1,0 +1,29 @@
+{
+  "format": "ankhimate-runtime",
+  "format_version": 2,
+  "context_version": 1,
+  "name": "B3 independent force-only",
+  "fps": 60,
+  "bones": [
+    {"name":"root","parent":-1,"length":1.0,"x":0.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"A","parent":0,"length":10.0,"x":10.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"B","parent":0,"length":10.0,"x":20.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true},
+    {"name":"C","parent":0,"length":10.0,"x":30.0,"y":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"shearX":0.0,"shearY":0.0,"inheritRotation":true,"inheritScale":true,"inheritReflect":true}
+  ],
+  "slots": [
+  ],
+  "drawOrder": [],
+  "defaultSkin": "default",
+  "skins": [
+    {"name":"default","bones":[],"constraints":[],"attachments":[
+    ]}
+  ],
+  "constraints": [
+    {"bones":[],"channels":{"rotate":true,"translate":true},"forces":{"gravity_x":0.0,"gravity_y":-9.800000190734863,"wind_x":10.0,"wind_y":0.0},"mix":1.0,"name":"spring-A","not_last":true,"physics":{"damping":0.5,"inertia":0.5,"mass":1.0,"strength":40.0},"target":"A","type":"physics"},
+    {"bones":[],"channels":{"rotate":true,"translate":true},"forces":{"gravity_x":0.0,"gravity_y":-9.800000190734863,"wind_x":10.0,"wind_y":0.0},"mix":1.0,"name":"spring-B","not_last":false,"physics":{"damping":0.5,"inertia":0.5,"mass":1.0,"strength":40.0},"target":"B","type":"physics"}
+  ],
+  "constraintOrder": ["spring-A","spring-B"],
+  "animations": {
+  },
+  "atlas": {"pages":[{"file":"atlas.png","height":1,"index":0,"width":1}],"regions":[]}
+}

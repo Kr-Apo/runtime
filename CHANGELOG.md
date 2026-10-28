@@ -25,3 +25,7 @@ interrupted crossfades and the runtime/renderer exclusions remain documented.
 Before publication: maintainer extraction/startup/save tests, interactive runtime
 GPU review, documentation/screenshots and final version approval. Existing RC2
 remains unmodified and separate. No public push/tag/release is part of T-811.
+
+## P01-RC1 — local corrective candidate
+
+Source lineage through A17; separate Legacy/ReplayV1 contracts, bounded admission, ownership, transaction and event/journal limits. No runtime package version change or npm publication. Historical qualification and current execution receipts remain distinct.

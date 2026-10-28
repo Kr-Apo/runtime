@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync,writeFileSync,mkdirSync}from'node:fs';import{join,dirname,resolve}from'node:path';import{pathToFileURL,fileURLToPath}from'node:url';import{seal}from'./supervisor.mjs';
+const cfg=JSON.parse(readFileSync(process.argv[2])),here=dirname(fileURLToPath(import.meta.url)),m=JSON.parse(readFileSync(cfg.manifest)),entry=m.entries.find(e=>e.id==='simple-fault_at_20'),anchor=JSON.parse(readFileSync(cfg.anchorPath)),out=join(cfg.out,'identity-negatives');mkdirSync(out);const receipts=[];
+for(const target of ['/browser.mjs','/core/replay-consumer.js'])await test('CDP rejects actual served source differing from trusted bytes: '+target,async()=>{
+ const folder=join(out,target==='/browser.mjs'?'entry':'core');mkdirSync(folder);let source=readFileSync(join(here,'supervisor.mjs'),'utf8');source=source.replace(/from '(\.\.\/\.\.\/scripts\/[^']+)'/g,(_,s)=>'from '+JSON.stringify(new URL(s,import.meta.url).href));
+ const marker="if(bytes)return route.fulfill({contentType:'text/javascript',body:bytes});";assert(source.includes(marker));source=source.replace(marker,`if(bytes)return route.fulfill({contentType:'text/javascript',body:path===${JSON.stringify(target)}?Buffer.concat([bytes,Buffer.from('\\n// deliberate mismatched served bytes\\n')]):bytes});`);
+ writeFileSync(join(folder,'supervisor.mjs'),source);writeFileSync(join(folder,'browser.mjs'),readFileSync(join(here,'browser.mjs')));
+ const a=structuredClone(anchor);a.code=Object.fromEntries(['supervisor.mjs','browser.mjs'].map(f=>[f,seal(join(folder,f))]));a.dependencies=Object.fromEntries(Object.entries(a.dependencies).map(([p,s])=>[resolve(here,p),s]));const ap=join(folder,'anchor.json');writeFileSync(ap,JSON.stringify(a));
+ const mod=await import(pathToFileURL(join(folder,'supervisor.mjs'))),s=await mod.createSupervisor({...cfg,anchorPath:ap,anchorSHA256:seal(ap).sha256});try{
+  const t=s.authorize({qualificationId:entry.id,history:'bulk',instanceId:'tampered-source',nativeBytes:readFileSync(entry.native),request:entry.expected});let error;try{await s.start(t,'tampered-source');}catch(e){error={kind:e.kind,code:e.code,message:String(e)};}assert.equal(error?.kind,'EXECUTION');receipts.push({target,error,source:seal(join(folder,'supervisor.mjs')),numericBuildUnchanged:true,sessionCreated:false});
+ }finally{await s.close();}
+});
+writeFileSync(join(cfg.out,'EXECUTED-MODULE-REFUSALS.json'),JSON.stringify(receipts,null,2));

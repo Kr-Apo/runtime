@@ -1,0 +1,10 @@
+/** UI sends typed requests; it never calculates or supplies weights/poses. */
+export function installMixControls({actors,draw,show,stop}) {
+ const panel=document.createElement('div');panel.innerHTML='<label>Transition ticks <input id="mix-duration" type="number" min="1" max="7200" value="24"></label> <label>Incoming tick <input id="mix-incoming" type="number" min="0" value="0"></label><br><button id="mix-attack">Idle → Attack</button> <button id="mix-idle">Attack → Idle</button> <button id="mix-hit">Idle → Hit</button> <button id="mix-hit-idle">Hit → Idle</button> <button id="mix-reset">Reset</button><p id="mix-error" role="status"></p>';
+ document.querySelector('canvas').before(panel);
+ // Keep diagnostic tick mode separate from the ordinary page's RAF lifecycle.
+ if(new URL(location.href).searchParams.has('manual')){const play=document.querySelector('#run');play.disabled=true;play.title='Open the ordinary PixiJS/Phaser page for realtime Play/Pause/Resume; this page uses explicit ticks.';}
+ const run=(from,to)=>{try{const durationTicks=BigInt(panel.querySelector('#mix-duration').value),incomingTick=BigInt(panel.querySelector('#mix-incoming').value);for(const a of actors()){if(a.observe().clip!==from)throw Error('Expected '+from+'; current '+a.observe().clip);const f=a.observe();if(f.state==='stopped')a.play();a.requestTransition({to,durationTicks,incomingTick});}panel.querySelector('#mix-error').textContent='Request queued; accepted pose changes only at the next accepted tick.';show();}catch(e){panel.querySelector('#mix-error').textContent=String(e);}};
+ for(const[id,from,to]of [['mix-attack','Idle','Attack'],['mix-idle','Attack','Idle'],['mix-hit','Idle','Hit'],['mix-hit-idle','Hit','Idle']])panel.querySelector('#'+id).onclick=()=>run(from,to);
+ panel.querySelector('#mix-reset').onclick=()=>{try{stop();for(const a of actors()){a.reset();a.present();}draw();show();panel.querySelector('#mix-error').textContent='Reset: Idle at tick0; journal and Physics reset explicitly.';}catch(e){panel.querySelector('#mix-error').textContent=String(e);}};
+}

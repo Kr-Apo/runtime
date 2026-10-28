@@ -1,0 +1,22 @@
+{
+  "name": "Clockwork Courier",
+  "bones": 26,
+  "regions": 21,
+  "physics": 8,
+  "pages": 2,
+  "clips": {
+    "march": 2.0,
+    "salute": 3.0
+  },
+  "editor": "275082e8f26d42389ed05fb92c45e2822006525d",
+  "pipeline": "Native author schema -> native Save/Reload -> unchanged default runtime preset; 721 real Rust ReplayConsumer frames per clip",
+  "sha256": {
+    "atlas.png": "1f7d982ae63ce21efa71790b82c2d6df56a792bf94c59a718f416f01934da327",
+    "atlas_2.png": "d64212756c1205e782e24d0a9402584e56ab523af986034091ee323e37f5b1da",
+    "rust-march.json": "dfcf482251a6a053590648c7b6a4fa34451ab7a0cc67e1a5740b95a59f5282a4",
+    "rust-preview-march.json": "616958c7de4fe268cb430a35e796e17dad02817b0358c54a010ce20ab6f1ed9a",
+    "rust-preview-salute.json": "89a6dac5d3e957abddaff4ccc94dac65522c16806d3d0c897380da47c3165cd2",
+    "rust-salute.json": "552d4254976056b7294ec3f9250c3db53bac298bf4f780c82f209cd966edb577",
+    "skeleton.json": "aaead75e52dbc3979b4d0157355e2dcbd8fbb01dc10a08dea18f18e6e3e5d2a2"
+  }
+}

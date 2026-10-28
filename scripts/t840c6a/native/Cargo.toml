@@ -1,0 +1,10 @@
+[package]
+name="t840c2-reference"
+version="0.0.0"
+edition="2024"
+[dependencies]
+ankhimate-core={path="../../../../editor/core"}
+ankhimate-formats={path="../../../../editor/formats"}
+ankhimate-export={path="../../../../editor/export"}
+serde_json="1.0.150"
+image={version="0.25.10",default-features=false,features=["png"]}

@@ -1,0 +1,586 @@
+{
+  "scope": "B5A author-only, origin-zero, fixed-default-skin Physics-only",
+  "cases": [
+    {
+      "name": "lifecycle-clips-seek-replay",
+      "ops": [
+        {
+          "op": "capture",
+          "name": "zero"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "2"
+        },
+        {
+          "op": "pause"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "pause"
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "1",
+          "error": true
+        },
+        {
+          "op": "pump",
+          "budget": 52,
+          "error": true
+        },
+        {
+          "op": "resume"
+        },
+        {
+          "op": "request",
+          "n": "2",
+          "d": "4"
+        },
+        {
+          "op": "pump",
+          "budget": 52
+        },
+        {
+          "op": "capture",
+          "name": "before-restart"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false,
+          "context": "before-restart",
+          "error": true
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "1"
+        },
+        {
+          "op": "stop"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "1"
+        },
+        {
+          "op": "pump",
+          "budget": 112
+        },
+        {
+          "op": "capture",
+          "name": "before-seek"
+        },
+        {
+          "op": "seek",
+          "n": "90",
+          "d": "120"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume",
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false,
+          "error": true
+        },
+        {
+          "op": "rest_start",
+          "error": true
+        },
+        {
+          "op": "request",
+          "n": "91",
+          "d": "120",
+          "context": "before-seek",
+          "error": true
+        },
+        {
+          "op": "replay",
+          "tick": "600"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "request",
+          "n": "601",
+          "d": "120",
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false,
+          "error": true
+        },
+        {
+          "op": "pump",
+          "budget": 1
+        },
+        {
+          "op": "pause"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume"
+        },
+        {
+          "op": "pump",
+          "budget": 137
+        },
+        {
+          "op": "pump",
+          "budget": 462
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume"
+        },
+        {
+          "op": "request",
+          "n": "601",
+          "d": "120"
+        },
+        {
+          "op": "play",
+          "clip": "held",
+          "restart": false
+        },
+        {
+          "op": "request",
+          "n": "2",
+          "d": "1"
+        },
+        {
+          "op": "pump",
+          "budget": 240
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "seek",
+          "n": "600",
+          "d": "120"
+        },
+        {
+          "op": "replay",
+          "tick": "0"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "stop"
+        },
+        {
+          "op": "dispose"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false,
+          "error": true
+        },
+        {
+          "op": "pause",
+          "error": true
+        },
+        {
+          "op": "reset",
+          "epoch": "20",
+          "error": true
+        },
+        {
+          "op": "dispose",
+          "error": true
+        }
+      ]
+    },
+    {
+      "name": "validation-preserves-state",
+      "ops": [
+        {
+          "op": "pause",
+          "error": true
+        },
+        {
+          "op": "resume",
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "missing",
+          "restart": true,
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "with-event",
+          "restart": false,
+          "error": true
+        },
+        {
+          "op": "capture",
+          "name": "initial"
+        },
+        {
+          "op": "seek",
+          "n": "1",
+          "d": "0",
+          "error": true
+        },
+        {
+          "op": "seek",
+          "n": "18446744073709551615",
+          "d": "1",
+          "error": true
+        },
+        {
+          "op": "reset",
+          "epoch": "0",
+          "error": true
+        },
+        {
+          "op": "reset",
+          "epoch": "1",
+          "error": true
+        },
+        {
+          "op": "crossfade",
+          "error": true
+        },
+        {
+          "op": "skin",
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "0",
+          "error": true
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "1"
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "2",
+          "error": true
+        },
+        {
+          "op": "pump",
+          "budget": 0,
+          "error": true
+        },
+        {
+          "op": "pump",
+          "budget": 65537,
+          "error": true
+        },
+        {
+          "op": "request",
+          "n": "18446744073709551615",
+          "d": "1",
+          "error": true
+        },
+        {
+          "op": "seek",
+          "n": "120",
+          "d": "240"
+        },
+        {
+          "op": "seek",
+          "n": "1",
+          "d": "3"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false,
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": true
+        },
+        {
+          "op": "request",
+          "n": "5",
+          "d": "4"
+        },
+        {
+          "op": "pump",
+          "budget": 142
+        },
+        {
+          "op": "observe"
+        }
+      ]
+    },
+    {
+      "name": "epoch-overflow",
+      "ops": [
+        {
+          "op": "reset",
+          "epoch": "18446744073709551615"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": true,
+          "error": true
+        },
+        {
+          "op": "stop",
+          "error": true
+        },
+        {
+          "op": "seek",
+          "n": "0",
+          "d": "120",
+          "error": true
+        },
+        {
+          "op": "replay",
+          "tick": "0",
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "120"
+        },
+        {
+          "op": "reset",
+          "epoch": "18446744073709551615",
+          "error": true
+        },
+        {
+          "op": "reset",
+          "epoch": "0",
+          "error": true
+        },
+        {
+          "op": "dispose"
+        },
+        {
+          "op": "observe"
+        }
+      ]
+    },
+    {
+      "name": "pure-seek-across-loops",
+      "ops": [
+        {
+          "op": "seek",
+          "n": "0",
+          "d": "120"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "seek",
+          "n": "99",
+          "d": "120"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "seek",
+          "n": "100",
+          "d": "120"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "seek",
+          "n": "600",
+          "d": "120"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume",
+          "error": true
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false,
+          "error": true
+        },
+        {
+          "op": "rest_start",
+          "error": true
+        },
+        {
+          "op": "replay",
+          "tick": "600"
+        },
+        {
+          "op": "pump",
+          "budget": 600
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume"
+        },
+        {
+          "op": "request",
+          "n": "601",
+          "d": "120"
+        },
+        {
+          "op": "pause"
+        },
+        {
+          "op": "observe"
+        }
+      ]
+    },
+    {
+      "name": "interrupt-before-first-and-any-tick",
+      "ops": [
+        {
+          "op": "replay",
+          "tick": "600"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "pause"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume"
+        },
+        {
+          "op": "pump",
+          "budget": 1
+        },
+        {
+          "op": "capture",
+          "name": "replay"
+        },
+        {
+          "op": "pump",
+          "budget": 7
+        },
+        {
+          "op": "pause"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "resume"
+        },
+        {
+          "op": "pump",
+          "budget": 52
+        },
+        {
+          "op": "stop"
+        },
+        {
+          "op": "pump",
+          "budget": 1,
+          "context": "replay",
+          "error": true
+        },
+        {
+          "op": "replay",
+          "tick": "0"
+        },
+        {
+          "op": "observe"
+        },
+        {
+          "op": "play",
+          "clip": "breathing",
+          "restart": false
+        },
+        {
+          "op": "request",
+          "n": "1",
+          "d": "120"
+        }
+      ]
+    }
+  ]
+}

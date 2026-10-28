@@ -131,3 +131,9 @@ npm run typecheck
 ```
 
 Licensed under either MIT or Apache-2.0, at your option.
+
+## Experimental ReplayV1 (opt-in)
+
+`@ankhimate/phaser-runtime/experimental-replay` provides Game-owned native assets and Scene-bound ReplayConsumer presentation. It requires a supplied **WebGL2** context and is tested with Phaser 3.90.0. The strict subset is native v2, Physics-only, fixed default skin, static regions and Normal blend; all clips are validated. The Legacy entry and defaults are unchanged.
+
+See the [API contract](../docs/t840c4/T840C4-API-CONTRACT.md), [qualification and limits](../docs/t840c4/T840C4-REPORT.md), and [runnable pilot](../examples/replay-phaser-pilot/README.md). No package version or publication is included.

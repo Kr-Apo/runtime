@@ -1,0 +1,71 @@
+import {chromium} from 'playwright';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import {serve} from '../web-server.mjs';
+import {png,compare,policy} from '../parity-pixels.mjs';
+const output=resolve(process.argv[2]??'');if(!process.argv[2])throw Error('webgl.mjs <NEW output folder>');await mkdir(output);
+const rows=[],errors=[],warnings=[],missing=[],external=[],contexts=[],server=await serve();let browser,page;
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+try{
+ browser=await chromium.launch({headless:true,executablePath:process.env.ANKHIMATE_BROWSER_PATH??'C:/Program Files/Google/Chrome/Application/chrome.exe',args:['--disable-background-networking']});page=await browser.newPage({viewport:{width:1100,height:950},deviceScaleFactor:1});
+ await page.route('**/*',route=>{const url=route.request().url();if(url.startsWith(server.url+'/')||url.startsWith('data:')||url.startsWith('blob:'))return route.continue();external.push(url);return route.abort();});
+ page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='warning')warnings.push(m.text());if(m.type()==='error')errors.push(m.text());});page.on('response',r=>{if(!r.ok())missing.push(`${r.status()} ${r.url()}`);});
+ await page.goto(server.url+'/examples/replay-phaser-pilot/'+(process.env.ANKHIMATE_REPLAY_FIXTURE==='scaled'?'?fixture=scaled':''));await page.waitForFunction(()=>window.phaserHarness,{timeout:30000});
+ await page.evaluate(()=>{const h=window.phaserHarness;for(const a of h.actors)for(const mesh of a.view.root.list)for(const v of mesh.vertices){const load=v.load;v.load=function(f,u,o,...args){const n=load.call(this,f,u,o,...args);if(f[o+1]!==Math.fround(this.tx)||f[o+2]!==Math.fround(this.ty)||f[o+3]!==Math.fround(this.tu)||f[o+4]!==Math.fround(this.tv))throw Error('GPU submission mismatch');window.__submissions=(window.__submissions??0)+1;return n;};}});
+ const environment=await page.evaluate(async()=>{
+  const h=window.phaserHarness,gl=h.game.renderer.gl,ext=gl.getExtension('WEBGL_debug_renderer_info');window.__refs=await(await fetch(h.referenceUrl)).json();h.game.canvas.addEventListener('webglcontextlost',()=>window.__contextLost=true);
+  return {phaser:'3.90.0',userAgent:navigator.userAgent,webgl2:gl instanceof WebGL2RenderingContext,version:gl.getParameter(gl.VERSION),vendor:gl.getParameter(gl.VENDOR),renderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),attributes:gl.getContextAttributes(),canvas:[gl.drawingBufferWidth,gl.drawingBufferHeight],dpr:devicePixelRatio,hardwareConcurrency:navigator.hardwareConcurrency,memory:performance.memory?{used:performance.memory.usedJSHeapSize,limit:performance.memory.jsHeapSizeLimit}:null};
+ });environment.browser=browser.version();assert.equal(environment.webgl2,true);
+ await writeFile(resolve(output,'environment.json'),JSON.stringify(environment,null,2));await writeFile(resolve(output,'pixel-policy.json'),JSON.stringify(policy,null,2));
+ async function command(index,name,value){return page.evaluate(({index,name,value})=>window.phaserHarness.command(index,name,value),{index,name,value});}
+ async function capture(label,ticks,reference=true){
+  const data=await page.evaluate(({ticks,reference})=>{
+   const h=window.phaserHarness,rig=h.asset.source,gl=h.game.renderer.gl,w=gl.drawingBufferWidth,height=gl.drawingBufferHeight;
+   const read=()=>{const bottom=new Uint8Array(w*height*4),top=new Uint8Array(bottom.length);gl.readPixels(0,0,w,height,gl.RGBA,gl.UNSIGNED_BYTE,bottom);for(let y=0;y<height;y++)top.set(bottom.subarray(y*w*4,(y+1)*w*4),(height-1-y)*w*4);let s='';for(let i=0;i<top.length;i+=32768)s+=String.fromCharCode(...top.subarray(i,i+32768));return btoa(s);};
+   let maxAffine=0,maxWorld=0,maxVertex=0,maxCamera=0;const states=[],counts=[];
+   for(const [i,a]of h.actors.entries()){
+    const f=a.view.displayed.snapshot,tick=a.view.displayed.kind==='pure-preview'?f.tick:f.poseTick;if(String(tick)!==String(ticks[i]))throw Error('wrong displayed tick');
+    if(a.view.displayed.kind!=='pure-preview'&&tick!==f.completed)throw Error('future pose');
+    states.push({kind:a.view.displayed.kind,poseTick:String(tick),completed:String(a.view.consumer.currentFrame().completed),requested:String(a.view.consumer.currentFrame().requested),backlog:String(a.view.consumer.currentFrame().backlog),state:a.view.consumer.transportStatus().state,health:a.view.consumer.currentFrame().health,skin:f.skin});
+    const ref=window.__refs[Number(tick)];
+    if(reference)for(const b of f.bones){const r=ref.bones.find(r=>r.name===b.name).world;Object.values(b.world).forEach((v,k)=>{if(k<4)maxAffine=Math.max(maxAffine,Math.abs(v-r[k]));else maxWorld=Math.max(maxWorld,Math.abs(v-r[k]));});}
+    if(reference)for(const [slotIndex,mesh]of a.view.root.list.entries()){
+     const d=ref.draws.find(d=>d.slot===rig.drawOrder[slotIndex]),entry=rig.skins[0].attachments.find(e=>e.slot===rig.drawOrder[slotIndex]),r=rig.atlas.regions.find(r=>r.name===entry.attachment.texture);
+     const u0=Math.max(0,(r.offset_x-1)/(r.original_width-1)),u1=Math.min(1,(r.offset_x+r.width)/(r.original_width-1)),v0=Math.max(0,(r.offset_y-1)/(r.original_height-1)),v1=Math.min(1,(r.offset_y+r.height)/(r.original_height-1));
+     const indices=[0,1,2,0,2,3];
+     for(const [k,u,v]of [[0,u0,v0],[1,u0,v1],[2,u1,v1],[3,u1,v0]]){
+      const xy=[0,1].map(j=>d.corners[0][j]+u*(d.corners[3][j]-d.corners[0][j])+v*(d.corners[1][j]-d.corners[0][j]));
+      xy.forEach((value,j)=>maxVertex=Math.max(maxVertex,Math.abs((j===0?mesh.vertices[indices.indexOf(k)].x:-mesh.vertices[indices.indexOf(k)].y)-value)));
+      const vertex=mesh.vertices[indices.indexOf(k)],m=a.view.root.getWorldTransformMatrix(),camera=h.scene.cameras.main,cm=camera.matrix;const wx=m.getX(xy[0],xy[1])-camera.scrollX,wy=m.getY(xy[0],xy[1])-camera.scrollY;maxCamera=Math.max(maxCamera,Math.abs(vertex.tx-cm.getX(wx,wy)),Math.abs(vertex.ty-cm.getY(wx,wy)));if(Math.abs(vertex.u-vertex.tu)>1e-7||Math.abs(vertex.v-vertex.tv)>1e-7)throw Error('stale GPU UVs');
+     }
+    }counts.push(a.view.root.list.length);
+   }
+   h.draw();const actual=read();let expected=actual;
+   if(reference){
+    const saved=h.actors.map(a=>a.view.root.list.map(mesh=>({mesh,positions:mesh.vertices.map(v=>[v.x,v.y])})));
+    for(const a of h.actors){const ref=window.__refs[Number(a.view.displayed.snapshot.poseTick)];for(const [slotIndex,mesh]of a.view.root.list.entries()){const d=ref.draws.find(d=>d.slot===rig.drawOrder[slotIndex]),entry=rig.skins[0].attachments.find(e=>e.slot===rig.drawOrder[slotIndex]),r=rig.atlas.regions.find(r=>r.name===entry.attachment.texture);const u0=Math.max(0,(r.offset_x-1)/(r.original_width-1)),u1=Math.min(1,(r.offset_x+r.width)/(r.original_width-1)),v0=Math.max(0,(r.offset_y-1)/(r.original_height-1)),v1=Math.min(1,(r.offset_y+r.height)/(r.original_height-1));for(const [k,u,v]of [[0,u0,v0],[1,u0,v1],[2,u1,v1],[3,u1,v0]]){const xy=[0,1].map(j=>d.corners[0][j]+u*(d.corners[3][j]-d.corners[0][j])+v*(d.corners[1][j]-d.corners[0][j]));for(const [index,source]of [0,1,2,0,2,3].entries())if(source===k){mesh.vertices[index].x=xy[0];mesh.vertices[index].y=-xy[1];}}mesh.preUpdate();}}
+    h.draw();expected=read();for(const group of saved)for(const {mesh,positions}of group){positions.forEach((p,i)=>{mesh.vertices[i].x=p[0];mesh.vertices[i].y=p[1];});mesh.preUpdate();}h.draw();
+   }
+   if(gl.getError()!==gl.NO_ERROR||window.__contextLost)throw Error('WebGL error/context loss');return {actual,expected,width:w,height,states,maxAffine,maxWorld,maxVertex,maxCamera,meshes:counts,resources:h.asset.resources};
+  },{ticks,reference});
+  const a=Buffer.from(data.actual,'base64'),b=Buffer.from(data.expected,'base64'),pixels=compare(a,b,data.width,data.height,true);assert.ok(data.maxAffine<=.0001&&data.maxWorld<=.01&&data.maxVertex<=.01&&data.maxCamera<=.02,JSON.stringify({...data,actual:undefined,expected:undefined}));assert.equal(pixels.status,'PASS',label+JSON.stringify({...pixels,diff:undefined}));
+  await writeFile(resolve(output,label+'.png'),png(data.width,data.height,a));await writeFile(resolve(output,label+'-rust-pose.png'),png(data.width,data.height,b));await writeFile(resolve(output,label+'.rgba'),a);delete data.actual;delete data.expected;delete pixels.diff;const row={label,status:'PASS',...data,pixels,pixelSHA256:hash(a),rustPosePixelSHA256:hash(b),reference:reference?'independent Rust simulation, same Phaser presentation':'pure preview, not a historical Physics oracle'};rows.push(row);console.log('PASS '+label+' '+JSON.stringify({states:row.states,maxVertex:row.maxVertex}));return row;
+ }
+ await page.evaluate(()=>window.phaserHarness.draw());await capture('tick0',[0,0]);await command(0,'play');
+ for(const tick of [1,8,30,60,120]){await page.evaluate(tick=>{const h=window.phaserHarness;h.command(0,'request',tick,false);h.pumpAll(0);h.draw();},tick);await capture('tick'+tick,[tick,0]);}
+
+ await page.evaluate(()=>{const h=window.phaserHarness;h.setActors(2);h.command(0,'play');const a=h.actors[0],old=a.view.displayed;a.view.consumer.requestTick(a.view.consumer.context,60n);if(a.view.displayed!==old||a.view.consumer.currentFrame().completed!==8n)throw Error('update/render mixed');h.draw();});const backlog=await capture('backlog60-8-52',[8,0]);assert.equal(backlog.states[0].backlog,'52');
+ await command(0,'pause');await capture('paused-backlog',[8,0]);await command(0,'resume');await command(0,'pump',3);await capture('partial-pump11',[11,0]);await page.evaluate(()=>{const h=window.phaserHarness;h.pumpAll(0);h.draw();});const drained=await capture('drained60',[60,0]);
+ const redraw=await page.evaluate(()=>{const h=window.phaserHarness,a=h.actors[0],m=a.view.metrics,b=a.view.consumer.currentFrame();for(let i=0;i<30;i++)h.draw();return {same:JSON.stringify(a.view.consumer.currentFrame(),(_,v)=>typeof v==='bigint'?String(v):v)===JSON.stringify(b,(_,v)=>typeof v==='bigint'?String(v):v),copies:a.view.metrics.captures-m.captures,submits:a.view.metrics.submissions-m.submissions};});assert.deepEqual(redraw,{same:true,copies:0,submits:0});const again=await capture('cached-redraw',[60,0]);assert.equal(again.pixelSHA256,drained.pixelSHA256);
+ await command(0,'seek',30);await capture('preview30',[30,0],false);await command(0,'seek',90);await capture('preview90',[90,0],false);await command(0,'replay',60);await page.evaluate(()=>{const h=window.phaserHarness;h.pumpAll(0);h.draw();});await capture('replayed60',[60,0]);
+ await command(0,'host-start',0);await command(1,'host-start',0);await command(0,'host-advance',25);await command(1,'host-advance',50);await capture('host-independent',[3,6]);await command(0,'host-pause',25);await command(1,'host-advance',500);await capture('host-A-paused-B-progress',[3,14]);await command(0,'host-resume',10000);await command(0,'host-advance',10000);await capture('host-resume-no-jump',[3,14]);await command(0,'host-advance',10500);const hitch=await capture('host-hitch8of60',[11,14]);assert.equal(hitch.states[0].backlog,'52');
+ const refusal=await page.evaluate(()=>{const a=window.phaserHarness.actors[0],c=a.view.consumer,b=c.currentFrame(),errors=[];for(const t of [10499,NaN,Infinity]){try{a.host.advance(t);}catch(e){errors.push(String(e));}}if(errors.length!==3||c.currentFrame().completed!==b.completed||c.currentFrame().requested!==b.requested)throw Error('invalid host accepted');c.seekTick(c.context,0n);try{a.host.advance(10600);throw Error('context accepted');}catch(e){if(!String(e).includes('context'))throw e;}return errors;});rows.push({label:'host-time-refusals',status:'PASS',errors:refusal});
+ await page.evaluate(()=>{const h=window.phaserHarness;h.setActors(2);for(let i=0;i<2;i++){h.command(i,'play',0,false);h.command(i,'request',60,false);h.pumpAll(i);}const parent=h.scene.add.container(19,-13);parent.setRotation(.17).setScale(1.1,.85);parent.add(h.actors[0].view.root);const cam=h.scene.cameras.main;cam.setScroll(13,-9).setZoom(.93).setRotation(-.07);h.draw();});await capture('transformed-parent-camera',[60,60]);
+ await page.evaluate(async()=>{window.__refs=await(await fetch('/examples/replay-pixi-pilot/assets/rust-reference.json')).json();const h=window.phaserHarness,cam=h.scene.cameras.main;cam.setScroll(0,0).setZoom(1).setRotation(0);h.setActors(1);h.replaceClip(0,'fault_at_9');});await command(0,'play');await command(0,'request',8);const good=await capture('before-native-fault',[8]);await command(0,'request',60);const fault=await capture('native-fault-last-good',[8]);assert.equal(fault.states[0].health,'faulted');assert.equal(good.pixelSHA256,fault.pixelSHA256);await command(0,'reset');await capture('fault-reset',[0]);
+ const stopped=await page.evaluate(()=>{const h=window.phaserHarness,asset=h.asset,old=h.actors.map(a=>a.view);h.stopScene();if(old.some(v=>v.consumer.transportStatus().state!=='disposed')||asset.resources.instances!==0)throw Error('shutdown leaked');h.startScene();return {instances:asset.resources.instances,textures:asset.resources.textures,ready:h.ready};});await page.waitForFunction(()=>window.phaserHarness.asset.resources.instances===2);await page.evaluate(()=>window.phaserHarness.draw());await capture('scene-restarted',[0,0]);
+ const lifecycle=await page.evaluate(async()=>{const h=window.phaserHarness,a=h.actors[0],b=h.actors[1],asset=h.asset;a.view.dispose();a.disposed=true;a.view.dispose();b.view.present();if(asset.resources.instances!==1)throw Error('shared asset released');h.command(1,'destroy');if(asset.resources.instances!==0||asset.resources.textures<1)throw Error('last actor invalidated asset');h.setActors(2);await h.dispose();if(asset.resources.instances!==0||asset.resources.textures!==0||!asset.resources.disposed)throw Error('Game dispose leak');return {resources:asset.resources};});rows.push({label:'lifecycle',status:'PASS',...lifecycle});
+ assert.deepEqual(errors,[]);assert.deepEqual(warnings,[]);assert.deepEqual(missing,[]);assert.deepEqual(external,[]);
+ await page.evaluate(()=>window.phaserHarness.dispose());
+}finally{await writeFile(resolve(output,'results.json'),JSON.stringify({rows,errors,warnings,missing,external,contexts},null,2));await browser?.close();await server.close();}

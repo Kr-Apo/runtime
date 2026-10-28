@@ -147,3 +147,5 @@ integrities and the renderer source commit.
   exporter work; it is not silently guessed at load time.
 
 Licensed under MIT OR Apache-2.0.
+
+Opt-in absolute host-time conversion for ReplayV1: [T-840C3 time contract](../docs/t840c3/T840C3-TIME-CONTRACT.md). Exact ticks remain authoritative; Legacy playback is unchanged.

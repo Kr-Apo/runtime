@@ -1,0 +1,11 @@
+{
+  "localTranslation": 0.01,
+  "worldTranslation": 0.01,
+  "rotation": 0.001,
+  "worldLinear": 0.0001,
+  "angularVelocity": 0.001,
+  "linearVelocity": 0.01,
+  "anchor": 0.01,
+  "scaleShear": 0.0001,
+  "tip": 0.01
+}

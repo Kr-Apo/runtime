@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Q1 native skin event calendar in qualification JSON (not runtime v2)",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "tick",
+      "skin"
+    ],
+    "properties": {
+      "tick": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 8388607
+      },
+      "skin": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$comment": "Executable validation additionally requires tick0, strict ordering, known skins, events inside the exact horizon, and immutable canonical identity. Integers are converted to u64 Rust / bigint TypeScript."
+}

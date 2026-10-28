@@ -1,3 +1,4 @@
+import { springStep, type SpringState } from "./spring-step.js";
 import type {
   Affine,
   BonePose,
@@ -8,6 +9,7 @@ import type {
   RuntimeRigData,
   TransformMixValue,
 } from "./types.js";
+import { physicsBone } from "./rig.js";
 
 const EPS = 1e-6;
 const STEP = 1 / 120;
@@ -147,8 +149,8 @@ function applyPhysics(
   state: EvaluationState,
   dt: number,
 ): void {
-  const name = constraint.bones[0];
-  if (!name || constraint.mix <= 0) return;
+  const name = physicsBone(constraint, new Set(rig.bones.map((item) => item.name)));
+  if (constraint.mix <= 0) return;
   const driven = bone(pose, name);
   const source = rig.bones.find((candidate) => candidate.name === name);
   if (!driven || !source) return;
@@ -177,12 +179,7 @@ function applyPhysics(
     const impulseX = -localDelta[0] * inertia / steps;
     const impulseY = -localDelta[1] * inertia / steps;
     for (let i = 0; i < steps; i += 1) {
-      sim.velocityX += (push[0] / mass + impulseX * spring - sim.x * spring) * STEP;
-      sim.velocityY += (push[1] / mass + impulseY * spring - sim.y * spring) * STEP;
-      sim.velocityX *= decay; sim.velocityY *= decay;
-      sim.x += sim.velocityX * STEP; sim.y += sim.velocityY * STEP;
-      sim.rotationVelocity += (push[0] / mass + impulseX * spring - sim.rotation * spring) * STEP;
-      sim.rotationVelocity *= decay; sim.rotation += sim.rotationVelocity * STEP;
+      springStep(sim, push[0], push[1], impulseX, impulseY, mass, spring, decay);
     }
   }
   if (constraint.channels.rotate) driven.rotation = wrap(driven.rotation + sim.rotation * clamp(constraint.mix, 0, 1));
@@ -371,3 +368,32 @@ function unit(x:number,y:number):[number,number]{const len=Math.hypot(x,y);retur
 function wrap(value:number):number{value=modulo(value+Math.PI,Math.PI*2)-Math.PI;return value<=-Math.PI?value+Math.PI*2:value;}
 function modulo(value:number,divisor:number):number{return divisor===0?0:((value%divisor)+divisor)%divisor;}
 function clamp(value:number,min:number,max:number):number{return Math.max(min,Math.min(max,value));}
+
+// B3-only boundary. Legacy keeps its separate accumulator and activation policy.
+export function replayWorlds(rig: RuntimeRigData, pose: RigPose): void {
+  for (let i=0;i<rig.bones.length;i++) updateWorldAt(rig,pose,i);
+}
+export interface ReplaySpring extends SpringState { anchorX: number; anchorY: number }
+export function replayPhysicsStep(rig:RuntimeRigData,pose:RigPose,
+  constraint:Extract<RuntimeConstraint,{type:"physics"}>,sim:ReplaySpring,prime:boolean):void {
+  const name=physicsBone(constraint,new Set(rig.bones.map(b=>b.name)));
+  const source=rig.bones.find(b=>b.name===name)!;
+  const driven=bone(pose,name)!;
+  const parent=source.parent>=0 ? pose.bones[source.parent]!.world : identity();
+  const anchor=point(parent,0,0); const inv=invert(parent);
+  if(!inv || !Object.values(inv).every(Number.isFinite)) throw Error("Invalid replay parent transform");
+  if(prime) {sim.anchorX=anchor[0];sim.anchorY=anchor[1];return;}
+  const delta=vector(inv,anchor[0]-sim.anchorX,anchor[1]-sim.anchorY);
+  const push=vector(inv,constraint.forces.wind_x+constraint.forces.gravity_x,constraint.forces.wind_y+constraint.forces.gravity_y);
+  sim.anchorX=anchor[0];sim.anchorY=anchor[1];
+  const mass=Math.max(.01,constraint.physics.mass),spring=constraint.physics.strength/mass;
+  const inertia=clamp(constraint.physics.inertia,0,1);
+  const decay=Math.exp(-clamp(constraint.physics.damping,0,1)*DAMPING_RATE*STEP);
+  springStep(sim,push[0],push[1],-delta[0]*inertia,-delta[1]*inertia,mass,spring,decay);
+  if(!Object.values(sim).every(Number.isFinite)||!delta.every(Number.isFinite)||!push.every(Number.isFinite)) throw Error("Nonfinite replay state");
+  const mix=clamp(constraint.mix,0,1);
+  if(mix<=0)return;
+  if(constraint.channels.rotate) driven.rotation=wrap(driven.rotation+sim.rotation*mix);
+  if(constraint.channels.translate){driven.x+=sim.x*mix;driven.y+=sim.y*mix;}
+  updateSubtree(rig,pose,name);
+}

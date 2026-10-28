@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "name": "A3 Impact Frog",
+  "fps": 60,
+  "assets": [
+    {
+      "name": "frog",
+      "file": "2f/2f3bc3266a798c6fb4078f88b680d58c9abb11d4e4e44ea7ecb5ad1412d1ec37.png",
+      "width": 64,
+      "height": 64,
+      "source_path": null
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "parent": "",
+      "length": 10.0,
+      "tx": 10.0,
+      "ty": 5.0,
+      "rotation": 10.0,
+      "sx": 0.9,
+      "sy": 1.05,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b0",
+      "parent": "root",
+      "length": 12.0,
+      "tx": -12.0,
+      "ty": -8.0,
+      "rotation": -12.0,
+      "sx": 1.1,
+      "sy": 0.9,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b1",
+      "parent": "b0",
+      "length": 13.0,
+      "tx": 10.0,
+      "ty": 2.0,
+      "rotation": 18.0,
+      "sx": 0.95,
+      "sy": 1.1,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b2",
+      "parent": "b1",
+      "length": 14.0,
+      "tx": 12.0,
+      "ty": -3.0,
+      "rotation": -7.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b3",
+      "parent": "b2",
+      "length": 9.0,
+      "tx": 11.0,
+      "ty": 2.0,
+      "rotation": 15.000001,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "name": "b4",
+      "parent": "b3",
+      "length": 8.0,
+      "tx": 9.0,
+      "ty": 1.0,
+      "rotation": -9.0,
+      "sx": 1.0,
+      "sy": 1.0,
+      "shear_x": 0.0,
+      "shear_y": 0.0,
+      "inherit_rotation": true,
+      "inherit_scale": true,
+      "inherit_reflect": true,
+      "color": [
+        0.0,
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "body",
+      "bone": "root",
+      "attachment": "body",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dark_color": null,
+      "blend_mode": "normal"
+    }
+  ],
+  "draw_order": [
+    "body"
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "entries": [
+        {
+          "slot": "body",
+          "name": "body",
+          "attachment": {
+            "type": "mesh",
+            "texture": "frog",
+            "vertices": [
+              -36.0,
+              32.0,
+              -36.0,
+              -40.0,
+              36.0,
+              -40.0,
+              36.0,
+              32.0
+            ],
+            "uvs": [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              0.0
+            ],
+            "triangles": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3
+            ],
+            "weights": [
+              [
+                [
+                  "b0",
+                  0.7
+                ],
+                [
+                  "b1",
+                  0.3
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.2
+                ],
+                [
+                  "b1",
+                  0.4
+                ],
+                [
+                  "b2",
+                  0.6
+                ]
+              ],
+              [
+                [
+                  "b0",
+                  0.4
+                ],
+                [
+                  "b1",
+                  0.2
+                ],
+                [
+                  "b2",
+                  0.0
+                ],
+                [
+                  "b3",
+                  0.3
+                ],
+                [
+                  "b4",
+                  0.1
+                ]
+              ],
+              []
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "default_skin": "default",
+  "constraints": [
+    {
+      "name": "spring",
+      "type": "physics",
+      "target": "b2",
+      "bones": [],
+      "bend_direction": 1.0,
+      "mix": 0.7,
+      "softness": 0.0,
+      "stretch": false,
+      "stretch_limit": 1.1,
+      "stiffness": 0.0,
+      "physics": [
+        0.5,
+        30.0,
+        6.0,
+        1.0
+      ],
+      "forces": [
+        0.3,
+        0.0,
+        0.0,
+        -7.0
+      ],
+      "channels": [
+        true,
+        true
+      ]
+    }
+  ],
+  "constraint_order": [
+    "spring"
+  ],
+  "animations": [
+    {
+      "name": "impact",
+      "duration": 1.5,
+      "looping": true,
+      "timelines": [
+        {
+          "kind": "bone_rotate",
+          "bone": "root",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 8.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.8,
+              "value": -4.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "bone_translate",
+          "bone": "root",
+          "axis": "x",
+          "keys": [
+            {
+              "time": 0.0,
+              "value": 0.0,
+              "curve": "linear"
+            },
+            {
+              "time": 0.5,
+              "value": 6.0,
+              "curve": "linear"
+            },
+            {
+              "time": 1.5,
+              "value": 0.0,
+              "curve": "linear"
+            }
+          ]
+        },
+        {
+          "kind": "deform",
+          "slot": "body",
+          "attachment": "body",
+          "keys": [
+            {
+              "time": 0.0,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            },
+            {
+              "time": 0.4,
+              "offsets": [
+                0.75,
+                -1.75,
+                1.0,
+                -1.75,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                0.0,
+                0.8,
+                0.6
+              ]
+            },
+            {
+              "time": 0.5,
+              "offsets": [
+                3.0,
+                -7.0,
+                4.0,
+                -7.0,
+                -6.0,
+                15.0,
+                -2.0,
+                12.0,
+                -4.0,
+                13.5,
+                -6.0,
+                15.0,
+                -2.0,
+                12.0,
+                -4.0,
+                13.5,
+                -6.0,
+                15.0,
+                -2.0,
+                12.0
+              ],
+              "curve": "bezier",
+              "handles": [
+                0.2,
+                -0.1,
+                0.8,
+                1.1
+              ]
+            },
+            {
+              "time": 0.8,
+              "offsets": [
+                0.75,
+                -1.75,
+                1.0,
+                -1.75,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0,
+                -1.0,
+                3.375,
+                -1.5,
+                3.75,
+                -0.5,
+                3.0
+              ],
+              "curve": "stepped"
+            },
+            {
+              "time": 1.1,
+              "offsets": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "curve": "linear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

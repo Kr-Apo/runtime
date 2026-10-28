@@ -1,26 +1,38 @@
-# Editor v0.1.5 and the prepared runtime source
+# Classic P01-RC1 / runtime source compatibility
 
-Local preparation only; no new fork, tag, npm package or release exists. Original upstreams: [Ankhimate/editor](https://github.com/Ankhimate/editor) and [Ankhimate/runtime](https://github.com/Ankhimate/runtime). Future community fork URLs are unset in PUBLICATION-TARGETS.json until creation is authorized and verified.
+Classic **0.1.6 is a local corrective candidate**, not a released tag. Public
+v0.1.5 and frozen Alpha RC2 remain distinct artifacts. The real community forks
+are [Kr-Apo/editor](https://github.com/Kr-Apo/editor) and
+[Kr-Apo/runtime](https://github.com/Kr-Apo/runtime), derived from Ankhimate with
+existing licenses/credits preserved. Source integration and npm publication are
+separate. Runtime package versions remain 0.2.0-alpha.1; no new npm release.
 
-| Component | Actual identity | Compatibility |
-|---|---|---|
-| Editor candidate | product0.1.5 / T838 | Ankh author schema1 / envelope1; not a format-version bump |
-| Native export | format_version2, context_version1 | Independent axes, curves, compatible mesh/FFD and static dark tint data retained |
-| Runtime core | @ankhimate/runtime0.2.0-alpha.1 at c4c38df269cfcb30f941221454b7202f40d3fa5b | Existing v1/v2 reader and evaluator; not a newly published package |
-| PixiJS adapter | @ankhimate/pixi-runtime0.2.0-alpha.1, PixiJS8.17.0 | Documented native-v2 WebGL2 subset; protected historical qualification only |
-| Phaser adapter | @ankhimate/phaser-runtime0.2.0-alpha.1, tested Phaser3.90.0 | Documented native-v2 subset; adapter-specific clipping/blending/appearance boundaries |
-| PathPosition | Editor/CPU supported, older author readers reject the variant | Runtime/native/script exports that cannot represent it are refused; no runtime implementation added |
-| Rendered exports | PNG/JPEG/WebP sequence, PNG sheets, external FFmpeg MP4/GIF | Default skin/Normal/no physics; sheet metadata is Ankhimate, not native Phaser atlas JSON |
+| Surface | Contract / qualification |
+|---|---|
+| Author file | Existing schema/envelope 1 and sidecar assets; no format migration here |
+| Native export | format_version 2, context_version 1; independent curves, precise weighted binds, full native FFD offsets |
+| Legacy playback | v1/v2 reader; engine-specific subsets and historical evidence, without ReplayV1 guarantees |
+| Experimental A17 | Source 3cfe7dd991d98726f2e1c8b3e8c8f70590c6981f plus documentation; explicit integrated admission, not the default evaluator |
+| PixiJS / Phaser | PixiJS 8.17.0 / Phaser 3.90.0; bounded desktop WebGL2 comparisons and transactional actor pilots |
+| A17 exclusions | Fixed default skin, Normal, exactly Idle/Attack/Hit/Death, one stable weighted FFD owner; no composed links/clipping/dynamic skins |
+| Budgets | 64 transition commands/session; 1024 pending events; 512 FFD scalar components; empty/full intervals remain HOLD |
+| Rendered exports | CPU default skin / Normal / no Physics; PNG/JPEG/WebP, Ankhimate sheets, external FFmpeg MP4/GIF |
+| PathPosition | Author/CPU feature; incompatible game exports are refused, not silently dropped |
 
-Weighted meshes/FFD, skins and static dark tint do not imply universal support for linked meshes, constraints, physics, blending or arbitrary masks. Crossfade interruption may be discontinuous. CPU success is not proof of WebGL parity. No new GPU, real inference or physical Windows qualification is claimed.
+See the [corrective workflow](https://github.com/Kr-Apo/editor) and the runtime repository's
+`docs/replay-v1.md` for exact admissions, API entry points, evidence and limits.
+The private Frog Knight test is not an admitted A17 sample: it has three clips
+and 616 scalar cape FFD components. Jade Sentinel remains the distributed sample.
 
-## Editor → runtime
+## Editor to runtime
 
-Choose the native **Data / atlas** preset, read preflight, and keep skeleton.json with its atlas pages. Obtain the exact compatible runtime source from the approved local checkpoint until the future runtime fork is created. Never install from a deleted old fork URL. Product0.1.5 does not impose npm0.1.5.
+Choose Data / atlas and the native runtime preset. Read preflight, consent to
+listed fidelity warnings only when appropriate, and retain skeleton.json with
+all atlas pages. Select the intended Legacy or explicit ReplayV1 entry point;
+loading JSON alone does not grant an admission certificate.
 
-## Runtime → editor
-
-The local editor v0.1.5 produces native v2 without a wire-format migration. A minimal data inspection after building the existing runtime source is:
+After building the locked runtime workspace, a minimal **Legacy pose inspection**
+from a served page in its root is:
 
 ```js
 import { parseRig, evaluate } from './core/dist/index.js';
@@ -29,4 +41,6 @@ const pose = evaluate(rig, [{ animation: 'idle', time: 0.25, alpha: 1 }]);
 console.log(pose.bones);
 ```
 
-Serve files over HTTP; a renderer must also load the atlas and use its adapter's public API. This snippet inspects a pose, not a complete GPU renderer. Preserve the locked workspace dependencies; see existing examples for full adapter setup. The37 replayed core tests are precompiled protected tests, not a new adapter build.
+This is not a GPU renderer or a ReplayV1/Physics example. Full adapter examples
+also load textures, manage resources and use their public APIs. A17's standalone
+application is generated by `experimental/integrated-combat/prepare-demo.mjs`.

@@ -15,6 +15,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./experimental-replay": {
+      "types": "./dist/experimental-replay.d.ts",
+      "import": "./dist/experimental-replay.js"
     }
   },
   "files": [
